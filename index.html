@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameShop Enter</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <!-- Navigatie -->
+  <header>
+    <nav class="nav">
+      <div class="logo-wrapper">
+        <img src="images/logo.png" alt="GameShop Enter" class="logo" onerror="this.style.display='none'">
+        <span class="brand">GameShop Enter</span>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Producten</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="cart.html" class="btn-small">🛒 (<span id="cartCount">0</span>)</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Welkom bij GameShop Enter</h1>
+    <p>De ultieme shop voor consoles, games en accessoires.</p>
+    <a href="products.html" class="btn">Bekijk onze producten</a>
+  </section>
+
+  <!-- Features -->
+  <main>
+    <h2>Waarom GameShop Enter?</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>Groot assortiment</h3>
+        <p>Ontdek honderden games, consoles en accessoires voor alle leeftijden.</p>
+      </div>
+      <div class="feature">
+        <h3>Scherpe prijzen</h3>
+        <p>Wij bieden altijd competitieve prijzen en regelmatige aanbiedingen.</p>
+      </div>
+      <div class="feature">
+        <h3>Snelle verzending</h3>
+        <p>Bestel vandaag en profiteer van snelle verzending binnen Nederland.</p>
+      </div>
+      <div class="feature">
+        <h3>Veilig betalen</h3>
+        <p>Betaal veilig en eenvoudig via onze Mollie-integratie.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 GameShop Enter — Alle rechten voorbehouden.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.GSE && GSE.updateCartCount) {
+        GSE.updateCartCount();
+      }
+    });
+  </script>
+</body>
+</html>

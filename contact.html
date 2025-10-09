@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | GameShop Enter</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <!-- Navigatie -->
+  <header>
+    <nav class="nav">
+      <div class="logo-wrapper">
+        <img src="images/logo.png" alt="GameShop Enter" class="logo" onerror="this.style.display='none'">
+        <span class="brand">GameShop Enter</span>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Producten</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="cart.html" class="btn-small">🛒 (<span id="cartCount">0</span>)</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Contact</h2>
+    <p>Heb je vragen of opmerkingen? Neem gerust contact met ons op.</p>
+    <p>Email: <a href="mailto:info@gameshopenter.nl">info@gameshopenter.nl</a></p>
+    <p>Telefoon: 06-12345678 (ma-vr 9:00-17:00)</p>
+    <p>Adres: Enterstraat 1, 1234 AB Enter</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 GameShop Enter — Alle rechten voorbehouden.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.GSE && GSE.updateCartCount) {
+        GSE.updateCartCount();
+      }
+    });
+  </script>
+</body>
+</html>
