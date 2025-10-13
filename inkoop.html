@@ -111,7 +111,7 @@
       if (!window.GSE) return;
       GSE.updateCartCount && GSE.updateCartCount();
       // Initialize interactive features
-      GSE.initChatWidget && GSE.initChatWidget();
+      // GSE.initChatWidget && GSE.initChatWidget(); // Crisp chat embed below
       GSE.initLoyaltyPopup && GSE.initLoyaltyPopup();
       GSE.initLivePurchasePopups && GSE.initLivePurchasePopups();
       // Verstuur inkoopformulier (simulatie)
@@ -127,6 +127,18 @@
         });
       }
     });
+  </script>
+  <!-- Crisp live chat embed -->
+  <script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "e9c5e7c6-36e2-4fb8-8689-123456789abc";
+    (function () {
+      const d = document;
+      const s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
   </script>
 </body>
 </html>

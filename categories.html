@@ -46,21 +46,46 @@
       <h2>Categorieën</h2>
       <p class="intro">Kies een consolecategorie om onze collectie te bekijken.</p>
       <div class="category-grid">
+        <!-- Volledige lijst met Nintendo-platforms -->
         <a href="products.html?cat=Nintendo%203DS" class="category-card">
           <img src="images/gallery/0915BF92-4898-4CDB-8913-36E66C6CCBE0.jpeg" alt="Nintendo 3DS" />
-          <span>Nintendo 3DS</span>
+          <span>Nintendo 3DS</span>
         </a>
         <a href="products.html?cat=Nintendo%20DS" class="category-card">
           <img src="images/gallery/4489A3AB-0815-4783-8030-157AFEDCD950.jpeg" alt="Nintendo DS" />
-          <span>Nintendo DS</span>
+          <span>Nintendo DS</span>
         </a>
         <a href="products.html?cat=Game%20Boy%20Advance" class="category-card">
           <img src="images/gallery/62DFD134-04B9-451C-BDA0-C16F0CF0FCEE.jpeg" alt="Game Boy Advance" />
-          <span>Game&nbsp;Boy&nbsp;Advance</span>
+          <span>Game Boy Advance</span>
         </a>
         <a href="products.html?cat=Nintendo%20Switch" class="category-card">
           <img src="images/gallery/A91C86FB-AF6B-4428-8E6C-5661B217C3EB.jpeg" alt="Nintendo Switch" />
-          <span>Nintendo Switch</span>
+          <span>Nintendo Switch</span>
+        </a>
+        <a href="products.html?cat=Nintendo%20GameCube" class="category-card">
+          <img src="images/placeholder_colorful.png" alt="Nintendo GameCube" />
+          <span>Nintendo GameCube</span>
+        </a>
+        <a href="products.html?cat=Nintendo%20Wii" class="category-card">
+          <img src="images/placeholder_colorful.png" alt="Nintendo Wii" />
+          <span>Nintendo Wii</span>
+        </a>
+        <a href="products.html?cat=Nintendo%20Wii%20U" class="category-card">
+          <img src="images/placeholder_colorful.png" alt="Nintendo Wii U" />
+          <span>Nintendo Wii U</span>
+        </a>
+        <a href="products.html?cat=Nintendo%2064" class="category-card">
+          <img src="images/placeholder_colorful.png" alt="Nintendo 64" />
+          <span>Nintendo 64</span>
+        </a>
+        <a href="products.html?cat=SNES" class="category-card">
+          <img src="images/placeholder_colorful.png" alt="Super Nintendo" />
+          <span>SNES</span>
+        </a>
+        <a href="products.html?cat=NES" class="category-card">
+          <img src="images/placeholder_colorful.png" alt="Nintendo Entertainment System" />
+          <span>NES</span>
         </a>
       </div>
     </div>
@@ -96,10 +121,22 @@
     document.addEventListener('DOMContentLoaded', () => {
       if (!window.GSE) return;
       GSE.updateCartCount && GSE.updateCartCount();
-      GSE.initChatWidget && GSE.initChatWidget();
+      // GSE.initChatWidget && GSE.initChatWidget(); // chat via Crisp
       GSE.initLoyaltyPopup && GSE.initLoyaltyPopup();
       GSE.initLivePurchasePopups && GSE.initLivePurchasePopups();
     });
+  </script>
+  <!-- Crisp live chat embed -->
+  <script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "e9c5e7c6-36e2-4fb8-8689-123456789abc";
+    (function () {
+      const d = document;
+      const s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
   </script>
 </body>
 </html>
