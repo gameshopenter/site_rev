@@ -257,9 +257,19 @@ const GSE = (() => {
     try {
       const res = await fetch('inventory_local.json', { cache: 'no-store' });
       items = await res.json();
+      // Voeg dynamische uploads toe indien beschikbaar. Door UPLOAD_ITEMS
+      // achteraf te concateneren blijven de originele inventarisitems intact.
+      if (Array.isArray(window.UPLOAD_ITEMS)) {
+        items = items.concat(window.UPLOAD_ITEMS);
+      }
     } catch (err) {
       // Fallback: gebruik statische INVENTORY wanneer JSON niet beschikbaar is
       items = INVENTORY;
+      // Voeg ook hier dynamische uploads toe zodat de geüploade items
+      // worden getoond wanneer inventory_local.json niet wordt gevonden.
+      if (Array.isArray(window.UPLOAD_ITEMS)) {
+        items = items.concat(window.UPLOAD_ITEMS);
+      }
     }
     // Zoek naar optionele zoekveld en categorie selectie. Als deze niet bestaan, gebruik lege objecten met defaults zodat de functie werkt zonder errors.
     const searchInput = document.getElementById('search') || { value: '', addEventListener: () => {} };
@@ -514,8 +524,16 @@ const GSE = (() => {
           items = json;
         }
       }
+      // Voeg dynamische uploads toe indien beschikbaar
+      if (Array.isArray(window.UPLOAD_ITEMS)) {
+        items = (items || []).concat(window.UPLOAD_ITEMS);
+      }
     } catch (err) {
       // negeer fout en gebruik fallback
+      // Voeg wel dynamische items toe bij fallback naar INVENTORY
+      if (Array.isArray(window.UPLOAD_ITEMS)) {
+        items = (items || []).concat(window.UPLOAD_ITEMS);
+      }
     }
     const item = (items || []).find(it => slugify(it.title) === slug);
     if (!item) {
@@ -1361,4 +1379,28 @@ document.addEventListener('DOMContentLoaded', () => {
       contactForm.reset();
     });
   }
+});
+
+// ===================
+// Dark mode toggle
+// ===================
+// Attach a second DOMContentLoaded listener to initialize a dark mode
+// toggle button. The button with id `darkModeToggle` toggles the class
+// `dark-mode` on the <body> and stores the preference in localStorage.
+document.addEventListener('DOMContentLoaded', () => {
+  const darkToggle = document.getElementById('darkModeToggle');
+  if (!darkToggle) return;
+  // Apply saved preference
+  const savedPref = localStorage.getItem('GSE_DARK_MODE');
+  if (savedPref === 'true') {
+    document.body.classList.add('dark-mode');
+    darkToggle.setAttribute('aria-pressed', 'true');
+  }
+  // Click listener
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('GSE_DARK_MODE', isDark);
+    darkToggle.setAttribute('aria-pressed', isDark);
+  });
 });

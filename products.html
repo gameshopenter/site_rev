@@ -6,6 +6,8 @@
   <title>Producten | GameShop Enter</title>
   <link rel="stylesheet" href="styles.css">
   <script defer src="main.js"></script>
+  <!-- Laad de dynamische inventaris voor geüploade items -->
+  <script defer src="uploads_inventory.js"></script>
 </head>
 <body>
   <!-- Navigatie -->
@@ -32,6 +34,8 @@
       <div class="cart-link">
         <a href="cart.html" title="Winkelwagen"><span class="cart-icon">🛒</span> <span id="cartCount">0</span></a>
       </div>
+      <!-- Dark mode toggle button -->
+      <button id="darkModeToggle" class="dark-toggle" aria-label="Schakel dark mode">🌙</button>
     </nav>
     <!-- Benefits bar: highlight store advantages -->
     <div class="benefits-bar">

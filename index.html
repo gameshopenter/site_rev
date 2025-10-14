@@ -6,6 +6,8 @@
   <title>GameShop Enter – Tweedehands Games &amp; Consoles</title>
   <link rel="stylesheet" href="styles.css">
   <script defer src="main.js"></script>
+  <!-- Voeg dynamische uploads toe zodat alle geüploade foto's in de productlijst verschijnen -->
+  <script defer src="uploads_inventory.js"></script>
 </head>
 <body>
   <!-- Navigatie -->
@@ -32,6 +34,8 @@
       <div class="cart-link">
         <a href="cart.html" title="Winkelwagen"><span class="cart-icon">🛒</span> <span id="cartCount">0</span></a>
       </div>
+      <!-- Dark mode toggle button -->
+      <button id="darkModeToggle" class="dark-toggle" aria-label="Schakel dark mode">🌙</button>
     </nav>
     <!-- Benefits bar: highlight store advantages -->
     <div class="benefits-bar">
@@ -43,8 +47,16 @@
 
   <!-- Welkomstsectie -->
   <main class="home-page">
-    <!-- Introductie verwijderd: de hero-sectie is weggelaten voor een compactere homepage. -->
-    <!-- Je kunt de uitgelichte producten en categorieën hieronder direct tonen zonder grote banner. -->
+    <!-- Hero-sectie met logo en slogan -->
+    <section class="hero-block">
+      <div class="container hero-container">
+        <img src="images/logo.png" alt="GameShop Enter logo" class="hero-logo-large">
+        <h1 class="hero-title">Jouw volgende avontuur begint hier</h1>
+        <p class="hero-tagline">Ontdek zorgvuldig geteste Nintendo‑games en consoles</p>
+        <a href="products.html" class="btn-primary hero-cta">Bekijk ons assortiment</a>
+      </div>
+    </section>
+
 
     <!-- Categorieënoverzicht op de homepage zodat bezoekers snel kunnen navigeren -->
     <section class="home-categories categories-page">
@@ -67,6 +79,30 @@
             <img src="images/gallery/A91C86FB-AF6B-4428-8E6C-5661B217C3EB.jpeg" alt="Nintendo Switch" />
             <span>Nintendo Switch</span>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Voordelen sectie: benadrukt waarom klanten voor GameShop Enter kiezen -->
+    <section class="home-benefits">
+      <div class="container">
+        <h2>Waarom kiezen voor GameShop Enter?</h2>
+        <div class="icons-row">
+          <div class="feature-item">
+            <div class="feature-icon">🚚</div>
+            <h3>Snelle levering</h3>
+            <p>Gratis verzending vanaf €50 en binnen twee werkdagen bezorgd.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔒</div>
+            <h3>Garantie &amp; retour</h3>
+            <p>14 dagen bedenktijd en een betrouwbare 4,8★ beoordeling.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🌱</div>
+            <h3>Duurzaam verpakt</h3>
+            <p>We gebruiken milieuvriendelijke materialen voor elke bestelling.</p>
+          </div>
         </div>
       </div>
     </section>
