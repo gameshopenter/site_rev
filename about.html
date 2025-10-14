@@ -53,7 +53,7 @@
     <ul>
       <li><strong>Eerlijk geprijsd:</strong> We hanteren transparante, marktconforme prijzen en bieden regelmatig scherpe aanbiedingen op geselecteerde titels.</li>
       <li><strong>Duurzaamheid:</strong> Door gebruikte games en consoles een tweede leven te geven en met recyclebare verpakkingen te werken, verminderen we onze ecologische voetafdruk.</li>
-      <li><strong>Klantgericht:</strong> Met live chat, loyality‑programma en persoonlijk advies zorgen we voor een service op maat.</li>
+      <li><strong>Klantgericht:</strong> Met live chat, loyaliteitsprogramma en persoonlijk advies zorgen we voor een service op maat.</li>
     </ul>
 
     <p>Ben je klaar om te spelen? <a href="products.html" class="btn btn-primary">Bekijk onze collectie</a></p>
@@ -91,23 +91,10 @@
       if (!window.GSE) return;
       GSE.updateCartCount && GSE.updateCartCount();
       // Initialiseer globale widgets (chat, loyaliteit, social proof)
-      // Chat wordt nu via Crisp verzorgd
-      // GSE.initChatWidget && GSE.initChatWidget();
+      GSE.initChatWidget && GSE.initChatWidget();
       GSE.initLoyaltyPopup && GSE.initLoyaltyPopup();
       GSE.initLivePurchasePopups && GSE.initLivePurchasePopups();
     });
-  </script>
-  <!-- Crisp live chat embed -->
-  <script type="text/javascript">
-    window.$crisp = [];
-    window.CRISP_WEBSITE_ID = "e9c5e7c6-36e2-4fb8-8689-123456789abc";
-    (function () {
-      const d = document;
-      const s = d.createElement("script");
-      s.src = "https://client.crisp.chat/l.js";
-      s.async = 1;
-      d.getElementsByTagName("head")[0].appendChild(s);
-    })();
   </script>
 </body>
 </html>
