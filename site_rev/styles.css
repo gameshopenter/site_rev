@@ -458,14 +458,15 @@ img {
   padding: 0.8rem 2rem;
   font-size: 0.9rem;
   border-radius: 6px;
-  background-color: #0d6efd;
+  /* Gebruik de groentint van het logo voor de primaire knop op de homepagina */
+  background-color: #0f7a2a;
   color: #fff;
   border: none;
   transition: background-color 0.2s ease;
 }
 
 .hero-block .btn:hover {
-  background-color: #0b5ed7;
+  background-color: #0c5f20;
   color: #fff;
 }
 
@@ -618,7 +619,7 @@ img {
 .shop-card .price {
   font-weight: 700;
   font-size: 1rem;
-  color: #111;
+  color: #0f7a2a; /* Gebruik groen accentkleur uit het logo voor prijzen */
 }
 
 /* Gekleurde prijstags: match kleur met conditie */
@@ -1541,13 +1542,13 @@ img {
 
 /* Primary button variant to stand out in popups */
 .btn.btn-primary {
-  background-color: #111;
-  color: #fff;
-  border-color: #111;
+  background-color: #0f7a2a;
+  color: #ffffff;
+  border-color: #0f7a2a;
 }
 .btn.btn-primary:hover {
-  background-color: #333;
-  border-color: #333;
+  background-color: #0c5f20;
+  border-color: #0c5f20;
 }
 
 @keyframes marquee-scroll {
