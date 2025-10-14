@@ -34,13 +34,16 @@ const INVENTORY = [
   { "title": "Pokémon Diamond Version (Loose)", "image": "images/uploads/upload-0102.jpg", "category": "Nintendo DS", "price": 36.65, "pricing_source": "pricecharting", "item_kind": "game" },
   { "title": "Pokémon Black Version (Loose)", "image": "images/uploads/upload-0105.jpg", "category": "Nintendo DS", "price": 70.73, "pricing_source": "pricecharting", "item_kind": "game" }
 ];
-  /*
-   * Marktplaats‑producten met prijs 0.0. Deze worden niet gebruikt in de
-   * webshop en veroorzaakten build‑fouten. Ze staan tussen
-   * commentaar zodat we ze later kunnen hergebruiken of verwijderen
-   * zonder de code te breken.
-   
-  {"title":"Marktplaats product 76","image":"images/uploads/upload-0076.jpg","category":"Marktplaats","price":0.0,"pricing_source":"marktplaats","item_kind":"game"},
+/*
+ * De volgende dataset bevat honderden Marktplaats‑producten met een prijs van
+ * 0,00. Deze objecten waren aan de scriptfile toegevoegd zonder onderdeel
+ * te zijn van de INVENTORY‑array, waardoor JavaScript een syntaxfout
+ * veroorzaakte. Ze zijn in een block‑comment geplaatst zodat de
+ * applicatie correct parseert. Indien je later deze producten wilt
+ * toevoegen, zorg er dan voor dat ze binnen de INVENTORY‑array worden
+ * opgenomen of laad ze dynamisch vanuit een extern bestand.
+{
+"title":"Marktplaats product 76","image":"images/uploads/upload-0076.jpg","category":"Marktplaats","price":0.0,"pricing_source":"marktplaats","item_kind":"game"},
   {"title":"Marktplaats product 77","image":"images/uploads/upload-0077.jpg","category":"Marktplaats","price":0.0,"pricing_source":"marktplaats","item_kind":"game"},
   {"title":"Marktplaats product 78","image":"images/uploads/upload-0078.jpg","category":"Marktplaats","price":0.0,"pricing_source":"marktplaats","item_kind":"game"},
   {"title":"Marktplaats product 79","image":"images/uploads/upload-0079.jpg","category":"Marktplaats","price":0.0,"pricing_source":"marktplaats","item_kind":"game"},
@@ -153,9 +156,8 @@ const INVENTORY = [
   {"title":"Marktplaats product 186","image":"images/uploads/upload-0186.jpg","category":"Marktplaats","price":0.0,"pricing_source":"marktplaats","item_kind":"game"},
   {"title":"Marktplaats product 187","image":"images/uploads/upload-0187.jpg","category":"Marktplaats","price":0.0,"pricing_source":"marktplaats","item_kind":"game"},
   {"title":"Marktplaats product 188","image":"images/uploads/upload-0188.jpg","category":"Marktplaats","price":0.0,"pricing_source":"marktplaats","item_kind":"game"}
+*/
   // END Marktplaats imported products
-  */
-
 
 // Bepaal specifieke kortingen voor een beperkt aantal producten.
 // De sleutel is de slug (gegenereerd uit de titel) en de waarde is het kortingspercentage (0.10 = 10%).

@@ -421,15 +421,6 @@ img {
    the visitor. The text is centered and kept concise.
 ============================================================= */
 
-/*
- * De hero‑sectie vormt de eerste indruk van onze shop. Om bezoekers
- * direct in de wereld van retro‑gaming te trekken gebruiken we een
- * full‑bleed achtergrondafbeelding in combinatie met een lichte
- * overlay. Het lineaire kleurverloop blijft als fallback beschikbaar
- * wanneer de afbeelding niet laadt. Door het element relatief te
- * positioneren kunnen we een ::before‑pseudo‑element gebruiken als
- * overlay zonder dat andere componenten beïnvloed worden.
- */
 .hero-block {
   display: flex;
   flex-direction: column;
@@ -437,33 +428,7 @@ img {
   justify-content: center;
   padding: 4rem 1rem 3rem;
   text-align: center;
-  background: url('images/hero.jpg') center/cover no-repeat,
-              linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
-  position: relative;
-}
-
-/* Semi‑transparante overlay voor een betere leesbaarheid van tekst op
-   de achtergrondafbeelding. Dit pseudo‑element dekt de volledige
-   hero‑sectie af en voegt een lichte blur toe waardoor de kleuren
-   verzachten. */
-.hero-block::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(2px);
-  z-index: 0;
-}
-
-/* Plaats de inhoud van de hero boven de overlay door een hoger
-   z‑index te geven. Dit voorkomt dat de overlay de tekst en knoppen
-   bedekt. */
-.hero-block > * {
-  position: relative;
-  z-index: 1;
+  background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
 }
 
 .hero-block .hero-logo-large {
