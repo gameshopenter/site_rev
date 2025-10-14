@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameShop Enter – Tweedehands Games &amp; Consoles</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <!-- Navigatie -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="brand-area">
+        <img src="images/logo.png" alt="GameShop Enter logo" class="logo">
+        <span class="brand-text">GameShop&nbsp;Enter</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="products.html">Producten</a></li>
+        <li><a href="categories.html">Categorieën</a></li>
+        <li><a href="inkoop.html">Inkoop</a></li>
+        <li><a href="about.html">Over ons</a></li>
+        <!-- Verzendinformatie pagina is verwijderd; alle verzendinformatie komt in het afrekenproces -->
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <!-- Zoekformulier voor snelle navigatie naar producten -->
+      <form class="nav-search" action="products.html" method="get">
+        <input type="search" name="q" placeholder="Zoek producten…" aria-label="Zoek producten">
+        <button type="submit">Zoek</button>
+      </form>
+      <div class="cart-link">
+        <a href="cart.html" title="Winkelwagen"><span class="cart-icon">🛒</span> <span id="cartCount">0</span></a>
+      </div>
+    </nav>
+    <!-- Benefits bar: highlight store advantages -->
+    <div class="benefits-bar">
+      <span>Gratis verzending vanaf €50</span>
+      <span>14 dagen retour &amp; 4,8★ klantbeoordeling</span>
+      <span>Duurzaam verpakt &amp; zorgvuldig getest</span>
+    </div>
+  </header>
+
+  <!-- Welkomstsectie -->
+  <main class="home-page">
+    <!-- Heldere hero met groot logo en korte introductie -->
+    <section class="hero-block">
+      <!-- Gebruik het nieuwe GE-logo als prominent beeld in de hero -->
+      <img src="images/logo.png" alt="GameShop Enter logo" class="hero-logo-large" />
+      <h1>Welkom bij GameShop&nbsp;Enter</h1>
+      <!--
+        Update de tagline in de hero‑sectie. In plaats van een lange
+        beschrijving gebruiken we een korte, pakkende slagzin die de
+        bezoeker uitnodigt om verder te klikken. Deze tekst is afgeleid
+        van actuele marketingtrends voor webshops en benadrukt zowel
+        avontuur als duurzaamheid【590193175925120†L119-L138】.
+      -->
+      <p class="hero-tagline">Jouw volgende avontuur begint hier – duurzaam gamen en eerlijk geprijsde Nintendo‑klassiekers, zorgvuldig getest en verzonden met liefde.</p>
+      <a href="products.html" class="btn btn-primary">Ontdek onze collectie</a>
+    </section>
+
+    <!-- Categorieënoverzicht op de homepage zodat bezoekers snel kunnen navigeren -->
+    <section class="home-categories categories-page">
+      <div class="container">
+        <h2>Ontdek onze categorieën</h2>
+        <div class="category-grid">
+          <a href="products.html?cat=Nintendo%203DS" class="category-card">
+            <img src="images/gallery/0915BF92-4898-4CDB-8913-36E66C6CCBE0.jpeg" alt="Nintendo 3DS" />
+            <span>Nintendo 3DS</span>
+          </a>
+          <a href="products.html?cat=Nintendo%20DS" class="category-card">
+            <img src="images/gallery/4489A3AB-0815-4783-8030-157AFEDCD950.jpeg" alt="Nintendo DS" />
+            <span>Nintendo DS</span>
+          </a>
+          <a href="products.html?cat=Game%20Boy%20Advance" class="category-card">
+            <img src="images/gallery/62DFD134-04B9-451C-BDA0-C16F0CF0FCEE.jpeg" alt="Game Boy Advance" />
+            <span>Game Boy Advance</span>
+          </a>
+          <a href="products.html?cat=Nintendo%20Switch" class="category-card">
+            <img src="images/gallery/A91C86FB-AF6B-4428-8E6C-5661B217C3EB.jpeg" alt="Nintendo Switch" />
+            <span>Nintendo Switch</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Horizontale productslider: toont een selectie van producten die van rechts naar links bewegen. Klikken navigeert naar het product. -->
+    <section class="product-marquee">
+      <div class="container">
+        <h2>Onze topkeuzes</h2>
+        <div id="marquee-track" class="marquee-track"></div>
+      </div>
+    </section>
+
+    <!-- Uitgelichte producten: toont top rated items om bezoekers te inspireren -->
+    <section class="featured-section">
+      <div class="container">
+        <h2>Populair deze week</h2>
+        <div id="featuredGrid" class="featured-grid"></div>
+      </div>
+    </section>
+
+    <!-- Instagram feed verwijderd voor een cleaner ontwerp -->
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-column">
+        <h4>Over GameShop Enter</h4>
+        <p>Wij zijn gespecialiseerd in originele Nintendo‑consoles en games. Alle producten worden uitgebreid getest en zorgvuldig verpakt. Sinds 2019 actief op Marktplaats met een 4,8★ beoordeling uit ruim 1.200 ervaringen.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <p><strong>Telefoon:</strong> <a href="tel:+31641126067">+31 6 41126067</a></p>
+        <p><strong>Email:</strong> <a href="mailto:lennh0547@gmail.com">lennh0547@gmail.com</a></p>
+        <p><strong>Adres:</strong> Zuiderstraat 17, 7468 CW Enter, Nederland</p>
+        <p><strong>KVK:</strong> 936424274</p>
+        <p>Verzending: €4 per bestelling via PostNL; afhalen is niet mogelijk.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Volg ons</h4>
+        <p>
+          <!-- Link naar de officiële Instagram‑pagina -->
+          <a href="https://www.instagram.com/Gameshop_Enter" target="_blank" rel="noopener">Instagram</a><br>
+          <a href="#" style="display:none;">Facebook</a><br>
+          <a href="#" style="display:none;">Twitter</a>
+        </p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 GameShop Enter – Alle rechten voorbehouden.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!window.GSE) return;
+      GSE.updateCartCount && GSE.updateCartCount();
+      // Initialise homepage marquee and recommendations
+      GSE.loadHomeMarquee && GSE.loadHomeMarquee();
+      GSE.renderRecommendedGames && GSE.renderRecommendedGames();
+      // Load featured products and Instagram feed
+      GSE.loadFeaturedProducts && GSE.loadFeaturedProducts();
+      // Instagram feed is verwijderd voor een cleaner homepage
+      // Engage visitors: loyalty popup, chat widget, live purchase notifications, spin wheel
+      GSE.initLoyaltyPopup && GSE.initLoyaltyPopup();
+      GSE.initChatWidget && GSE.initChatWidget();
+      GSE.initLivePurchasePopups && GSE.initLivePurchasePopups();
+    });
+  </script>
+</body>
+</html>
