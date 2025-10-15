@@ -594,7 +594,8 @@ body.dark-mode a {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  filter: brightness(0.9);
+  /* Reduce saturation and slightly brighten to soften overly vibrant category colours */
+  filter: brightness(1) saturate(0.8);
   transition: filter 0.3s ease;
 }
 
@@ -610,7 +611,8 @@ body.dark-mode a {
   /* Vergroot de padding en tekst voor betere leesbaarheid */
   padding: 0.6rem 0.5rem;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.55);
+  /* Make the label overlay slightly more transparent for improved legibility */
+  background-color: rgba(0, 0, 0, 0.45);
   color: #ffffff;
   font-weight: 600;
   font-size: 1rem;
@@ -1189,6 +1191,89 @@ body.dark-mode a {
   border-bottom: 1px solid #e5e5e5;
   font-size: 0.85rem;
   color: #111;
+}
+
+/* =============================================
+   Redesigned hero section
+   The hero uses a soft gradient background and modern typography
+   to create a welcoming first impression. The call-to-action
+   button adopts the site's primary blue accent.
+================================================ */
+.hero-block {
+  background: linear-gradient(135deg, #f5f8ff 0%, #e6f0ff 100%);
+  padding: 4rem 0;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.hero-block .hero-logo-large {
+  width: 180px;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.hero-block .hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 1rem;
+}
+
+.hero-block .hero-tagline {
+  font-size: 1.1rem;
+  color: #555555;
+  margin-bottom: 2rem;
+}
+
+.hero-block .btn-primary {
+  display: inline-block;
+  background-color: #0d6efd;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-block .btn-primary:hover {
+  background-color: #0a58ca;
+  transform: translateY(-2px);
+}
+
+/* Hide the old featured section completely */
+.featured-section {
+  display: none !important;
+}
+
+/* Icon categories on the categories page should also be softened. Override the default
+   styling by desaturating the images and lightening the label background. */
+.categories-page .icon-category img {
+  filter: grayscale(0.6) brightness(1.4) saturate(0.4);
+  object-fit: cover;
+  object-position: top;
+}
+
+.categories-page .icon-category span {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  color: #111 !important;
+}
+
+/* Lighten and desaturate icon-based category cards on the homepage
+   to reduce the harshness of solid colour backgrounds. The label
+   becomes dark-on-light for better contrast. */
+.icon-category img {
+  /* Apply stronger desaturation and brightness to neutralise intense colours of icon images */
+  filter: grayscale(0.6) brightness(1.4) saturate(0.4);
+  /* Crop the bottom of icon-based images to remove harsh colour bands */
+  object-fit: cover;
+  object-position: top;
+}
+
+.icon-category span {
+  /* Override the default dark overlay for icon categories with a light one. Use !important to trump
+     the more specific .home-page .category-card span selector. */
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  color: #111 !important;
 }
 
 /* ================= Inkoop pagina ========================= */

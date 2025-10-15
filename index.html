@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GameShop Enter – Tweedehands Games &amp; Consoles</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Import a modern font (Poppins) to enhance typography on the site -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <script defer src="main.js"></script>
   <!-- Voeg dynamische uploads toe zodat alle geüploade foto's in de productlijst verschijnen -->
   <script defer src="uploads_inventory.js"></script>
@@ -81,38 +83,43 @@
             <span>Nintendo Switch</span>
           </a>
           <!-- Uitgebreide retro‑categorieën met iconen -->
-          <a href="products.html?cat=GameCube" class="category-card">
+          <a href="products.html?cat=GameCube" class="category-card icon-category">
             <img src="images/gallery/category_gamecube.png" alt="GameCube">
             <span>GameCube</span>
           </a>
-          <a href="products.html?cat=Wii" class="category-card">
+          <a href="products.html?cat=Wii" class="category-card icon-category">
             <img src="images/gallery/category_wii.png" alt="Nintendo Wii">
             <span>Wii</span>
           </a>
-          <a href="products.html?cat=SNES" class="category-card">
+          <a href="products.html?cat=SNES" class="category-card icon-category">
             <img src="images/gallery/category_snes.png" alt="Super Nintendo Entertainment System">
             <span>SNES</span>
           </a>
-          <a href="products.html?cat=NES" class="category-card">
+          <a href="products.html?cat=NES" class="category-card icon-category">
             <img src="images/gallery/category_nes.png" alt="Nintendo Entertainment System">
             <span>NES</span>
           </a>
-          <a href="products.html?cat=N64" class="category-card">
+          <a href="products.html?cat=N64" class="category-card icon-category">
             <img src="images/gallery/category_n64.png" alt="Nintendo 64">
             <span>N64</span>
           </a>
-          <a href="products.html?cat=Game%20Boy" class="category-card">
+          <a href="products.html?cat=Game%20Boy" class="category-card icon-category">
             <img src="images/gallery/category_gameboy.png" alt="Nintendo Game Boy">
             <span>Game Boy</span>
           </a>
-          <a href="products.html?cat=Game%20Boy%20Color" class="category-card">
+          <a href="products.html?cat=Game%20Boy%20Color" class="category-card icon-category">
             <img src="images/gallery/category_gameboycolor.png" alt="Nintendo Game Boy Color">
             <span>Game Boy Color</span>
           </a>
-          <a href="products.html?cat=Nintendo%202DS" class="category-card">
+          <a href="products.html?cat=Nintendo%202DS" class="category-card icon-category">
             <img src="images/gallery/category_nintendo2ds.png" alt="Nintendo 2DS">
             <span>Nintendo 2DS</span>
           </a>
+        <!-- Trading card category -->
+        <a href="products.html?cat=Trading%20Cards" class="category-card">
+          <img src="images/gallery/category_tradingcards.jpg" alt="Trading Cards">
+          <span>Trading Cards</span>
+        </a>
         </div>
       </div>
     </section>
@@ -149,13 +156,7 @@
       </div>
     </section>
 
-    <!-- Uitgelichte producten: toont top rated items om bezoekers te inspireren -->
-    <section class="featured-section">
-      <div class="container">
-        <h2>Populair deze week</h2>
-        <div id="featuredGrid" class="featured-grid"></div>
-      </div>
-    </section>
+    <!-- Uitgelichte producten sectie verwijderd voor een rustiger homepage -->
 
     <!-- Instagram feed verwijderd voor een cleaner ontwerp -->
 
@@ -197,8 +198,7 @@
       GSE.loadHomeMarquee && GSE.loadHomeMarquee();
       GSE.renderRecommendedGames && GSE.renderRecommendedGames();
       // Load featured products and Instagram feed
-      GSE.loadFeaturedProducts && GSE.loadFeaturedProducts();
-      // Instagram feed is verwijderd voor een cleaner homepage
+      // Uitgelichte producten en Instagram feed niet geladen voor een rustigere homepage
       // Engage visitors: loyalty popup, chat widget, live purchase notifications, spin wheel
       GSE.initLoyaltyPopup && GSE.initLoyaltyPopup();
       GSE.initChatWidget && GSE.initChatWidget();

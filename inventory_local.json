@@ -550,90 +550,133 @@
     "price": 0,
     "pricing_source": "user",
     "item_kind": "game"
+  },
+  {
+    "title": "Nintendo DSi XL (Burgundy)",
+    "image": "images/uploads/upload-0117.jpg",
+    "category": "Nintendo DS",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "console"
+  },
+  {
+    "title": "Nintendo 3DS XL (Pink)",
+    "image": "images/uploads/upload-0120.jpg",
+    "category": "Nintendo 3DS",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "console"
+  },
+  {
+    "title": "Nintendo 3DS XL (Red)",
+    "image": "images/uploads/upload-0123.jpg",
+    "category": "Nintendo 3DS",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "console"
+  },
+  {
+    "title": "Pokémon TCG: Pikachu V Box",
+    "image": "images/uploads/upload-0126.jpg",
+    "category": "Trading Cards",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon TCG: Sword & Shield – Brilliant Stars Booster Pack",
+    "image": "images/uploads/upload-0128.jpg",
+    "category": "Trading Cards",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon TCG: Sword & Shield – Fusion Strike Booster Pack",
+    "image": "images/uploads/upload-0129.jpg",
+    "category": "Trading Cards",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon TCG: Brilliant Stars Booster Pack (Shaymin)",
+    "image": "images/uploads/upload-0130.jpg",
+    "category": "Trading Cards",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon TCG: Brilliant Stars Salamence Promo Blister",
+    "image": "images/uploads/upload-0131.jpg",
+    "category": "Trading Cards",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon TCG: VMAX Dragons Premium Collection – Duraludon",
+    "image": "images/uploads/upload-0133.jpg",
+    "category": "Trading Cards",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon TCG: VMAX Dragons Premium Collection – Rayquaza",
+    "image": "images/uploads/upload-0134.jpg",
+    "category": "Trading Cards",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon TCG: Arceus V Figure Collection",
+    "image": "images/uploads/upload-0136.jpg",
+    "category": "Trading Cards",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon TCG: Sun & Moon – Cosmic Eclipse Booster Pack",
+    "image": "images/uploads/upload-0138.jpg",
+    "category": "Trading Cards",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon TCG: Sword & Shield – Evolving Skies Booster Pack",
+    "image": "images/uploads/upload-0139.jpg",
+    "category": "Trading Cards",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon TCG: Brilliant Stars 3-Pack Blister – Leafeon Promo",
+    "image": "images/uploads/upload-0141.jpg",
+    "category": "Trading Cards",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon HeartGold Version (Not For Resale)",
+    "image": "images/uploads/upload-0185.jpg",
+    "category": "Nintendo DS",
+    "price": 124.95,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon SoulSilver Version (US)",
+    "image": "images/uploads/upload-0188.jpg",
+    "category": "Nintendo DS",
+    "price": 124.95,
+    "pricing_source": "user",
+    "item_kind": "game"
   }
-<<<<<<< HEAD
 ]
-=======
-  ,
-  {
-    "title": "Pokémon Mystery Dungeon: Explorers of Sky (Complete)",
-    "image": "images/uploads/upload-0152.jpg",
-    "category": "Nintendo DS",
-    "price": 0,
-    "pricing_source": "user",
-    "item_kind": "game"
-  },
-  {
-    "title": "Pokémon HeartGold Version (Complete)",
-    "image": "images/uploads/upload-0155.jpg",
-    "category": "Nintendo DS",
-    "price": 0,
-    "pricing_source": "user",
-    "item_kind": "game"
-  },
-  {
-    "title": "Pokémon SoulSilver Version (Complete)",
-    "image": "images/uploads/upload-0158.jpg",
-    "category": "Nintendo DS",
-    "price": 0,
-    "pricing_source": "user",
-    "item_kind": "game"
-  },
-  {
-    "title": "Pokémon Black Version 2 (Complete)",
-    "image": "images/uploads/upload-0161.jpg",
-    "category": "Nintendo DS",
-    "price": 0,
-    "pricing_source": "user",
-    "item_kind": "game"
-  },
-  {
-    "title": "Pokémon Black Version (Complete)",
-    "image": "images/uploads/upload-0167.jpg",
-    "category": "Nintendo DS",
-    "price": 0,
-    "pricing_source": "user",
-    "item_kind": "game"
-  },
-  {
-    "title": "Pokémon Ranger: Shadows of Almia (Complete)",
-    "image": "images/uploads/upload-0170.jpg",
-    "category": "Nintendo DS",
-    "price": 0,
-    "pricing_source": "user",
-    "item_kind": "game"
-  },
-  {
-    "title": "Pokémon Ranger (Complete)",
-    "image": "images/uploads/upload-0173.jpg",
-    "category": "Nintendo DS",
-    "price": 0,
-    "pricing_source": "user",
-    "item_kind": "game"
-  },
-  {
-    "title": "Pokémon Diamond Version (Complete)",
-    "image": "images/uploads/upload-0176.jpg",
-    "category": "Nintendo DS",
-    "price": 0,
-    "pricing_source": "user",
-    "item_kind": "game"
-  },
-  {
-    "title": "Pokémon Pearl Version (Complete)",
-    "image": "images/uploads/upload-0179.jpg",
-    "category": "Nintendo DS",
-    "price": 0,
-    "pricing_source": "user",
-    "item_kind": "game"
-  },
-  {
-    "title": "Pokémon Platinum Version (Complete)",
-    "image": "images/uploads/upload-0182.jpg",
-    "category": "Nintendo DS",
-    "price": 0,
-    "pricing_source": "user",
-    "item_kind": "game"
-  }
-]
->>>>>>> e4cf4667162932c7d6ed99f7b07963c396dc7967
