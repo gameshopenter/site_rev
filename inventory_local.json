@@ -551,4 +551,89 @@
     "pricing_source": "user",
     "item_kind": "game"
   }
+<<<<<<< HEAD
 ]
+=======
+  ,
+  {
+    "title": "Pokémon Mystery Dungeon: Explorers of Sky (Complete)",
+    "image": "images/uploads/upload-0152.jpg",
+    "category": "Nintendo DS",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon HeartGold Version (Complete)",
+    "image": "images/uploads/upload-0155.jpg",
+    "category": "Nintendo DS",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon SoulSilver Version (Complete)",
+    "image": "images/uploads/upload-0158.jpg",
+    "category": "Nintendo DS",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon Black Version 2 (Complete)",
+    "image": "images/uploads/upload-0161.jpg",
+    "category": "Nintendo DS",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon Black Version (Complete)",
+    "image": "images/uploads/upload-0167.jpg",
+    "category": "Nintendo DS",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon Ranger: Shadows of Almia (Complete)",
+    "image": "images/uploads/upload-0170.jpg",
+    "category": "Nintendo DS",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon Ranger (Complete)",
+    "image": "images/uploads/upload-0173.jpg",
+    "category": "Nintendo DS",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon Diamond Version (Complete)",
+    "image": "images/uploads/upload-0176.jpg",
+    "category": "Nintendo DS",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon Pearl Version (Complete)",
+    "image": "images/uploads/upload-0179.jpg",
+    "category": "Nintendo DS",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  },
+  {
+    "title": "Pokémon Platinum Version (Complete)",
+    "image": "images/uploads/upload-0182.jpg",
+    "category": "Nintendo DS",
+    "price": 0,
+    "pricing_source": "user",
+    "item_kind": "game"
+  }
+]
+>>>>>>> e4cf4667162932c7d6ed99f7b07963c396dc7967
