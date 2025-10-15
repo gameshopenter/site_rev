@@ -863,6 +863,42 @@ body.dark-mode a {
   background-color: #f8f8f8;
 }
 
+/*
+ * Product image gallery styles
+ * When a product has a gallery array, we display the main image and a row of
+ * thumbnails.  Clicking a thumbnail updates the main image and highlights
+ * the selected thumbnail.  These classes work in tandem with the JS that
+ * injects the gallery into the page.
+ */
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.product-gallery #main-product-image {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.product-gallery .thumbnail-list {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+.product-gallery .thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  flex-shrink: 0;
+}
+.product-gallery .thumbnail.active {
+  border-color: #007bff;
+}
+
 
 .product-detail-info {
   flex: 2;

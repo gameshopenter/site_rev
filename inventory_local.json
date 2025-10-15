@@ -578,8 +578,12 @@
   {
     "title": "Pokémon TCG: Pikachu V Box",
     "image": "images/uploads/upload-0126.jpg",
+    "gallery": [
+      "images/uploads/upload-0126.jpg",
+      "images/uploads/upload-0127.jpg"
+    ],
     "category": "Trading Cards",
-    "price": 0,
+    "price": 0.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
@@ -618,24 +622,36 @@
   {
     "title": "Pokémon TCG: VMAX Dragons Premium Collection – Duraludon",
     "image": "images/uploads/upload-0133.jpg",
+    "gallery": [
+      "images/uploads/upload-0133.jpg",
+      "images/uploads/upload-0135.jpg"
+    ],
     "category": "Trading Cards",
-    "price": 0,
+    "price": 0.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
     "title": "Pokémon TCG: VMAX Dragons Premium Collection – Rayquaza",
     "image": "images/uploads/upload-0134.jpg",
+    "gallery": [
+      "images/uploads/upload-0134.jpg",
+      "images/uploads/upload-0135.jpg"
+    ],
     "category": "Trading Cards",
-    "price": 0,
+    "price": 0.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
     "title": "Pokémon TCG: Arceus V Figure Collection",
     "image": "images/uploads/upload-0136.jpg",
+    "gallery": [
+      "images/uploads/upload-0136.jpg",
+      "images/uploads/upload-0137.jpg"
+    ],
     "category": "Trading Cards",
-    "price": 0,
+    "price": 0.95,
     "pricing_source": "user",
     "item_kind": "game"
   },

@@ -560,11 +560,23 @@ const GSE = (() => {
     const displayTitle = (typeof item.title === 'string' && item.title.toLowerCase().startsWith('marktplaats product'))
       ? `Gebruikte game ${item.title.split(' ').pop()}`
       : item.title;
+    // Build a list of images for the gallery.  If a gallery array is present on the item
+    // use that, otherwise fall back to a single‑element array containing the primary image.
+    const imageList = Array.isArray(item.gallery) && item.gallery.length ? item.gallery : [item.image];
     let detailHtml = '<div class="product-detail-wrapper">';
-    // Toon altijd een afbeelding voor producten (geen Marktplaats‑uitzondering meer)
+    // Render an image gallery: primary image and optional thumbnails.  Users can click
+    // thumbnails to update the main image.  If only a single image is present the
+    // thumbnails list will be empty.
     detailHtml += `
         <div class="product-detail-image">
-          <img src="${fixImage(item.image)}" alt="${displayTitle}">
+          <div class="product-gallery">
+            <img id="main-product-image" src="${fixImage(imageList[0])}" alt="${displayTitle}">
+            <div class="thumbnail-list">
+              ${imageList.map((img, idx) => `
+                <img src="${fixImage(img)}" alt="${displayTitle} thumbnail ${idx + 1}" class="thumbnail" data-index="${idx}">
+              `).join('')}
+            </div>
+          </div>
         </div>
       `;
     detailHtml += '<div class="product-detail-info">';
@@ -604,6 +616,28 @@ const GSE = (() => {
     detailHtml += '</div>';
     detailHtml += '</div>';
     container.innerHTML = detailHtml;
+
+    // Initialise gallery thumbnail behaviour.  If a gallery contains multiple
+    // images, clicking on a thumbnail updates the main product image.  The
+    // active thumbnail receives an `active` class for basic styling.
+    const mainImgEl = document.getElementById('main-product-image');
+    if (mainImgEl && imageList.length > 1) {
+      const thumbEls = container.querySelectorAll('.thumbnail');
+      // Highlight the first thumbnail by default
+      if (thumbEls.length) {
+        thumbEls[0].classList.add('active');
+      }
+      thumbEls.forEach(th => {
+        th.addEventListener('click', () => {
+          const idx = parseInt(th.dataset.index);
+          // Update main image source
+          mainImgEl.src = fixImage(imageList[idx]);
+          // Reset active state on all thumbnails then set current
+          thumbEls.forEach(t => t.classList.remove('active'));
+          th.classList.add('active');
+        });
+      });
+    }
     // Append FAQ section for common questions to reduce hesitation
     if (!isMarktplaatsItem) {
       const faq = document.createElement('details');
