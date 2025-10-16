@@ -192,6 +192,49 @@ body.dark-mode .dark-toggle {
   filter: invert(100%);
 }
 
+/* =========================================================
+   Welkom hero – introductiesectie op de homepage
+
+   Deze sectie verwelkomt bezoekers met een duidelijke
+   titel, een korte beschrijving en een opvallende knop
+   om het assortiment te bekijken. De sectie staat onder
+   de navigatiebalk voor een warme binnenkomst.
+========================================================= */
+.welcome-hero {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+.welcome-hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.welcome-hero p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: var(--color-muted);
+}
+.welcome-hero .btn {
+  /* Gebruik bestaande btn-stijlen met een lichte accentkleur voor de hero */
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.welcome-hero .btn:hover {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: #fff;
+}
+
 .hero .overlay {
   position: absolute;
   top: 0;
@@ -1273,6 +1316,8 @@ body.dark-mode a {
   background-color: #fff;
   /* Geef de afbeelding wat binnenruimte zodat hij niet tegen de kaartrand plakt */
   padding: 0.5rem;
+  /* Verhoog de helderheid iets zodat donkere achtergronden minder dominant zijn */
+  filter: brightness(1.2);
 }
 
 .categories-page .category-card span {
