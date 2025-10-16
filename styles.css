@@ -236,17 +236,20 @@ body.dark-mode .dark-toggle {
 .welcome-hero::before {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
+  /* Maak het achtergrondbeeld extra groot zodat de hoeken buiten beeld blijven
+     tijdens rotatie. Hierdoor ontstaan er geen ongewenste grijze driehoeken. */
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
   background-image: url('images/hero_bg.png');
   background-size: cover;
   background-position: center;
   filter: blur(2px) brightness(0.8);
   opacity: 0.7;
   animation: swirlRotate 45s linear infinite;
-  z-index: -2;
+  /* Zet de swirl-achtergrond dieper zodat zwevende vormen erboven verschijnen */
+  z-index: -3;
 }
 /* Transparante overlay om tekstleesbaarheid te verhogen */
 .welcome-hero::after {
@@ -294,6 +297,50 @@ body.dark-mode .dark-toggle {
 @keyframes swirlRotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/*
+ * Zwevende hexagonvormen in de welkomstsectie
+ *
+ * Deze elementen creëren een uniek, visueel spektakel door zachte hexagonen
+ * (geïnspireerd op het logo) omhoog te laten zweven. Elke vorm gebruikt
+ * een CSS‑variabele voor positie, duur en vertraging, waardoor de animatie
+ * er willekeurig uitziet zonder extra JavaScript. Ze zijn licht vervaagd
+ * en halftransparant zodat ze niet concurreren met de inhoud.
+ */
+.welcome-hero .floating-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.welcome-hero .floating-shapes .shape {
+  position: absolute;
+  bottom: -20%;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+  /* Maak de vormen subtieler zodat ze niet de aandacht van de content afleiden */
+  opacity: 0.12;
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  filter: blur(1px);
+  animation: floatUp var(--dur) linear infinite;
+  animation-delay: var(--delay);
+  left: var(--left);
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) rotate(0deg) scale(0.5);
+  }
+  to {
+    transform: translateY(-110vh) rotate(360deg) scale(0.8);
+  }
 }
 
 /* =========================================================
