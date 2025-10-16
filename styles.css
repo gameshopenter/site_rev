@@ -70,8 +70,10 @@ img {
 
 /* Navigatie */
 .site-header {
+  /* Use a clean white header with a subtle drop shadow for a professional look */
   background-color: #ffffff;
   border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .navbar {
@@ -2239,4 +2241,104 @@ body.dark-mode a {
 .category-card.icon-category span {
   background-color: rgba(255, 255, 255, 0.8);
   color: #111;
+}
+
+/* =============================================
+   Animations for product cards
+   Subtle fade-in when products load and enhanced hover effect
+============================================= */
+.product-grid .product-card {
+  /* Start hidden and slightly translated for a fade-in effect */
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Intensify hover feedback on product cards */
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================================================
+   Simplified hero styling for a professional look
+   Only display the logo and brand name on a clean white background
+============================================================= */
+.simple-hero {
+  background-color: #ffffff;
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+}
+
+.simple-hero .hero-logo-large {
+  width: 200px;
+  height: auto;
+  margin-bottom: 1rem;
+  animation: none; /* disable floating animation */
+}
+
+.simple-hero .hero-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 0;
+}
+
+/* Hide tagline and CTA within the simplified hero if present */
+.simple-hero .hero-tagline,
+.simple-hero .hero-cta,
+.simple-hero .btn,
+.simple-hero .btn-primary {
+  display: none;
+}
+
+/* =============================================================
+   Visual sell steps on the inkoop page
+   A grid layout to illustrate the trade‑in process clearly
+============================================================= */
+.sell-steps {
+  margin-top: 2rem;
+  text-align: center;
+}
+.sell-steps h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.step {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.step-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.steps-grid h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.steps-grid p {
+  font-size: 0.85rem;
+  color: var(--color-muted);
 }
