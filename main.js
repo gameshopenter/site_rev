@@ -578,6 +578,15 @@ const GSE = (() => {
         }
       }
     }
+
+    // Ensure the gallery always has at least two images.  If a product only
+    // includes a single picture (front view), duplicate it so the user can
+    // cycle through a front and back view.  For items with a combined
+    // image, duplicating the first entry still makes sense because the
+    // combined image shows both sides in one frame.
+    if (imageList.length === 1) {
+      imageList.push(imageList[0]);
+    }
     // Build wrapper div with category-specific class placeholder. The class will be added later via JS
     let detailHtml = '<div class="product-detail-wrapper">';
     // Render an image gallery: primary image and optional thumbnails.  Users can click
@@ -607,8 +616,9 @@ const GSE = (() => {
 
     // Display shipping and return information to reduce purchase hesitation
     if (!isMarktplaatsItem) {
-      // Shipping info inclusief verzendkosten: tot 4 games als brievenbuspakket (€3,99), vanaf 5 games als pakket (€6,95)
-      detailHtml += `<p class="shipping-info"><span class="icon">🚚</span> Verzendkosten: €3,99 (tot 4 games) / €6,95 (5+ games) · Voor 23:59 besteld, morgen verzonden · <span class="icon">↩️</span> 14 dagen gratis retourneren</p>`;
+      // Shipping info inclusief verzendkosten: tot 4 games als brievenbuspakket (€3,99), vanaf 5 games als pakket (€6,95).
+      // We tonen ook dat de bedenktijd 14 dagen bedraagt en dat retourkosten voor eigen rekening zijn.
+      detailHtml += `<p class="shipping-info"><span class="icon">🚚</span> Verzendkosten: €3,99 (tot 4 games) / €6,95 (5+ games) · Voor 23:59 besteld, morgen verzonden · <span class="icon">↩️</span> 14 dagen bedenktijd – retourkosten voor eigen rekening</p>`;
     }
 
     if (isMarktplaatsItem) {
@@ -622,10 +632,11 @@ const GSE = (() => {
       // Use generic description for in‑store items
       detailHtml += '<p class="condition">Gebruikt – voorbeeldfoto</p>';
       detailHtml += `<p class="description">Dit is een algemene productbeschrijving voor <strong>${displayTitle}</strong>. Alle tweedehands games en consoles worden door ons zorgvuldig getest op functionaliteit en authenticiteit. De getoonde afbeelding dient als voorbeeld; de daadwerkelijke staat kan licht afwijken. We verzenden elk product stevig verpakt; afhalen is niet mogelijk.</p>`;
-      // Trust badges: security, payment, satisfaction guarantee, free shipping
+      // Trust badges: toon veilige betaling, bedenktijd en gratis verzending boven €100.
+      // We vervangen de garantiebadge door een vermelding van de 14‑dagen bedenktijd omdat er geen langetermijngarantie wordt aangeboden.
       detailHtml += `<div class="trust-badges">
         <div class="badge-item"><span class="badge-icon">🔒</span><span>Veilige SSL‑betaling</span></div>
-        <div class="badge-item"><span class="badge-icon">💯</span><span>100% geld terug garantie</span></div>
+        <div class="badge-item"><span class="badge-icon">🕒</span><span>14 dagen bedenktijd</span></div>
         <div class="badge-item"><span class="badge-icon">📦</span><span>Gratis verzending vanaf €100</span></div>
       </div>`;
       // Varianten tonen: zoek naar andere varianten van dit product (bijv. Loose vs Met doos)
@@ -1227,11 +1238,13 @@ const GSE = (() => {
         let reply;
         const lower = text.toLowerCase();
         if (/prijs|kosten|verzend/.test(lower)) {
-          reply = 'Alle prijzen zijn inclusief btw. Verzending kost €4 en is gratis vanaf €100.';
+          // Geef duidelijk aan hoe de verzendkosten zijn opgebouwd
+          reply = 'Verzendkosten bedragen €3,99 voor brievenbuspakketjes (tot 4 games) en €6,95 bij 5 of meer games. Vanaf €100 bestel je zonder verzendkosten.';
         } else if (/voorraad|beschikbaar/.test(lower)) {
           reply = 'De beschikbaarheid staat vermeld bij elk product. Heb je iets speciaals nodig? Laat het ons weten!';
         } else if (/retour|garantie/.test(lower)) {
-          reply = 'Je kunt binnen 14 dagen retourneren. Alle producten zijn zorgvuldig getest.';
+          // Informeer over de retourtermijn en retourkosten
+          reply = 'Je kunt binnen 14 dagen retourneren. Retourkosten zijn voor eigen rekening.';
         } else if (/hallo|hoi|hey/.test(lower)) {
           reply = 'Hallo! Hoe kunnen we je verder helpen?';
         } else if (/mail|email|contact/.test(lower)) {
