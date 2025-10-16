@@ -15,13 +15,34 @@ body {
   height: 100%;
 }
 
+/*
+ * Globale kleurvariabelen voor de gehele site
+ * Hiermee zorgen we voor een consistent kleurenpalet over
+ * alle pagina’s. Door de kleuren als CSS variabelen te
+ * declareren kunnen we eenvoudig het uiterlijk van de site
+ * aanpassen zonder op meerdere plekken afzonderlijk wijzigingen
+ * te hoeven doen. Kies zachte, zakelijke tinten voor een
+ * professionele uitstraling.
+ */
+:root {
+  --color-primary: #0d6efd; /* warme blauwe basiskleur voor knoppen, links en accenten */
+  --color-secondary: #6c63ff; /* zacht paars voor secundaire elementen */
+  --color-success: #2cb67d; /* groen voor positieve badges of labels */
+  --color-danger: #e33e5a; /* rood voor aanbiedingen of waarschuwingen */
+  --color-bg: #f8f9fb; /* algemene achtergrondkleur */
+  --color-card-bg: #ffffff; /* achtergrondkleur van kaarten en overlays */
+  --color-border: #e5eaf5; /* subtiele borderkleur voor scheiding zonder harde lijnen */
+  --color-text: #1f2937; /* donkergrijze tekst voor goede leesbaarheid */
+  --color-muted: #6c757d; /* gedempte kleur voor minder prominente teksten */
+}
+
 body {
   font-family: 'Poppins', Arial, sans-serif;
-  background-color: #ffffff;
-  color: #111111;
-  line-height: 1.5;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 a {
@@ -49,8 +70,10 @@ img {
 
 /* Navigatie */
 .site-header {
+  /* Use a clean white header with a subtle drop shadow for a professional look */
   background-color: #ffffff;
   border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .navbar {
@@ -197,19 +220,20 @@ body.dark-mode .dark-toggle {
 
 .btn {
   display: inline-block;
-  background: transparent;
-  border: 2px solid #111;
-  color: #111;
+  background: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  color: #ffffff;
   padding: 0.6rem 1.4rem;
   font-weight: 600;
-  border-radius: 4px;
+  border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .btn:hover {
-  background-color: #111;
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
   color: #ffffff;
 }
 
@@ -334,31 +358,42 @@ body.dark-mode .dark-toggle {
 }
 
 .product-controls input[type="search"],
-.product-controls select {
+  .product-controls select {
   flex: 1 1 200px;
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
   font-size: 1rem;
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus states voor zoekvelden en selectievakjes */
+.product-controls input[type="search"]:focus,
+.product-controls select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.15);
 }
 
 
 .product-card {
-  background: #ffffff;
-  border-radius: 8px;
+  background: var(--color-card-bg);
+  border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.2s ease;
-  border: 1px solid #e5e5e5;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -366,21 +401,21 @@ body.dark-mode .dark-toggle {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  background-color: #f8f8f8;
+  background-color: #eef2f8;
 }
 
 
 .product-info {
   padding: 1rem;
   flex: 1;
-  color: #111;
+  color: var(--color-text);
 }
 
 
 .product-info h3 {
-  font-size: 1rem;
+  font-size: 1.05rem;
   margin-bottom: 0.25rem;
-  color: #111;
+  color: var(--color-text);
 }
 
 .product-info h3 a {
@@ -391,13 +426,13 @@ body.dark-mode .dark-toggle {
 .product-info p.price {
   font-weight: 600;
   margin-bottom: 0.25rem;
-  color: #333;
+  color: var(--color-primary);
 }
 
 
 .product-info p.condition {
   font-size: 0.75rem;
-  color: #888;
+  color: var(--color-muted);
 }
 
 
@@ -594,8 +629,8 @@ body.dark-mode a {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  /* Reduce saturation and slightly brighten to soften overly vibrant category colours */
-  filter: brightness(1) saturate(0.8);
+  /* Verminder verzadiging en verhoog de helderheid licht voor een zachter effect */
+  filter: brightness(1.05) saturate(0.7);
   transition: filter 0.3s ease;
 }
 
@@ -612,13 +647,13 @@ body.dark-mode a {
   padding: 0.6rem 0.5rem;
   text-align: center;
   /* Make the label overlay slightly more transparent for improved legibility */
-  background-color: rgba(0, 0, 0, 0.45);
+  /* Maak de overlay iets transparanter voor een subtieler effect */
+  background-color: rgba(0, 0, 0, 0.35);
   color: #ffffff;
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.02rem;
-  /* Extra blur voor een subtiele glas-effecten */
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(3px);
 }
 
 /* ==================================================================
@@ -903,14 +938,14 @@ body.dark-mode a {
 .product-detail-info {
   flex: 2;
   min-width: 300px;
-  color: #111;
+  color: var(--color-text);
 }
 
 
 .product-detail-info h2 {
   margin-bottom: 0.5rem;
   font-size: 1.8rem;
-  color: #111;
+  color: var(--color-text);
 }
 
 
@@ -918,13 +953,13 @@ body.dark-mode a {
   font-size: 1.4rem;
   font-weight: 600;
   margin: 0.5rem 0;
-  color: #333;
+  color: var(--color-primary);
 }
 
 
 .product-detail-info .condition {
   font-size: 0.85rem;
-  color: #888;
+  color: var(--color-muted);
   margin-bottom: 1rem;
 }
 
@@ -1923,9 +1958,11 @@ body.dark-mode a {
   right: 12px;
   background: transparent;
   border: none;
-  font-size: 1.4rem;
+  /* Maak de sluitknop groter en donkerder zodat deze beter opvalt */
+  font-size: 1.8rem;
+  font-weight: 600;
   cursor: pointer;
-  color: #666;
+  color: #333;
 }
 
 /* Chat widget styling */
@@ -2182,4 +2219,126 @@ body.dark-mode a {
   .hero-cta {
     font-size: 1rem;
   }
+}
+
+/* =============================================================
+   Custom adjustments for homepage category cards
+
+   The default icon-based category cards on the homepage were
+   using their original image dimensions, leading to uneven
+   heights compared to photo-based categories. To create a more
+   harmonious grid, we override the dimensions for icon
+   categories. The label backgrounds are also softened to
+   improve contrast and readability.
+*/
+
+.category-card.icon-category img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.category-card.icon-category span {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #111;
+}
+
+/* =============================================
+   Animations for product cards
+   Subtle fade-in when products load and enhanced hover effect
+============================================= */
+.product-grid .product-card {
+  /* Start hidden and slightly translated for a fade-in effect */
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Intensify hover feedback on product cards */
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================================================
+   Simplified hero styling for a professional look
+   Only display the logo and brand name on a clean white background
+============================================================= */
+.simple-hero {
+  background-color: #ffffff;
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+}
+
+.simple-hero .hero-logo-large {
+  width: 200px;
+  height: auto;
+  margin-bottom: 1rem;
+  animation: none; /* disable floating animation */
+}
+
+.simple-hero .hero-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 0;
+}
+
+/* Hide tagline and CTA within the simplified hero if present */
+.simple-hero .hero-tagline,
+.simple-hero .hero-cta,
+.simple-hero .btn,
+.simple-hero .btn-primary {
+  display: none;
+}
+
+/* =============================================================
+   Visual sell steps on the inkoop page
+   A grid layout to illustrate the trade‑in process clearly
+============================================================= */
+.sell-steps {
+  margin-top: 2rem;
+  text-align: center;
+}
+.sell-steps h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.step {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.step-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.steps-grid h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.steps-grid p {
+  font-size: 0.85rem;
+  color: var(--color-muted);
 }
