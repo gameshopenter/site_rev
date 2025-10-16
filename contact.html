@@ -99,10 +99,8 @@
     document.addEventListener('DOMContentLoaded', () => {
       if (!window.GSE) return;
       GSE.updateCartCount && GSE.updateCartCount();
-      // Initialiseer chat en loyaliteit
+      // Initialise chat but remove loyalty and live purchase popups for a distraction-free page
       GSE.initChatWidget && GSE.initChatWidget();
-      GSE.initLoyaltyPopup && GSE.initLoyaltyPopup();
-      GSE.initLivePurchasePopups && GSE.initLivePurchasePopups();
       // Contactformulier handler
       const form = document.getElementById('contactForm');
       const statusEl = document.getElementById('contactStatus');

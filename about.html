@@ -92,10 +92,8 @@
     document.addEventListener('DOMContentLoaded', () => {
       if (!window.GSE) return;
       GSE.updateCartCount && GSE.updateCartCount();
-      // Initialiseer globale widgets (chat, loyaliteit, social proof)
+      // Initialiseer chat widget (loyaliteit en live purchase popups verwijderd voor rustiger pagina)
       GSE.initChatWidget && GSE.initChatWidget();
-      GSE.initLoyaltyPopup && GSE.initLoyaltyPopup();
-      GSE.initLivePurchasePopups && GSE.initLivePurchasePopups();
     });
   </script>
 </body>

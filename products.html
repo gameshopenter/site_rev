@@ -96,9 +96,8 @@
       if (!window.GSE) return;
       GSE.updateCartCount && GSE.updateCartCount();
       GSE.loadProducts && GSE.loadProducts();
+      // Retain chat widget but remove loyalty and live purchase popups for a cleaner experience
       GSE.initChatWidget && GSE.initChatWidget();
-      GSE.initLoyaltyPopup && GSE.initLoyaltyPopup();
-      GSE.initLivePurchasePopups && GSE.initLivePurchasePopups();
     });
   </script>
 </body>

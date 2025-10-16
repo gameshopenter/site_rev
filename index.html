@@ -199,10 +199,9 @@
       GSE.renderRecommendedGames && GSE.renderRecommendedGames();
       // Load featured products and Instagram feed
       // Uitgelichte producten en Instagram feed niet geladen voor een rustigere homepage
-      // Engage visitors: loyalty popup, chat widget, live purchase notifications, spin wheel
-      GSE.initLoyaltyPopup && GSE.initLoyaltyPopup();
+      // Engage visitors: retain chat widget but remove intrusive popups for a calmer experience
+      // Removed loyalty popup and live purchase notifications
       GSE.initChatWidget && GSE.initChatWidget();
-      GSE.initLivePurchasePopups && GSE.initLivePurchasePopups();
     });
   </script>
 </body>

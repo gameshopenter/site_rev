@@ -150,9 +150,8 @@
     document.addEventListener('DOMContentLoaded', () => {
       if (!window.GSE) return;
       GSE.updateCartCount && GSE.updateCartCount();
+      // Initialise chat widget only; remove loyalty and live purchase popups
       GSE.initChatWidget && GSE.initChatWidget();
-      GSE.initLoyaltyPopup && GSE.initLoyaltyPopup();
-      GSE.initLivePurchasePopups && GSE.initLivePurchasePopups();
     });
   </script>
 </body>

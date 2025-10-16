@@ -112,10 +112,8 @@
     document.addEventListener('DOMContentLoaded', () => {
       if (!window.GSE) return;
       GSE.updateCartCount && GSE.updateCartCount();
-      // Initialize interactive features
+      // Initialize interactive features (keep chat only, remove loyalty and live purchase popups)
       GSE.initChatWidget && GSE.initChatWidget();
-      GSE.initLoyaltyPopup && GSE.initLoyaltyPopup();
-      GSE.initLivePurchasePopups && GSE.initLivePurchasePopups();
       // Verstuur inkoopformulier (simulatie)
       const sellForm = document.getElementById('sellForm');
       const sellStatus = document.getElementById('sellStatus');

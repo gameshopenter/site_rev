@@ -1376,14 +1376,6 @@ document.addEventListener('DOMContentLoaded', () => {
   GSE.initNavigation();
   GSE.updateCartCount();
   // De gamified spin‑to‑win popup is verwijderd om de gebruikerservaring rustiger en professioneler te maken.
-  // Initialise live purchase pop‑ups for social proof (only when available)
-  try {
-    if (GSE.initLivePurchasePopups) {
-      GSE.initLivePurchasePopups();
-    }
-  } catch (e) {
-    // ignore errors during popup setup
-  }
   // Render recommended games on the homepage when the grid exists
   try {
     if (document.getElementById('recommendedGrid')) {

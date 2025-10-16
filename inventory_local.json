@@ -1,6 +1,6 @@
 [
   {
-    "title": "Pokémon Alpha Sapphire (Loose)",
+    "title": "Pok\u00e9mon Alpha Sapphire (Loose)",
     "image": "images/gallery/0915BF92-4898-4CDB-8913-36E66C6CCBE0.jpeg",
     "category": "Nintendo 3DS",
     "price": 79.43,
@@ -8,7 +8,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Omega Ruby",
+    "title": "Pok\u00e9mon Omega Ruby",
     "image": "images/gallery/15EC6FA7-5A21-4064-97DA-6DC4531656B2.jpeg",
     "category": "Nintendo 3DS",
     "price": 286.7,
@@ -16,7 +16,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Emerald Version (Loose)",
+    "title": "Pok\u00e9mon Emerald Version (Loose)",
     "image": "images/gallery/62DFD134-04B9-451C-BDA0-C16F0CF0FCEE.jpeg",
     "category": "Game Boy Advance",
     "price": 199.83,
@@ -24,15 +24,15 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Platinum Version (Loose)",
+    "title": "Pok\u00e9mon Platinum Version (Loose)",
     "image": "images/gallery/4489A3AB-0815-4783-8030-157AFEDCD950.jpeg",
     "category": "Nintendo DS",
-    "price": 105.07,
-    "pricing_source": "pricecharting",
+    "price": 149.95,
+    "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Mystery Dungeon: Explorers of Darkness (Loose)",
+    "title": "Pok\u00e9mon Mystery Dungeon: Explorers of Darkness (Loose)",
     "image": "images/gallery/A8E1596F-AA27-4507-9584-02CBB4072B45.jpeg",
     "category": "Nintendo DS",
     "price": 17.61,
@@ -40,15 +40,15 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Mystery Dungeon: Explorers of Sky (Loose)",
+    "title": "Pok\u00e9mon Mystery Dungeon: Explorers of Sky (Loose)",
     "image": "images/gallery/B2510BE4-3D1D-424A-AE94-5F71A53FE927.jpeg",
     "category": "Nintendo DS",
-    "price": 93.99,
-    "pricing_source": "pricecharting",
+    "price": 159.95,
+    "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Mystery Dungeon: Gates to Infinity",
+    "title": "Pok\u00e9mon Mystery Dungeon: Gates to Infinity",
     "image": "images/gallery/95D8E630-E42D-4A3C-A50B-4CAB1A79B84C.jpeg",
     "category": "Nintendo 3DS",
     "price": 17.61,
@@ -56,7 +56,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Super Pokémon Rumble",
+    "title": "Super Pok\u00e9mon Rumble",
     "image": "images/gallery/9B822AE3-3B08-482D-8181-E3599F5AC852.jpeg",
     "category": "Nintendo 3DS",
     "price": 15.34,
@@ -64,7 +64,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Y (Loose)",
+    "title": "Pok\u00e9mon Y (Loose)",
     "image": "images/gallery/E789EE8B-7ADE-4ED9-AC3F-4F51DC64AE83.jpeg",
     "category": "Nintendo 3DS",
     "price": 28.19,
@@ -72,7 +72,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Ultra Sun (Loose)",
+    "title": "Pok\u00e9mon Ultra Sun (Loose)",
     "image": "images/gallery/D4F77DF8-41A8-4651-9019-C248F541BF37.jpeg",
     "category": "Nintendo 3DS",
     "price": 33.84,
@@ -80,7 +80,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Sword",
+    "title": "Pok\u00e9mon Sword",
     "image": "images/gallery/A91C86FB-AF6B-4428-8E6C-5661B217C3EB.jpeg",
     "category": "Nintendo Switch",
     "price": 31.25,
@@ -88,7 +88,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Shining Pearl",
+    "title": "Pok\u00e9mon Shining Pearl",
     "image": "images/gallery/IMG_6138.jpeg",
     "category": "Nintendo Switch",
     "price": 33.36,
@@ -96,7 +96,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Scarlet",
+    "title": "Pok\u00e9mon Scarlet",
     "image": "images/gallery/IMG_6132.jpeg",
     "category": "Nintendo Switch",
     "price": 36.68,
@@ -104,7 +104,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Mystery Dungeon: Rescue Team DX",
+    "title": "Pok\u00e9mon Mystery Dungeon: Rescue Team DX",
     "image": "images/gallery/IMG_6139.jpeg",
     "category": "Nintendo Switch",
     "price": 35.42,
@@ -112,7 +112,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Dragon Quest XI S: Echoes of an Elusive Age – Definitive Edition",
+    "title": "Dragon Quest XI S: Echoes of an Elusive Age \u2013 Definitive Edition",
     "image": "images/gallery/2E0C9228-A24B-4F5B-8D17-D347D5261205.jpeg",
     "category": "Nintendo Switch",
     "price": 31.37,
@@ -144,7 +144,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Xenoblade Chronicles 2: Torna – The Golden Country",
+    "title": "Xenoblade Chronicles 2: Torna \u2013 The Golden Country",
     "image": "images/gallery/4E3B6F6C-B22A-4302-8A5D-A5996DF42468.jpeg",
     "category": "Nintendo Switch",
     "price": 41.36,
@@ -240,7 +240,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Mario + Rabbids: Sparks of Hope – Cosmic Edition",
+    "title": "Mario + Rabbids: Sparks of Hope \u2013 Cosmic Edition",
     "image": "images/gallery/IMG_6141.jpeg",
     "category": "Nintendo Switch",
     "price": 24.95,
@@ -272,7 +272,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Moon",
+    "title": "Pok\u00e9mon Moon",
     "image": "images/uploads/upload-0005.jpg",
     "category": "Nintendo 3DS",
     "price": 34.95,
@@ -280,7 +280,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Sun",
+    "title": "Pok\u00e9mon Sun",
     "image": "images/uploads/upload-0007.jpg",
     "category": "Nintendo 3DS",
     "price": 34.95,
@@ -288,7 +288,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon X",
+    "title": "Pok\u00e9mon X",
     "image": "images/uploads/upload-0009.jpg",
     "category": "Nintendo 3DS",
     "price": 58.95,
@@ -296,7 +296,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Ultra Moon",
+    "title": "Pok\u00e9mon Ultra Moon",
     "image": "images/uploads/upload-0011.jpg",
     "category": "Nintendo 3DS",
     "price": 59.95,
@@ -304,7 +304,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Alpha Sapphire",
+    "title": "Pok\u00e9mon Alpha Sapphire",
     "image": "images/uploads/upload-0019.jpg",
     "category": "Nintendo 3DS",
     "price": 89.95,
@@ -352,7 +352,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Crystal Version (Loose)",
+    "title": "Pok\u00e9mon Crystal Version (Loose)",
     "image": "images/uploads/upload-0084.jpg",
     "category": "Game Boy Color",
     "price": 138.95,
@@ -360,7 +360,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon LeafGreen Version (Loose)",
+    "title": "Pok\u00e9mon LeafGreen Version (Loose)",
     "image": "images/uploads/upload-0086.jpg",
     "category": "Game Boy Advance",
     "price": 119.95,
@@ -368,7 +368,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Sapphire Version (Loose)",
+    "title": "Pok\u00e9mon Sapphire Version (Loose)",
     "image": "images/uploads/upload-0090.jpg",
     "category": "Game Boy Advance",
     "price": 77.95,
@@ -376,15 +376,15 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon SoulSilver Version (Loose)",
+    "title": "Pok\u00e9mon SoulSilver Version (Loose)",
     "image": "images/uploads/upload-0093.jpg",
     "category": "Nintendo DS",
-    "price": 124.95,
+    "price": 169.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon FireRed Version (Loose)",
+    "title": "Pok\u00e9mon FireRed Version (Loose)",
     "image": "images/uploads/upload-0096.jpg",
     "category": "Game Boy Advance",
     "price": 128.95,
@@ -392,7 +392,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Super Mystery Dungeon (Loose)",
+    "title": "Pok\u00e9mon Super Mystery Dungeon (Loose)",
     "image": "images/uploads/upload-0100.jpg",
     "category": "Nintendo 3DS",
     "price": 33.95,
@@ -400,7 +400,7 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Mystery Dungeon: Blue Rescue Team (Loose)",
+    "title": "Pok\u00e9mon Mystery Dungeon: Blue Rescue Team (Loose)",
     "image": "images/uploads/upload-0101.jpg",
     "category": "Nintendo DS",
     "price": 24.95,
@@ -408,23 +408,23 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Diamond Version (Loose)",
+    "title": "Pok\u00e9mon Diamond Version (Loose)",
     "image": "images/uploads/upload-0102.jpg",
     "category": "Nintendo DS",
-    "price": 44.95,
+    "price": 69.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Pearl Version (Loose)",
+    "title": "Pok\u00e9mon Pearl Version (Loose)",
     "image": "images/uploads/upload-0103.jpg",
     "category": "Nintendo DS",
-    "price": 44.95,
+    "price": 69.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Mystery Dungeon: Explorers of Time (Loose)",
+    "title": "Pok\u00e9mon Mystery Dungeon: Explorers of Time (Loose)",
     "image": "images/uploads/upload-0104.jpg",
     "category": "Nintendo DS",
     "price": 35.95,
@@ -432,15 +432,15 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Black Version (Loose)",
+    "title": "Pok\u00e9mon Black Version (Loose)",
     "image": "images/uploads/upload-0105.jpg",
     "category": "Nintendo DS",
-    "price": 74.95,
+    "price": 75.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon White Version (Loose)",
+    "title": "Pok\u00e9mon White Version (Loose)",
     "image": "images/uploads/upload-0106.jpg",
     "category": "Nintendo DS",
     "price": 74.95,
@@ -448,10 +448,10 @@
     "item_kind": "game"
   },
   {
-    "title": "Pokémon HeartGold Version (Loose)",
+    "title": "Pok\u00e9mon HeartGold Version (Loose)",
     "image": "images/uploads/upload-0108.jpg",
     "category": "Nintendo DS",
-    "price": 124.95,
+    "price": 169.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
@@ -472,82 +472,82 @@
     "item_kind": "console"
   },
   {
-    "title": "Pokémon Mystery Dungeon: Explorers of Sky",
+    "title": "Pok\u00e9mon Mystery Dungeon: Explorers of Sky",
     "image": "images/uploads/upload-0152.jpg",
     "category": "Nintendo DS",
-    "price": 0,
+    "price": 159.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon HeartGold Version",
+    "title": "Pok\u00e9mon HeartGold Version",
     "image": "images/uploads/upload-0155.jpg",
     "category": "Nintendo DS",
-    "price": 0,
+    "price": 169.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon SoulSilver Version",
+    "title": "Pok\u00e9mon SoulSilver Version",
     "image": "images/uploads/upload-0158.jpg",
     "category": "Nintendo DS",
-    "price": 0,
+    "price": 169.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Black Version 2",
+    "title": "Pok\u00e9mon Black Version 2",
     "image": "images/uploads/upload-0161.jpg",
     "category": "Nintendo DS",
-    "price": 0,
+    "price": 224.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Black Version",
+    "title": "Pok\u00e9mon Black Version",
     "image": "images/uploads/upload-0167.jpg",
     "category": "Nintendo DS",
-    "price": 0,
+    "price": 75.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Ranger: Shadows of Almia",
+    "title": "Pok\u00e9mon Ranger: Shadows of Almia",
     "image": "images/uploads/upload-0170.jpg",
     "category": "Nintendo DS",
-    "price": 0,
+    "price": 62.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Ranger",
+    "title": "Pok\u00e9mon Ranger",
     "image": "images/uploads/upload-0173.jpg",
     "category": "Nintendo DS",
-    "price": 0,
+    "price": 39.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Diamond Version",
+    "title": "Pok\u00e9mon Diamond Version",
     "image": "images/uploads/upload-0176.jpg",
     "category": "Nintendo DS",
-    "price": 0,
+    "price": 69.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Pearl Version",
+    "title": "Pok\u00e9mon Pearl Version",
     "image": "images/uploads/upload-0179.jpg",
     "category": "Nintendo DS",
-    "price": 0,
+    "price": 69.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon Platinum Version",
+    "title": "Pok\u00e9mon Platinum Version",
     "image": "images/uploads/upload-0182.jpg",
     "category": "Nintendo DS",
-    "price": 0,
+    "price": 149.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
@@ -555,7 +555,7 @@
     "title": "Nintendo DSi XL (Burgundy)",
     "image": "images/uploads/upload-0117.jpg",
     "category": "Nintendo DS",
-    "price": 0,
+    "price": 94.95,
     "pricing_source": "user",
     "item_kind": "console"
   },
@@ -563,7 +563,7 @@
     "title": "Nintendo 3DS XL (Pink)",
     "image": "images/uploads/upload-0120.jpg",
     "category": "Nintendo 3DS",
-    "price": 0,
+    "price": 235.95,
     "pricing_source": "user",
     "item_kind": "console"
   },
@@ -571,127 +571,127 @@
     "title": "Nintendo 3DS XL (Red)",
     "image": "images/uploads/upload-0123.jpg",
     "category": "Nintendo 3DS",
-    "price": 0,
+    "price": 224.95,
     "pricing_source": "user",
     "item_kind": "console"
   },
   {
-    "title": "Pokémon TCG: Pikachu V Box",
+    "title": "Pok\u00e9mon TCG: Pikachu V Box",
     "image": "images/uploads/upload-0126.jpg",
     "gallery": [
       "images/uploads/upload-0126.jpg",
       "images/uploads/upload-0127.jpg"
     ],
     "category": "Trading Cards",
-    "price": 0.95,
+    "price": 56.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon TCG: Sword & Shield – Brilliant Stars Booster Pack",
+    "title": "Pok\u00e9mon TCG: Sword & Shield \u2013 Brilliant Stars Booster Pack",
     "image": "images/uploads/upload-0128.jpg",
     "category": "Trading Cards",
-    "price": 0,
+    "price": 14.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon TCG: Sword & Shield – Fusion Strike Booster Pack",
+    "title": "Pok\u00e9mon TCG: Sword & Shield \u2013 Fusion Strike Booster Pack",
     "image": "images/uploads/upload-0129.jpg",
     "category": "Trading Cards",
-    "price": 0,
+    "price": 19.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon TCG: Brilliant Stars Booster Pack (Shaymin)",
+    "title": "Pok\u00e9mon TCG: Brilliant Stars Booster Pack (Shaymin)",
     "image": "images/uploads/upload-0130.jpg",
     "category": "Trading Cards",
-    "price": 0,
+    "price": 12.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon TCG: Brilliant Stars Salamence Promo Blister",
+    "title": "Pok\u00e9mon TCG: Brilliant Stars Salamence Promo Blister",
     "image": "images/uploads/upload-0131.jpg",
     "category": "Trading Cards",
-    "price": 0,
+    "price": 12.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon TCG: VMAX Dragons Premium Collection – Duraludon",
+    "title": "Pok\u00e9mon TCG: VMAX Dragons Premium Collection \u2013 Duraludon",
     "image": "images/uploads/upload-0133.jpg",
     "gallery": [
       "images/uploads/upload-0133.jpg",
       "images/uploads/upload-0135.jpg"
     ],
     "category": "Trading Cards",
-    "price": 0.95,
+    "price": 249.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon TCG: VMAX Dragons Premium Collection – Rayquaza",
+    "title": "Pok\u00e9mon TCG: VMAX Dragons Premium Collection \u2013 Rayquaza",
     "image": "images/uploads/upload-0134.jpg",
     "gallery": [
       "images/uploads/upload-0134.jpg",
       "images/uploads/upload-0135.jpg"
     ],
     "category": "Trading Cards",
-    "price": 0.95,
+    "price": 249.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon TCG: Arceus V Figure Collection",
+    "title": "Pok\u00e9mon TCG: Arceus V Figure Collection",
     "image": "images/uploads/upload-0136.jpg",
     "gallery": [
       "images/uploads/upload-0136.jpg",
       "images/uploads/upload-0137.jpg"
     ],
     "category": "Trading Cards",
-    "price": 0.95,
+    "price": 124.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon TCG: Sun & Moon – Cosmic Eclipse Booster Pack",
+    "title": "Pok\u00e9mon TCG: Sun & Moon \u2013 Cosmic Eclipse Booster Pack",
     "image": "images/uploads/upload-0138.jpg",
     "category": "Trading Cards",
-    "price": 0,
+    "price": 69.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon TCG: Sword & Shield – Evolving Skies Booster Pack",
+    "title": "Pok\u00e9mon TCG: Sword & Shield \u2013 Evolving Skies Booster Pack",
     "image": "images/uploads/upload-0139.jpg",
     "category": "Trading Cards",
-    "price": 0,
+    "price": 59.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon TCG: Brilliant Stars 3-Pack Blister – Leafeon Promo",
+    "title": "Pok\u00e9mon TCG: Brilliant Stars 3-Pack Blister \u2013 Leafeon Promo",
     "image": "images/uploads/upload-0141.jpg",
     "category": "Trading Cards",
-    "price": 0,
+    "price": 55.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon HeartGold Version (Not For Resale)",
+    "title": "Pok\u00e9mon HeartGold Version (Not For Resale)",
     "image": "images/uploads/upload-0185.jpg",
     "category": "Nintendo DS",
-    "price": 124.95,
+    "price": 235.95,
     "pricing_source": "user",
     "item_kind": "game"
   },
   {
-    "title": "Pokémon SoulSilver Version (US)",
+    "title": "Pok\u00e9mon SoulSilver Version (US)",
     "image": "images/uploads/upload-0188.jpg",
     "category": "Nintendo DS",
-    "price": 124.95,
+    "price": 235.95,
     "pricing_source": "user",
     "item_kind": "game"
   }
