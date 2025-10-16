@@ -1133,7 +1133,7 @@ const GSE = (() => {
     chat.innerHTML = `
       <div class="chat-header"><span>Live chat</span><button id="chat-close">×</button></div>
       <div class="chat-messages">
-        <div class="chat-message bot">Hallo! Hoe kunnen we je helpen? Je kunt hier een vraag stellen of mail ons op gameshopenter@gmail.com voor een persoonlijk antwoord.</div>
+        <div class="chat-message bot">Hallo! Hoe kunnen we je helpen? Je kunt hier een vraag stellen of mail ons op <a href="mailto:gameshopenter@gmail.com">gameshopenter@gmail.com</a> voor een persoonlijk antwoord.</div>
       </div>
       <form class="chat-input">
         <input type="text" id="chatInput" placeholder="Typ je bericht..." autocomplete="off" />
@@ -1159,17 +1159,17 @@ const GSE = (() => {
         let reply;
         const lower = text.toLowerCase();
         if (/prijs|kosten|verzend/.test(lower)) {
-          reply = 'Alle prijzen zijn inclusief btw. Verzending kost €4 en is gratis vanaf €50 binnen Nederland.';
+          reply = 'Alle prijzen zijn inclusief btw. Verzending kost €4 en is gratis vanaf €50.';
         } else if (/voorraad|beschikbaar/.test(lower)) {
-          reply = 'De beschikbaarheid staat vermeld bij elk product. Mis je iets? Laat het ons weten!';
+          reply = 'De beschikbaarheid staat vermeld bij elk product. Heb je iets speciaals nodig? Laat het ons weten!';
         } else if (/retour|garantie/.test(lower)) {
-          reply = 'Je kunt binnen 14 dagen retourneren. Alle producten zijn uitgebreid getest en worden met zorg verpakt.';
+          reply = 'Je kunt binnen 14 dagen retourneren. Alle producten zijn zorgvuldig getest.';
         } else if (/hallo|hoi|hey/.test(lower)) {
           reply = 'Hallo! Hoe kunnen we je verder helpen?';
-        } else if (/contact|email|mail/.test(lower)) {
-          reply = 'Je kunt ons bereiken via e‑mail: gameshopenter@gmail.com. We reageren meestal binnen één werkdag.';
+        } else if (/mail|email|contact/.test(lower)) {
+          reply = 'Je kunt ons altijd mailen op <a href="mailto:gameshopenter@gmail.com">gameshopenter@gmail.com</a>; we reageren binnen één werkdag.';
         } else {
-          reply = 'Bedankt voor je bericht! Voor een persoonlijk antwoord kun je een e‑mail sturen naar gameshopenter@gmail.com; we reageren binnen één werkdag.';
+          reply = 'Bedankt voor je bericht! Voor een persoonlijk antwoord kun je een e‑mail sturen naar <a href="mailto:gameshopenter@gmail.com">gameshopenter@gmail.com</a>; we reageren binnen één werkdag.';
         }
         appendChatMessage(reply, 'bot');
       }, 800);
