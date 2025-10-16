@@ -93,9 +93,8 @@ img {
 }
 
 .logo {
-  /* Vergroot het logo in de navigatiebalk voor betere zichtbaarheid */
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
 }
 
 .nav-links {
@@ -190,49 +189,6 @@ body.dark-mode .dark-toggle {
   height: auto;
   /* Inverteer de kleuren van het logo zodat hij helder oogt op de donkere achtergrond */
   filter: invert(100%);
-}
-
-/* =========================================================
-   Welkom hero – introductiesectie op de homepage
-
-   Deze sectie verwelkomt bezoekers met een duidelijke
-   titel, een korte beschrijving en een opvallende knop
-   om het assortiment te bekijken. De sectie staat onder
-   de navigatiebalk voor een warme binnenkomst.
-========================================================= */
-.welcome-hero {
-  padding: 4rem 0;
-  text-align: center;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
-}
-.welcome-hero h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-}
-.welcome-hero p {
-  font-size: 1.125rem;
-  margin-bottom: 2rem;
-  color: var(--color-muted);
-}
-.welcome-hero .btn {
-  /* Gebruik bestaande btn-stijlen met een lichte accentkleur voor de hero */
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-.welcome-hero .btn:hover {
-  background-color: var(--color-secondary);
-  border-color: var(--color-secondary);
-  color: #fff;
 }
 
 .hero .overlay {
@@ -867,41 +823,6 @@ body.dark-mode a {
   background-color: #0b5ed7;
 }
 
-/*
- * Beschrijving en infoknop voor elke productkaart
- * De infoknop toont een verborgen beschrijving onderaan de kaart wanneer
- * erop wordt geklikt. De beschrijving heeft een subtiele achtergrond
- * en is standaard verborgen.
- */
-.shop-card .btn-desc {
-  flex: 1;
-  text-align: center;
-  border: 1px solid #0d6efd;
-  color: #0d6efd;
-  padding: 0.5rem 0;
-  font-size: 0.85rem;
-  border-radius: 4px;
-  background: transparent;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.shop-card .btn-desc:hover {
-  background-color: #0d6efd;
-  color: #ffffff;
-}
-
-/* Beschrijvingstekst binnen productkaarten */
-.shop-card .description-section {
-  display: none;
-  padding: 1rem;
-  border-top: 1px solid #e5e5e5;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  color: #555;
-  background-color: #fafafa;
-}
-
 /* Waarom GameShop Enter sectie */
 .why-us {
   padding: 3rem 0;
@@ -1310,14 +1231,7 @@ body.dark-mode a {
 .categories-page .category-card img {
   width: 100%;
   height: 180px;
-  /* Toon de gehele afbeelding zonder af te snijden */
-  object-fit: contain;
-  /* Plaats de afbeelding op een witte achtergrond zodat consolefoto's beter uitkomen */
-  background-color: #fff;
-  /* Geef de afbeelding wat binnenruimte zodat hij niet tegen de kaartrand plakt */
-  padding: 0.5rem;
-  /* Verhoog de helderheid iets zodat donkere achtergronden minder dominant zijn */
-  filter: brightness(1.2);
+  object-fit: cover;
 }
 
 .categories-page .category-card span {
@@ -1538,6 +1452,8 @@ body.dark-mode a {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.5rem;
+  /* Center the recommended product cards and allow them to wrap nicely */
+  justify-content: center;
 }
 
 /* ================= Marquee section ======================== */
@@ -1686,14 +1602,6 @@ body.dark-mode a {
   max-width: 200px;
   position: relative;
   display: block;
-  /* Geef de categoriekaarten een witte achtergrond met een subtiele rand
-     voor een schone uitstraling. Het overschrijft de standaard
-     achtergrondkleur zodat de afbeeldingen op een neutrale ondergrond
-     worden getoond. */
-  background-color: #ffffff;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 .home-page .category-card span {
@@ -1733,7 +1641,8 @@ body.dark-mode a {
 }
 
 .product-marquee h2 {
-  font-size: 1.5rem;
+  /* Enlarge the title for the top picks section to draw more attention */
+  font-size: 1.8rem;
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -1751,7 +1660,8 @@ body.dark-mode a {
 }
 
 .marquee-item img {
-  height: 120px;
+  /* Increase the image height for top picks to make them stand out */
+  height: 180px;
   width: auto;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -2434,28 +2344,6 @@ body.dark-mode a {
   display: none;
 }
 
-/* =========================================================
-   Extra ontwerp voor de homepagina met linksuitgelijnd logo
-
-   De klasse `hero-left` wordt toegevoegd aan de hero‑sectie op
-   de homepage. Hiermee positioneren we het logo linksboven en
-   vergroten we het formaat voor een rustig, minimalistisch
-   ontwerp.  De call‑to‑action is in de HTML verwijderd.
-========================================================= */
-/* Containerelement uitlijnen naar links en boven */
-.hero-left .hero-container {
-  align-items: flex-start;
-  text-align: left;
-}
-/* Verhoog de logo‑afmeting en verwijder extra marge */
-.hero-left .hero-logo-large {
-  /* Maak het logo groter voor een sterkere aanwezigheid */
-  width: 300px;
-  max-width: none;
-  margin-left: 0;
-  margin-bottom: 1rem;
-}
-
 /* Hide tagline and CTA within the simplified hero if present */
 .simple-hero .hero-tagline,
 .simple-hero .hero-cta,
@@ -2672,4 +2560,31 @@ body.dark-mode a {
  */
 .product-detail-wrapper[class*="cat-"] {
   background-color: #ffffff !important;
+}
+
+/* =============================================================
+   Product description accordion
+   A collapsible section for showing extended product information on
+   product pages. The summary acts as a clickable header.
+============================================================= */
+details.product-description {
+  margin: 1rem 0;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  background-color: #fafafa;
+}
+
+details.product-description summary {
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  list-style: none;
+}
+
+details.product-description p.description {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
 }

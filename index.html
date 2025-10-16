@@ -51,15 +51,22 @@
 
   <!-- Welkomstsectie -->
   <main class="home-page">
-    <!-- Welkom hero: verwelkomt bezoekers met een korte introductie en knop naar het assortiment -->
-    <section class="welcome-hero">
-      <div class="container welcome-container">
-        <h1>Welkom bij GameShop Enter</h1>
-        <p>Ontdek onze collectie tweedehands consoles, games en trading cards.</p>
-        <a href="products.html" class="btn">Bekijk assortiment</a>
+    <!-- Hero-sectie vereenvoudigd: toon alleen logo en merknaam op een witte achtergrond -->
+    <section class="hero-block simple-hero">
+      <div class="container hero-container">
+        <img src="images/logo.png" alt="GameShop Enter logo" class="hero-logo-large">
+        <!-- Call-to-action button added to guide visitors directly to the product catalogue -->
+        <a href="products.html" class="hero-cta-btn">Bekijk assortiment</a>
       </div>
     </section>
-    <!-- De hero‑sectie is verwijderd voor een strakke homepage zonder dubbele logo's -->
+
+    <!-- Top picks section moved up for greater prominence -->
+    <section class="product-marquee">
+      <div class="container">
+        <h2>Onze topkeuzes</h2>
+        <div id="marquee-track" class="marquee-track"></div>
+      </div>
+    </section>
 
     <!-- Categorieënoverzicht op de homepage zodat bezoekers snel kunnen navigeren -->
     <section class="home-categories categories-page">
@@ -149,14 +156,6 @@
             <p>Gemiddelde beoordeling van 4,8★ uit meer dan 1.200 ervaringen.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Horizontale productslider: toont een selectie van producten die van rechts naar links bewegen. Klikken navigeert naar het product. -->
-    <section class="product-marquee">
-      <div class="container">
-        <h2>Onze topkeuzes</h2>
-        <div id="marquee-track" class="marquee-track"></div>
       </div>
     </section>
 
