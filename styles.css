@@ -2438,6 +2438,45 @@ body.dark-mode a {
   filter: brightness(1.10) saturate(1.0);
 }
 
+/*
+ * Nav branding: hide the textual brand name in the header so that
+ * only the logo icon is shown. This avoids duplication when the
+ * brand name appears elsewhere (e.g. in the hero section).
+ */
+.navbar .brand-text {
+  display: none;
+}
+
+/* Variants list styling on product detail page */
+.variants {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+}
+.variants h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.variant-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.variant-list li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+.variant-list li a {
+  color: #0f7a2a;
+  text-decoration: underline;
+}
+.variant-list li a:hover {
+  text-decoration: none;
+}
+
 /* ===========================================
    Product detail backgrounds override
    -------------------------------------------
@@ -2474,4 +2513,14 @@ body.dark-mode a {
 .inkoop-trust p {
   margin: 0;
   font-size: 0.9rem;
+}
+
+/*
+ * Uniforme achtergrond voor productdetailpagina's
+ * Voor een rustige en vertrouwde uitstraling worden alle categorie-specifieke
+ * pastelkleuren overschreven. Ongeacht de categorie krijgen productdetail
+ * wrappers een witte achtergrondkleur.
+ */
+.product-detail-wrapper[class*="cat-"] {
+  background-color: #ffffff !important;
 }

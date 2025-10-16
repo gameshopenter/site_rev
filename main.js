@@ -612,6 +612,36 @@ const GSE = (() => {
         <div class="badge-item"><span class="badge-icon">💯</span><span>100% geld terug garantie</span></div>
         <div class="badge-item"><span class="badge-icon">📦</span><span>Gratis verzending vanaf €100</span></div>
       </div>`;
+      // Varianten tonen: zoek naar andere varianten van dit product (bijv. Loose vs Met doos)
+      (function() {
+        try {
+          const baseTitle = item.title.replace(/\s*\(.*?\)\s*$/, '').trim();
+          // Filter items met hetzelfde basistitel (na verwijderen van haakjes)
+          const variants = (items || []).filter(v => {
+            const vBase = v.title.replace(/\s*\(.*?\)\s*$/, '').trim();
+            return slugify(vBase) === slugify(baseTitle);
+          });
+          if (variants.length > 1) {
+            detailHtml += '<div class="variants"><h4>Beschikbare varianten</h4><ul class="variant-list">';
+            variants.forEach(v => {
+              const vSlug = slugify(v.title);
+              const rawP = Number(v.price) || 0;
+              const vPrice = Math.floor(rawP) + 0.95;
+              let varName = 'Met doos';
+              if (/\(\s*Loose\s*\)/i.test(v.title) || /\bLoose\b/i.test(v.title)) {
+                varName = 'Losse cartridge';
+              } else if (/Not\s*For\s*Resale/i.test(v.title)) {
+                varName = 'Not For Resale';
+              }
+              detailHtml += `<li><a href="product.html?slug=${encodeURIComponent(vSlug)}">${varName} – € ${vPrice.toFixed(2)}</a></li>`;
+            });
+            detailHtml += '</ul></div>';
+          }
+        } catch (e) {
+          console.error('Variant detection failed', e);
+        }
+      })();
+
       detailHtml += '<button id="add-to-cart-detail" class="btn btn-primary">In winkelwagen</button>';
     }
     detailHtml += '</div>';
@@ -1404,19 +1434,9 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (e) {
     // ignore errors during home marquee setup
   }
-  // Contactformulier handler
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    const statusEl = document.getElementById('contactStatus');
-    contactForm.addEventListener('submit', e => {
-      e.preventDefault();
-      // Simuleer het versturen van het formulier
-      if (statusEl) {
-        statusEl.textContent = 'Bedankt! We nemen zo snel mogelijk contact met je op.';
-      }
-      contactForm.reset();
-    });
-  }
+  // Contactformulier handler verwijderd
+  // Het contactformulier gebruikt nu een mailto-action in contact.html. Wanneer de gebruiker het formulier verstuurt,
+  // opent het standaard e‑mailprogramma om het bericht naar gameshopenter@gmail.com te sturen.
 });
 
 // ===================

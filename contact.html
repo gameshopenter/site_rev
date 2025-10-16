@@ -55,7 +55,8 @@
         </ul>
       </div>
       <div class="contact-form">
-        <form id="contactForm">
+        <!-- Contactformulier: verstuurt e‑mail via mailto naar GameShop Enter -->
+        <form id="contactForm" action="mailto:gameshopenter@gmail.com?subject=Contact%20via%20GameShop%20Enter" method="POST" enctype="text/plain">
           <label for="name">Naam*</label>
           <input type="text" id="name" name="name" required placeholder="Jouw naam">
           <label for="email">E‑mail*</label>
@@ -64,7 +65,8 @@
           <textarea id="message" name="message" rows="5" required placeholder="Waar kunnen we je mee helpen?"></textarea>
           <button type="submit" class="btn">Verstuur bericht</button>
         </form>
-        <p id="contactStatus" class="status-message" aria-live="polite"></p>
+        <!-- Bij het gebruik van mailto kan het standaard e‑mailprogramma worden geopend. -->
+        <!-- We tonen hier geen statusbericht omdat de e‑mail via de mailclient wordt verstuurd. -->
       </div>
     </div>
   </main>
@@ -95,25 +97,6 @@
     <p class="copyright">© 2025 GameShop Enter – Alle rechten voorbehouden.</p>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (!window.GSE) return;
-      GSE.updateCartCount && GSE.updateCartCount();
-      // Initialise chat but remove loyalty and live purchase popups for a distraction-free page
-      // Chatwidget init verwijderd voor een rustige pagina
-      // Contactformulier handler
-      const form = document.getElementById('contactForm');
-      const statusEl = document.getElementById('contactStatus');
-      if (form) {
-        form.addEventListener('submit', e => {
-          e.preventDefault();
-          if (statusEl) {
-            statusEl.textContent = 'Bedankt! We nemen zo snel mogelijk contact met je op.';
-          }
-          form.reset();
-        });
-      }
-    });
-  </script>
+  <!-- Geen pagina-specifieke script nodig omdat mailto rechtstreeks via de browser wordt afgehandeld -->
 </body>
 </html>

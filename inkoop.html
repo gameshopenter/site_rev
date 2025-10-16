@@ -114,7 +114,8 @@
     <section class="sell-form-section animate-fade-up animate-delay-4">
       <h3>Aanbiedingsformulier</h3>
       <p>Vul onderstaand formulier in om je producten aan te bieden. We zullen je binnen één werkdag een voorstel sturen.</p>
-      <form id="sellForm" class="sell-form">
+      <!-- Wanneer je het formulier verzendt, opent je e‑mailprogramma een nieuw bericht aan GameShop Enter. -->
+      <form id="sellForm" class="sell-form" action="mailto:gameshopenter@gmail.com?subject=Inkoop%20aanvraag" method="POST" enctype="multipart/form-data">
         <label for="seller-name">Naam*</label>
         <input type="text" id="seller-name" name="name" required placeholder="Jouw naam">
         <label for="seller-email">E‑mail*</label>
@@ -123,6 +124,8 @@
         <input type="tel" id="seller-phone" name="phone" placeholder="06‑12345678">
         <label for="seller-items">Welke games/consoles wil je verkopen?*</label>
         <textarea id="seller-items" name="items" rows="5" required placeholder="Beschrijf de producten en hun staat"></textarea>
+        <label for="seller-photos">Voeg foto’s toe (optioneel)</label>
+        <input type="file" id="seller-photos" name="photos[]" accept="image/*" multiple>
         <button type="submit" class="btn">Verstuur aanbod</button>
       </form>
       <p id="sellStatus" class="status-message" aria-live="polite"></p>
@@ -161,18 +164,9 @@
       GSE.updateCartCount && GSE.updateCartCount();
       // Initialize interactive features (keep chat only, remove loyalty and live purchase popups)
       // Chatwidget init verwijderd voor een rustige pagina
-      // Verstuur inkoopformulier (simulatie)
-      const sellForm = document.getElementById('sellForm');
-      const sellStatus = document.getElementById('sellStatus');
-      if (sellForm) {
-        sellForm.addEventListener('submit', e => {
-          e.preventDefault();
-          if (sellStatus) {
-            sellStatus.textContent = 'Bedankt voor je aanbod! We nemen binnen één werkdag contact met je op.';
-          }
-          sellForm.reset();
-        });
-      }
+      // Verstuur inkoopformulier
+      // Het formulier wordt via Netlify Forms verstuurd. Een bevestiging wordt na
+      // verzenden door Netlify verzorgd. Er is geen custom submit‑handler nodig.
     });
   </script>
 </body>
