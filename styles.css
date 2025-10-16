@@ -1596,8 +1596,9 @@ body.dark-mode a {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.55);
-  color: #ffffff;
+  /* Gebruik een lichte overlay met donkere tekst voor betere leesbaarheid */
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #222222;
   padding: 0.6rem 0.5rem;
   font-size: 1rem;
   font-weight: 600;
