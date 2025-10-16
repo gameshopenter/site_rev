@@ -405,10 +405,10 @@ const GSE = (() => {
         // Afbeelding tonen tenzij het een Marktplaats item is
         // De Marktplaats‑categorie is verwijderd; toon alle geüploade items als normale producten
         const isMarktplaats = false;
-        // Show a simple placeholder instead of a real product image on the listing page.
-        // The actual image will be shown on the product detail page once clicked.
-        const imgTag = isMarktplaats ? '' : `<div class="image-placeholder">Bekijk foto</div>`;
-        const dataImage = isMarktplaats ? '' : fixImage(it.image);
+        // Toon een miniatuurafbeelding op de overzichtspagina.  Gebruik
+        // object-fit: contain in CSS om de afbeelding netjes te tonen op een witte achtergrond.
+        const dataImage = fixImage(it.image);
+        const imgTag = isMarktplaats ? '' : `<img class="shop-thumb" src="${dataImage}" alt="${displayTitle}">`;
         // Conditie label
         const conditionLabel = (it.condition && it.condition.toLowerCase() === 'new') ? 'Nieuw' : 'Gebruikt';
         const badgeClass = (conditionLabel === 'Nieuw') ? 'new' : 'used';

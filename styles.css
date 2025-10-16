@@ -213,40 +213,87 @@ body.dark-mode .dark-toggle {
    om het assortiment te bekijken. De sectie staat onder
    de navigatiebalk voor een warme binnenkomst.
 ========================================================= */
+/*
+ * Welkom-hero
+ *
+ * Deze sectie verwelkomt bezoekers met een opvallende achtergrondanimatie
+ * geïnspireerd op de kleuren van het GameShop‑Enter‑logo. De swirl-achtergrond
+ * draait langzaam dankzij een CSS‑animatie. Een lichte overlay zorgt voor
+ * voldoende contrast zodat de tekst altijd goed leesbaar blijft.
+ */
 .welcome-hero {
-  padding: 4rem 0;
-  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+  margin-bottom: 4rem;
   text-align: center;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
+  color: #ffffff;
 }
+
+/* Draaiende swirl-achtergrond op basis van een statisch beeld. Het beeld
+   bevindt zich in ./images/hero_bg.png en is gemaakt in de kleuren
+   groen/blauw van het logo. Door de animatie lijkt de achtergrond te leven. */
+.welcome-hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url('images/hero_bg.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px) brightness(0.8);
+  opacity: 0.7;
+  animation: swirlRotate 45s linear infinite;
+  z-index: -2;
+}
+/* Transparante overlay om tekstleesbaarheid te verhogen */
+.welcome-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  z-index: -1;
+}
+
 .welcome-hero h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
 }
 .welcome-hero p {
-  font-size: 1.125rem;
-  margin-bottom: 2rem;
-  color: var(--color-muted);
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  color: rgba(255,255,255,0.9);
 }
+/* Heldere actieknop in de kleuren van het logo */
 .welcome-hero .btn {
-  /* Gebruik bestaande btn-stijlen met een lichte accentkleur voor de hero */
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+  color: #ffffff;
+  padding: 0.75rem 2rem;
   font-size: 1rem;
+  border: none;
   border-radius: 8px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .welcome-hero .btn:hover {
-  background-color: var(--color-secondary);
-  border-color: var(--color-secondary);
-  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Animatie voor de swirl-achtergrond */
+@keyframes swirlRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* =========================================================
@@ -761,12 +808,14 @@ body.dark-mode a {
 }
 
 /* Afbeelding bovenaan */
+/* Productafbeelding in een kaart */
 .shop-card img.shop-thumb {
   width: 100%;
-  /* Vergroot de afbeeldingshoogte voor een prominentere presentatie */
   height: 240px;
-  object-fit: cover;
-  background-color: #f8f8f8;
+  object-fit: contain;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 /* Plaatshouder voor productafbeeldingen op de overzichtspagina. De echte afbeelding wordt pas getoond op de detailpagina. */
@@ -1731,6 +1780,8 @@ body.dark-mode a {
   object-fit: contain;
   background-color: #ffffff;
   padding: 0.75rem;
+  /* Zorg ervoor dat de afbeeldingen lichter en levendiger lijken */
+  filter: brightness(1.1) saturate(1.1);
 }
 
 /* Ensure category cards in the home-page horizontal slider have a fixed width */
@@ -1747,6 +1798,7 @@ body.dark-mode a {
   border: 1px solid #e5e5e5;
   border-radius: 8px;
   overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .home-page .category-card span {
@@ -1759,10 +1811,12 @@ body.dark-mode a {
   background-color: rgba(255, 255, 255, 0.9);
   color: #222222;
   padding: 0.6rem 0.5rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.02rem;
-  backdrop-filter: blur(4px);
+}
+
+/* Geef de categoriekaarten een mooie hover-animatie: lichte verhoging en schaduw */
+.home-page .category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Toon aanbevolen producten en de marquee-sectie op de homepage voor een rijkere winkelervaring */
