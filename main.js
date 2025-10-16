@@ -656,7 +656,7 @@ const GSE = (() => {
         <ul>
           <li><strong>Wanneer wordt mijn bestelling verzonden?</strong> Bestel je voor 23:59, dan verzenden wij je game de volgende werkdag.</li>
           <li><strong>Zijn de producten origineel?</strong> Ja, wij verkopen uitsluitend originele Nintendo‑producten die grondig getest zijn.</li>
-          <li><strong>Wat is de staat van het product?</strong> Al onze games zijn gebruikt maar zorgvuldig gereinigd. De staat kan licht variëren.</li>
+          <li><strong>Wat is de staat van het product?</strong> Al onze games en consoles zijn gebruikt maar door ons getest op functionaliteit en authenticiteit. De staat kan variëren.</li>
           <li><strong>Kan ik retourneren?</strong> Je hebt 14 dagen bedenktijd en kunt zonder opgaaf van reden retourneren.</li>
         </ul>
       `;

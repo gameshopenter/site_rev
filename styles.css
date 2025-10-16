@@ -2437,3 +2437,41 @@ body.dark-mode a {
 .home-page .category-card:hover img {
   filter: brightness(1.10) saturate(1.0);
 }
+
+/* ===========================================
+   Product detail backgrounds override
+   -------------------------------------------
+   Themed backgrounds for product details were
+   replaced with a unified neutral color to
+   ensure a consistent look across all pages.
+*/
+.product-detail-wrapper[class^="cat-"] {
+  background-color: #ffffff !important;
+}
+
+/* Trust section for inkoop page */
+.inkoop-trust {
+  margin-top: 2rem;
+  text-align: center;
+}
+.inkoop-trust .trust-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.inkoop-trust .trust-item {
+  max-width: 250px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.inkoop-trust .trust-icon {
+  font-size: 1.75rem;
+}
+.inkoop-trust p {
+  margin: 0;
+  font-size: 0.9rem;
+}
