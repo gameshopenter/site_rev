@@ -51,22 +51,15 @@
 
   <!-- Welkomstsectie -->
   <main class="home-page">
-    <!-- Hero-sectie vereenvoudigd: toon alleen logo en merknaam op een witte achtergrond -->
-    <section class="hero-block simple-hero">
-      <div class="container hero-container">
-        <img src="images/logo.png" alt="GameShop Enter logo" class="hero-logo-large">
-        <!-- Call-to-action button added to guide visitors directly to the product catalogue -->
-        <a href="products.html" class="hero-cta-btn">Bekijk assortiment</a>
+    <!-- Welkom hero: verwelkomt bezoekers met een korte introductie en knop naar het assortiment -->
+    <section class="welcome-hero">
+      <div class="container welcome-container">
+        <h1>Welkom bij GameShop Enter</h1>
+        <p>Ontdek onze collectie tweedehands consoles, games en trading cards.</p>
+        <a href="products.html" class="btn">Bekijk assortiment</a>
       </div>
     </section>
-
-    <!-- Top picks section moved up for greater prominence -->
-    <section class="product-marquee">
-      <div class="container">
-        <h2>Onze topkeuzes</h2>
-        <div id="marquee-track" class="marquee-track"></div>
-      </div>
-    </section>
+    <!-- De hero‑sectie is verwijderd voor een strakke homepage zonder dubbele logo's -->
 
     <!-- Categorieënoverzicht op de homepage zodat bezoekers snel kunnen navigeren -->
     <section class="home-categories categories-page">
@@ -135,7 +128,7 @@
     </section>
 
     <!-- Voordelen sectie: benadrukt waarom klanten voor GameShop Enter kiezen -->
-    <section class="home-benefits">
+    <section class="home-benefits scroll-fade">
       <div class="container">
         <h2>Waarom kiezen voor GameShop Enter?</h2>
         <div class="icons-row">
@@ -159,8 +152,16 @@
       </div>
     </section>
 
+    <!-- Horizontale productslider: toont een selectie van producten die van rechts naar links bewegen. Klikken navigeert naar het product. -->
+    <section class="product-marquee scroll-fade">
+      <div class="container">
+        <h2>Onze topkeuzes</h2>
+        <div id="marquee-track" class="marquee-track"></div>
+      </div>
+    </section>
+
     <!-- Aanbevolen producten sectie: toont een selectie van producten -->
-    <section class="recommended">
+    <section class="recommended scroll-fade">
       <div class="container">
         <h2>Aanbevolen voor jou</h2>
         <div id="recommendedGrid" class="recommended-grid"></div>
