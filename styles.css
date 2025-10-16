@@ -215,6 +215,7 @@ body.dark-mode .dark-toggle {
 ========================================================= */
 .welcome-hero {
   padding: 4rem 0;
+  margin-bottom: 3rem;
   text-align: center;
   background-color: #ffffff;
   border-bottom: 1px solid #e5e5e5;
@@ -766,6 +767,19 @@ body.dark-mode a {
   height: 240px;
   object-fit: cover;
   background-color: #f8f8f8;
+}
+
+/* Plaatshouder voor productafbeeldingen op de overzichtspagina. De echte afbeelding wordt pas getoond op de detailpagina. */
+.shop-card .image-placeholder {
+  width: 100%;
+  height: 240px;
+  background-color: #f4f6f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 0.8rem;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 /* Informatieblok */

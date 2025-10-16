@@ -168,6 +168,46 @@ const DISCOUNTS = {
   'xenoblade-chronicles-2-torna-the-golden-country-complete': 0.20
 };
 
+/**
+ * Genereer een unieke productbeschrijving op basis van de titel en categorie.
+ * De beschrijving gebruikt enkele sleutelwoorden om sfeer en nostalgie
+ * op te roepen, passend bij de verschillende Nintendo‑generaties. Voor
+ * generieke producten wordt een standaardtekst teruggegeven.
+ *
+ * @param {string} title
+ * @param {string} category
+ * @returns {string}
+ */
+function generateDescription(title, category) {
+  const lowerCat = (category || '').toLowerCase();
+  // Beschrijving voor Nintendo Switch producten
+  if (lowerCat.includes('switch')) {
+    return `Beleef de magie van de moderne <strong>Nintendo Switch</strong> met <em>${title}</em>. Deze hybride console biedt zowel handheld‑plezier als docked gamen op het grote scherm. Alle games zijn zorgvuldig getest en klaar voor eindeloos speelplezier.`;
+  }
+  // Beschrijving voor Nintendo DS en 3DS games
+  if (lowerCat.includes('3ds') || lowerCat.includes('ds')) {
+    return `Herbeleef je favoriete avonturen op de <strong>${category}</strong> met <em>${title}</em>. Geniet van dubbele schermen en een ruime bibliotheek aan klassieke Nintendo‑titels. Dit tweedehands exemplaar is gecontroleerd op authenticiteit en wordt netjes verpakt verzonden.`;
+  }
+  // Beschrijving voor Game Boy Advance (GBA) games
+  if (lowerCat.includes('game boy advance') || lowerCat.includes('gba')) {
+    return `Stap terug in de tijd met <em>${title}</em> voor de <strong>Game Boy Advance</strong>. Deze retro handheld biedt kleurrijke 32‑bit graphics en onvergetelijke titels. Ons exemplaar is getest en klaar voor nostalgische speelsessies.`;
+  }
+  // Beschrijving voor Game Boy en Game Boy Color games
+  if (lowerCat.includes('game boy') && !lowerCat.includes('advance')) {
+    return `Ervaar de charme van de originele <strong>${category}</strong> met <em>${title}</em>. Perfect voor verzamelaars en liefhebbers van klassieke handheld‑games. Deze cartridge is zorgvuldig nagekeken en wordt goed verpakt verzonden.`;
+  }
+  // Beschrijving voor retro consoles zoals NES, SNES, N64, GameCube, Wii
+  if (lowerCat.includes('n64') || lowerCat.includes('nes') || lowerCat.includes('snes') || lowerCat.includes('gamecube') || lowerCat.includes('wii')) {
+    return `Ervaar een stukje Nintendo‑geschiedenis met <em>${title}</em> voor de <strong>${category}</strong>. Deze console‑klassieker staat garant voor uren plezier en nostalgie. Ons tweedehands exemplaar is technisch in orde en klaar voor een nieuw leven.`;
+  }
+  // Beschrijving voor trading cards
+  if (lowerCat.includes('trading')) {
+    return `Verzamel, ruil en speel met deze officiële Pokémon Trading Card Game producten. <em>${title}</em> is een geweldige aanvulling op je collectie. Alle kaarten zijn gecontroleerd op authenticiteit en worden zorgvuldig verpakt verzonden.`;
+  }
+  // Fallback generieke beschrijving
+  return `Dit exemplaar van <em>${title}</em> is zorgvuldig getest op functionaliteit en authenticiteit. De getoonde afbeelding is een voorbeeld; de werkelijke staat kan licht afwijken. We verzenden elk product stevig verpakt zodat je zorgeloos kunt genieten.`;
+}
+
 const GSE = (() => {
   /**
    * Slugify a string to generate a URL‑friendly identifier.
@@ -365,7 +405,9 @@ const GSE = (() => {
         // Afbeelding tonen tenzij het een Marktplaats item is
         // De Marktplaats‑categorie is verwijderd; toon alle geüploade items als normale producten
         const isMarktplaats = false;
-        const imgTag = isMarktplaats ? '' : `<img src="${fixImage(it.image)}" alt="${it.title}" class="shop-thumb">`;
+        // Show a simple placeholder instead of a real product image on the listing page.
+        // The actual image will be shown on the product detail page once clicked.
+        const imgTag = isMarktplaats ? '' : `<div class="image-placeholder">Bekijk foto</div>`;
         const dataImage = isMarktplaats ? '' : fixImage(it.image);
         // Conditie label
         const conditionLabel = (it.condition && it.condition.toLowerCase() === 'new') ? 'Nieuw' : 'Gebruikt';
@@ -397,7 +439,7 @@ const GSE = (() => {
             <button type="button" class="btn-desc">Omschrijving</button>
           </div>
           <div class="description-section">
-            <p>Alle tweedehands games en consoles worden door ons zorgvuldig getest op functionaliteit en authenticiteit. De getoonde afbeelding dient als voorbeeld; de daadwerkelijke staat kan licht afwijken. We verzenden elk product stevig verpakt; afhalen is niet mogelijk.</p>
+            <p>${generateDescription(displayTitle, it.category)}</p>
           </div>
         `;
         grid.appendChild(card);
@@ -637,9 +679,11 @@ const GSE = (() => {
         detailHtml += `<p><a href="${safeUrl}" target="_blank" rel="noopener" class="btn">Bekijk advertentie</a></p>`;
       }
     } else {
-      // Use generic description for in‑store items
+      // Gebruik een unieke beschrijving op basis van de titel en categorie.  Toon eveneens
+      // een conditielabel voor tweedehands producten.
       detailHtml += '<p class="condition">Gebruikt – voorbeeldfoto</p>';
-      detailHtml += `<p class="description">Dit is een algemene productbeschrijving voor <strong>${displayTitle}</strong>. Alle tweedehands games en consoles worden door ons zorgvuldig getest op functionaliteit en authenticiteit. De getoonde afbeelding dient als voorbeeld; de daadwerkelijke staat kan licht afwijken. We verzenden elk product stevig verpakt; afhalen is niet mogelijk.</p>`;
+      const description = generateDescription(displayTitle, item.category);
+      detailHtml += `<p class="description">${description}</p>`;
       // Trust badges: security, payment, satisfaction guarantee, free shipping
       detailHtml += `<div class="trust-badges">
         <div class="badge-item"><span class="badge-icon">🔒</span><span>Veilige SSL‑betaling</span></div>
