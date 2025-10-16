@@ -76,10 +76,19 @@ export default async (req, context) => {
     return new Response(JSON.stringify({ error: "Empty or invalid cart" }), { status: 400, headers: { "content-type": "application/json" } });
   }
 
+  // Determine shipping cost.  If the client provides a specific shippingCents value use it,
+  // otherwise calculate based on subtotal and quantity (free shipping above the threshold).
   let shipping = 0;
   const threshold = FREE_SHIPPING_THRESHOLD_CENTS;
-  if (subtotal < threshold) {
-    shipping = (country === "BE") ? SHIPPING_BE_CENTS : SHIPPING_NL_CENTS;
+  const clientShipping = parseInt(body.shippingCents || 0, 10);
+  if (!Number.isNaN(clientShipping) && clientShipping >= 0) {
+    shipping = clientShipping;
+  } else {
+    if (subtotal < threshold) {
+      // If subtotal below free‑shipping threshold and client did not provide shipping,
+      // fall back to default country rates.  This preserves backwards compatibility.
+      shipping = (country === "BE") ? SHIPPING_BE_CENTS : SHIPPING_NL_CENTS;
+    }
   }
 
   const total = subtotal + shipping;

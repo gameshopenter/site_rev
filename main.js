@@ -562,7 +562,22 @@ const GSE = (() => {
       : item.title;
     // Build a list of images for the gallery.  If a gallery array is present on the item
     // use that, otherwise fall back to a single‑element array containing the primary image.
-    const imageList = Array.isArray(item.gallery) && item.gallery.length ? item.gallery : [item.image];
+    // Build a list of images for the gallery.  If a gallery array is present on the item use that,
+    // otherwise fall back to a single‑element array containing the primary image.  When a
+    // combined image (front+back) is available it should appear as the first entry in the gallery.
+    let imageList = Array.isArray(item.gallery) && item.gallery.length ? item.gallery.slice() : [item.image];
+    if (item.combined_image) {
+      const combined = item.combined_image;
+      if (!imageList.includes(combined)) {
+        imageList.unshift(combined);
+      } else {
+        const idx = imageList.indexOf(combined);
+        if (idx > 0) {
+          imageList.splice(idx, 1);
+          imageList.unshift(combined);
+        }
+      }
+    }
     // Build wrapper div with category-specific class placeholder. The class will be added later via JS
     let detailHtml = '<div class="product-detail-wrapper">';
     // Render an image gallery: primary image and optional thumbnails.  Users can click
@@ -728,7 +743,10 @@ const GSE = (() => {
   function loadCartPage() {
     updateCartCount();
     const container = document.getElementById('cart-items');
-    const totalEl = document.getElementById('cart-total');
+    // Locate the container for totals.  Depending on the HTML structure this may be
+    // either a span with id cart-total or a div with id cart-total-container.
+    let totalEl = document.getElementById('cart-total');
+    if (!totalEl) totalEl = document.getElementById('cart-total-container');
     const checkoutBtn = document.getElementById('cart-checkout');
     const cart = getCart();
     container.innerHTML = '';
@@ -755,12 +773,21 @@ const GSE = (() => {
       `;
       container.appendChild(row);
     });
-    // Update total
+    // Update total with shipping.  Compute subtotal in cents
     let subtotalCents = cart.items.reduce((sum, it) => sum + it.priceCents * it.qty, 0);
-    // Er wordt geen algemene bundelkorting meer toegepast. Tel enkel de subtotaal op.
-    const totalCents = subtotalCents;
-    const display = `€ ${(totalCents / 100).toFixed(2)}`;
-    totalEl.innerHTML = display;
+    // Determine total quantity of items to calculate shipping bands
+    const totalItems = cart.items.reduce((sum, it) => sum + it.qty, 0);
+    // Calculate shipping based on number of items and free‑shipping threshold (€100)
+    let shippingCents = 0;
+    if (subtotalCents < 10000) {
+      shippingCents = totalItems <= 4 ? 399 : 695;
+    }
+    const totalCents = subtotalCents + shippingCents;
+    // Display subtotal, shipping and total in a tidy format
+    const subtotalDisplay = (subtotalCents / 100).toFixed(2);
+    const shippingDisplay = (shippingCents / 100).toFixed(2);
+    const totalDisplay = (totalCents / 100).toFixed(2);
+    totalEl.innerHTML = `Subtotaal: € ${subtotalDisplay}<br>Verzendkosten: € ${shippingDisplay}<br><strong>Totaal: € ${totalDisplay}</strong>`;
     // Bind quantity buttons
     container.querySelectorAll('.cart-item-controls button').forEach(btn => {
       btn.addEventListener('click', e => {
@@ -814,6 +841,7 @@ const GSE = (() => {
           category: it.category || ''
         })),
         customer
+        , shippingCents
       };
       try {
         const response = await fetch('/api/create-payment', {

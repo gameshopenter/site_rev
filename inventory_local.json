@@ -13,7 +13,8 @@
     "category": "Nintendo 3DS",
     "price": 286.7,
     "pricing_source": "pricecharting",
-    "item_kind": "game"
+    "item_kind": "game",
+    "combined_image": "images/combined/pokemon_omega_ruby.jpg"
   },
   {
     "title": "Pok\u00e9mon Emerald Version (Loose)",
@@ -61,7 +62,8 @@
     "category": "Nintendo 3DS",
     "price": 15.34,
     "pricing_source": "pricecharting",
-    "item_kind": "game"
+    "item_kind": "game",
+    "combined_image": "images/combined/super_pokemon_rumble.jpg"
   },
   {
     "title": "Pok\u00e9mon Y (Loose)",
@@ -269,7 +271,8 @@
     "category": "Nintendo 3DS",
     "price": 38.95,
     "pricing_source": "user",
-    "item_kind": "game"
+    "item_kind": "game",
+    "combined_image": "images/combined/detective_pikachu.jpg"
   },
   {
     "title": "Pok\u00e9mon Moon",
@@ -277,7 +280,8 @@
     "category": "Nintendo 3DS",
     "price": 34.95,
     "pricing_source": "user",
-    "item_kind": "game"
+    "item_kind": "game",
+    "combined_image": "images/combined/pokemon_moon.jpg"
   },
   {
     "title": "Pok\u00e9mon Sun",
@@ -285,7 +289,8 @@
     "category": "Nintendo 3DS",
     "price": 34.95,
     "pricing_source": "user",
-    "item_kind": "game"
+    "item_kind": "game",
+    "combined_image": "images/combined/pokemon_sun.jpg"
   },
   {
     "title": "Pok\u00e9mon X",
@@ -293,7 +298,8 @@
     "category": "Nintendo 3DS",
     "price": 58.95,
     "pricing_source": "user",
-    "item_kind": "game"
+    "item_kind": "game",
+    "combined_image": "images/combined/pokemon_x.jpg"
   },
   {
     "title": "Pok\u00e9mon Ultra Moon",
@@ -301,7 +307,8 @@
     "category": "Nintendo 3DS",
     "price": 59.95,
     "pricing_source": "user",
-    "item_kind": "game"
+    "item_kind": "game",
+    "combined_image": "images/combined/pokemon_ultra_moon.jpg"
   },
   {
     "title": "Pok\u00e9mon Alpha Sapphire",
