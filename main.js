@@ -607,8 +607,9 @@ const GSE = (() => {
 
     // Display shipping and return information to reduce purchase hesitation
     if (!isMarktplaatsItem) {
-      // Shipping info inclusief verzendkosten: tot 4 games als brievenbuspakket (€3,99), vanaf 5 games als pakket (€6,95)
-      detailHtml += `<p class="shipping-info"><span class="icon">🚚</span> Verzendkosten: €3,99 (tot 4 games) / €6,95 (5+ games) · Voor 23:59 besteld, morgen verzonden · <span class="icon">↩️</span> 14 dagen gratis retourneren</p>`;
+      // Shipping info including clear mention of return costs: up to 4 games as a brievenbuspakket (€3,99), 5+ games as pakket (€6,95)
+      // We emphasise a 14‑dagen bedenktijd; return shipping costs are borne by the customer
+      detailHtml += `<p class="shipping-info"><span class="icon">🚚</span> Verzendkosten: €3,99 (tot 4 games) / €6,95 (5+ games) · Voor 23:59 besteld, morgen verzonden · <span class="icon">↩️</span> 14 dagen bedenktijd – retourkosten voor eigen rekening</p>`;
     }
 
     if (isMarktplaatsItem) {
@@ -625,7 +626,7 @@ const GSE = (() => {
       // Trust badges: security, payment, satisfaction guarantee, free shipping
       detailHtml += `<div class="trust-badges">
         <div class="badge-item"><span class="badge-icon">🔒</span><span>Veilige SSL‑betaling</span></div>
-        <div class="badge-item"><span class="badge-icon">💯</span><span>100% geld terug garantie</span></div>
+        <div class="badge-item"><span class="badge-icon">⏱️</span><span>14 dagen bedenktijd</span></div>
         <div class="badge-item"><span class="badge-icon">📦</span><span>Gratis verzending vanaf €100</span></div>
       </div>`;
       // Varianten tonen: zoek naar andere varianten van dit product (bijv. Loose vs Met doos)
@@ -1227,11 +1228,13 @@ const GSE = (() => {
         let reply;
         const lower = text.toLowerCase();
         if (/prijs|kosten|verzend/.test(lower)) {
-          reply = 'Alle prijzen zijn inclusief btw. Verzending kost €4 en is gratis vanaf €100.';
+          // Leg verzendkosten duidelijk uit: brievenbuspakket versus pakketpost
+          reply = 'Verzendkosten bedragen €3,99 voor bestellingen tot 4 games en €6,95 voor 5 games of meer. Bestellingen vanaf €100 worden gratis verzonden.';
         } else if (/voorraad|beschikbaar/.test(lower)) {
           reply = 'De beschikbaarheid staat vermeld bij elk product. Heb je iets speciaals nodig? Laat het ons weten!';
         } else if (/retour|garantie/.test(lower)) {
-          reply = 'Je kunt binnen 14 dagen retourneren. Alle producten zijn zorgvuldig getest.';
+          // Retourbeleid: 14 dagen bedenktijd, retourkosten voor eigen rekening
+          reply = 'Je hebt 14 dagen bedenktijd; retourkosten zijn voor eigen rekening. Alle producten worden zorgvuldig getest op functionaliteit en authenticiteit.';
         } else if (/hallo|hoi|hey/.test(lower)) {
           reply = 'Hallo! Hoe kunnen we je verder helpen?';
         } else if (/mail|email|contact/.test(lower)) {
