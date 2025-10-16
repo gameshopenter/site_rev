@@ -373,6 +373,9 @@ const GSE = (() => {
         // Categorie label: verberg de oude Marktplaatscategorie zodat geüploade items netjes worden getoond
         const categoryLabel = (it.category && it.category !== 'Marktplaats') ? `<span class="category">${it.category}</span>` : '';
         // HTML samenstellen
+        // Elke kaart bevat nu ook een beschrijvingsknop (btn-desc) en een verborgen
+        // beschrijvingssectie die verschijnt na een klik op de knop.  De
+        // beschrijving gebruikt een algemene tekst voor tweedehands producten.
         card.innerHTML = `
           <a href="product.html?slug=${encodeURIComponent(slug)}" class="product-thumb-link">
             ${imgTag}
@@ -391,9 +394,23 @@ const GSE = (() => {
           <div class="actions">
             <a href="product.html?slug=${encodeURIComponent(slug)}" class="btn-view">Bekijk product</a>
             <button class="btn-cart" data-slug="${slug}" data-title="${displayTitle}" data-price="${finalPrice}" data-image="${dataImage}" data-category="${it.category || ''}">🛒</button>
+            <button type="button" class="btn-desc">Omschrijving</button>
+          </div>
+          <div class="description-section">
+            <p>Alle tweedehands games en consoles worden door ons zorgvuldig getest op functionaliteit en authenticiteit. De getoonde afbeelding dient als voorbeeld; de daadwerkelijke staat kan licht afwijken. We verzenden elk product stevig verpakt; afhalen is niet mogelijk.</p>
           </div>
         `;
         grid.appendChild(card);
+        // Bind description toggle for this card.  When de 'Omschrijving' knop wordt aangeklikt,
+        // wordt de beschrijvingssectie zichtbaar of verborgen.
+        const descBtnEl = card.querySelector('.btn-desc');
+        const descSectionEl = card.querySelector('.description-section');
+        if (descBtnEl && descSectionEl) {
+          descBtnEl.addEventListener('click', () => {
+            const isVisible = descSectionEl.style.display === 'block';
+            descSectionEl.style.display = isVisible ? 'none' : 'block';
+          });
+        }
       }
       // Bind add to cart buttons voor de dynamisch gegenereerde kaarten
       grid.querySelectorAll('.btn-cart').forEach(btn => {
@@ -1386,12 +1403,25 @@ const GSE = (() => {
         <div class="actions">
           <a href="product.html?slug=${encodeURIComponent(slug)}" class="btn-view">Bekijk</a>
           <button class="btn-cart" data-slug="${slug}" data-title="${it.title}" data-price="${price}" data-image="${fixImage(it.image)}" data-category="${it.category || ''}">🛒</button>
+          <button type="button" class="btn-desc">Omschrijving</button>
+        </div>
+        <div class="description-section">
+          <p>Alle tweedehands games en consoles worden door ons zorgvuldig getest op functionaliteit en authenticiteit. De getoonde afbeelding dient als voorbeeld; de daadwerkelijke staat kan licht afwijken. We verzenden elk product stevig verpakt; afhalen is niet mogelijk.</p>
         </div>
       `;
       const btn = card.querySelector('.btn-cart');
       btn.addEventListener('click', () => {
         addToCart({ title: it.title, priceCents: Math.round(price * 100), image: fixImage(it.image), slug, category: it.category || '' });
       });
+      // Bind description toggle for recommended cards
+      const dBtn = card.querySelector('.btn-desc');
+      const descSec = card.querySelector('.description-section');
+      if (dBtn && descSec) {
+        dBtn.addEventListener('click', () => {
+          const isVisible = descSec.style.display === 'block';
+          descSec.style.display = isVisible ? 'none' : 'block';
+        });
+      }
       grid.appendChild(card);
     });
   }

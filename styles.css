@@ -823,6 +823,41 @@ body.dark-mode a {
   background-color: #0b5ed7;
 }
 
+/*
+ * Beschrijving en infoknop voor elke productkaart
+ * De infoknop toont een verborgen beschrijving onderaan de kaart wanneer
+ * erop wordt geklikt. De beschrijving heeft een subtiele achtergrond
+ * en is standaard verborgen.
+ */
+.shop-card .btn-desc {
+  flex: 1;
+  text-align: center;
+  border: 1px solid #0d6efd;
+  color: #0d6efd;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.shop-card .btn-desc:hover {
+  background-color: #0d6efd;
+  color: #ffffff;
+}
+
+/* Beschrijvingstekst binnen productkaarten */
+.shop-card .description-section {
+  display: none;
+  padding: 1rem;
+  border-top: 1px solid #e5e5e5;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #555;
+  background-color: #fafafa;
+}
+
 /* Waarom GameShop Enter sectie */
 .why-us {
   padding: 3rem 0;
@@ -1600,6 +1635,14 @@ body.dark-mode a {
   max-width: 200px;
   position: relative;
   display: block;
+  /* Geef de categoriekaarten een witte achtergrond met een subtiele rand
+     voor een schone uitstraling. Het overschrijft de standaard
+     achtergrondkleur zodat de afbeeldingen op een neutrale ondergrond
+     worden getoond. */
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .home-page .category-card span {
@@ -2338,6 +2381,28 @@ body.dark-mode a {
  */
 .simple-hero .hero-title {
   display: none;
+}
+
+/* =========================================================
+   Extra ontwerp voor de homepagina met linksuitgelijnd logo
+
+   De klasse `hero-left` wordt toegevoegd aan de hero‑sectie op
+   de homepage. Hiermee positioneren we het logo linksboven en
+   vergroten we het formaat voor een rustig, minimalistisch
+   ontwerp.  De call‑to‑action is in de HTML verwijderd.
+========================================================= */
+/* Containerelement uitlijnen naar links en boven */
+.hero-left .hero-container {
+  align-items: flex-start;
+  text-align: left;
+}
+/* Verhoog de logo‑afmeting en verwijder extra marge */
+.hero-left .hero-logo-large {
+  /* Maak het logo groter voor een sterkere aanwezigheid */
+  width: 300px;
+  max-width: none;
+  margin-left: 0;
+  margin-bottom: 1rem;
 }
 
 /* Hide tagline and CTA within the simplified hero if present */
