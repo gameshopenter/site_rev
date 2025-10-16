@@ -592,7 +592,8 @@ const GSE = (() => {
 
     // Display shipping and return information to reduce purchase hesitation
     if (!isMarktplaatsItem) {
-      detailHtml += `<p class="shipping-info"><span class="icon">🚚</span> Voor 23:59 besteld, morgen verzonden · <span class="icon">↩️</span> 14 dagen gratis retourneren</p>`;
+      // Shipping info inclusief verzendkosten: tot 4 games als brievenbuspakket (€3,99), vanaf 5 games als pakket (€6,95)
+      detailHtml += `<p class="shipping-info"><span class="icon">🚚</span> Verzendkosten: €3,99 (tot 4 games) / €6,95 (5+ games) · Voor 23:59 besteld, morgen verzonden · <span class="icon">↩️</span> 14 dagen gratis retourneren</p>`;
     }
 
     if (isMarktplaatsItem) {

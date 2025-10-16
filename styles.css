@@ -2515,6 +2515,39 @@ body.dark-mode a {
   font-size: 0.9rem;
 }
 
+/* ---------------------------------------------------------
+   About page highlights styling
+   Toon bedrijfskenmerken in een overzichtelijk grid. Elke highlight
+   heeft een icoon, titel en korte omschrijving. De styling zorgt
+   voor een rustige en uniforme presentatie.
+--------------------------------------------------------- */
+.about-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.about-highlights .highlight-item {
+  flex: 1 1 250px;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  text-align: center;
+}
+.about-highlights .highlight-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.about-highlights h4 {
+  margin: 0.3rem 0;
+  font-size: 1.1rem;
+}
+.about-highlights p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
 /*
  * Uniforme achtergrond voor productdetailpagina's
  * Voor een rustige en vertrouwde uitstraling worden alle categorie-specifieke
