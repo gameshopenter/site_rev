@@ -2557,33 +2557,3 @@ body.dark-mode a {
 .product-detail-wrapper[class*="cat-"] {
   background-color: #ffffff !important;
 }
-
-/*
- * Centreren van de productdetailpagina
- * Zorg ervoor dat het productdetailgebied niet helemaal links staat maar netjes
- * in het midden van de pagina.  We beperken de maximale breedte zodat de
- * lay‑out op grote schermen niet te breed wordt.  De justify‑content: center
- * zorgt ervoor dat de flexboxinhoud (afbeelding en info) netjes verdeeld wordt.
- */
-.product-detail-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  justify-content: center;
-}
-
-/*
- * Extra witruimte voor de over ons en inkoop pagina's
- * Hierdoor worden paragrafen duidelijk gescheiden en is de tekst prettiger te lezen.
- */
-.about-page p,
-.inkoop-page p {
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-/* Geef secties op de over ons en inkoop pagina extra ruimte
- */
-.about-page section,
-.inkoop-page section {
-  margin-bottom: 2.5rem;
-}
