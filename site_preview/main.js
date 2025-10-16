@@ -609,7 +609,7 @@ const GSE = (() => {
       detailHtml += `<div class="trust-badges">
         <div class="badge-item"><span class="badge-icon">🔒</span><span>Veilige SSL‑betaling</span></div>
         <div class="badge-item"><span class="badge-icon">💯</span><span>100% geld terug garantie</span></div>
-        <div class="badge-item"><span class="badge-icon">📦</span><span>Gratis verzending vanaf €50</span></div>
+        <div class="badge-item"><span class="badge-icon">📦</span><span>Gratis verzending vanaf €100</span></div>
       </div>`;
       detailHtml += '<button id="add-to-cart-detail" class="btn btn-primary">In winkelwagen</button>';
     }
@@ -1159,7 +1159,7 @@ const GSE = (() => {
         let reply;
         const lower = text.toLowerCase();
         if (/prijs|kosten|verzend/.test(lower)) {
-          reply = 'Alle prijzen zijn inclusief btw. Verzending kost €4 en is gratis vanaf €50.';
+          reply = 'Alle prijzen zijn inclusief btw. Verzending kost €4 en is gratis vanaf €100.';
         } else if (/voorraad|beschikbaar/.test(lower)) {
           reply = 'De beschikbaarheid staat vermeld bij elk product. Heb je iets speciaals nodig? Laat het ons weten!';
         } else if (/retour|garantie/.test(lower)) {

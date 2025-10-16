@@ -1596,12 +1596,12 @@ body.dark-mode a {
   bottom: 0;
   left: 0;
   width: 100%;
-  /* Gebruik een lichte overlay met donkere tekst voor betere leesbaarheid */
-  background-color: rgba(255, 255, 255, 0.8);
+  /* Gebruik een lichte overlay met donkere tekst voor betere leesbaarheid.  Een hogere transparantie maakt de tekst nog duidelijker. */
+  background-color: rgba(255, 255, 255, 0.9);
   color: #222222;
   padding: 0.6rem 0.5rem;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 700;
   letter-spacing: 0.02rem;
   backdrop-filter: blur(4px);
 }
@@ -2276,8 +2276,18 @@ body.dark-mode a {
    Simplified hero styling for a professional look
    Only display the logo and brand name on a clean white background
 ============================================================= */
+/*
+ * Simplified hero styling
+ *
+ * The simplified hero uses a solid white background and removes the default
+ * gradient defined on the `.hero-block` class. To accomplish this we
+ * specify the `background` property rather than only `background-color`,
+ * which overrides any previously set gradient. The hero section is
+ * centered and padded similarly to the original hero but kept minimal.
+ */
 .simple-hero {
-  background-color: #ffffff;
+  /* Override gradient from .hero-block */
+  background: #ffffff;
   padding: 3rem 0 2rem;
   border-bottom: 1px solid #e5e5e5;
   text-align: center;
@@ -2290,11 +2300,12 @@ body.dark-mode a {
   animation: none; /* disable floating animation */
 }
 
+/*
+ * Hide the title within the simplified hero. The logo already conveys the
+ * brand name, so the heading is suppressed for a cleaner look.
+ */
 .simple-hero .hero-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111111;
-  margin-bottom: 0;
+  display: none;
 }
 
 /* Hide tagline and CTA within the simplified hero if present */

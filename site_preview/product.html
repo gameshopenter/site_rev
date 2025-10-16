@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | GameShop Enter</title>
+  <title>Productdetail | GameShop Enter</title>
   <link rel="stylesheet" href="styles.css">
   <script defer src="main.js"></script>
-  <!-- Dynamische geüploade items toevoegen -->
+  <!-- Laad dynamische geüploade items zodat productdetails beschikbaar zijn -->
   <script defer src="uploads_inventory.js"></script>
 </head>
 <body>
@@ -15,7 +15,7 @@
     <nav class="navbar container">
       <a href="index.html" class="brand-area">
         <img src="images/logo.png" alt="GameShop Enter logo" class="logo">
-        <span class="brand-text">GameShop&nbsp;Enter</span>
+        <span class="brand-text">GameShop Enter</span>
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -25,54 +25,41 @@
         <li><a href="inkoop.html">Inkoop</a></li>
         <li><a href="about.html">Over ons</a></li>
         <!-- Verzendinformatie pagina is verwijderd; verzendinformatie komt in het afrekenproces -->
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
+      <!-- Zoekformulier voor snelle navigatie naar producten -->
+      <form class="nav-search" action="products.html" method="get">
+        <input type="search" name="q" placeholder="Zoek producten…" aria-label="Zoek producten">
+        <button type="submit">Zoek</button>
+      </form>
       <div class="cart-link">
         <a href="cart.html" title="Winkelwagen"><span class="cart-icon">🛒</span> <span id="cartCount">0</span></a>
       </div>
     </nav>
     <!-- Benefits bar: highlight store advantages -->
     <div class="benefits-bar">
-      <span>Gratis verzending vanaf €50</span>
-      <span>14 dagen retour &amp; 4,8★ klantbeoordeling</span>
+      <span>Gratis verzending vanaf €100</span>
+      <span>14 dagen retour &amp; 4,8★ beoordeling uit meer dan 1.200 ervaringen</span>
       <!-- Duurzaam verpakt & zorgvuldig getest verwijderd -->
     </div>
   </header>
 
-  <!-- Contact inhoud -->
-  <main class="contact-page container">
-    <h2>Contact</h2>
-    <div class="contact-wrapper">
-      <div class="contact-info">
-        <p>Heb je vragen of opmerkingen? Neem gerust contact met ons op. We beantwoorden je bericht doorgaans binnen één werkdag.</p>
-        <ul>
-          <li><strong>Telefoon:</strong> <a href="tel:+31641126067">+31 6 41126067</a></li>
-          <li><strong>Email:</strong> <a href="mailto:gameshopenter@gmail.com">gameshopenter@gmail.com</a></li>
-          <li><strong>KVK:</strong> 936424274</li>
-          <li><strong>Verzending:</strong> We verzenden elke bestelling; afhalen is niet mogelijk.</li>
-        </ul>
+  <main>
+    <div id="product-detail"></div>
+    <!-- Sectie met gerelateerde producten -->
+    <section class="related-section">
+      <div class="container">
+        <h3>Misschien vind je dit ook leuk…</h3>
+        <div id="related-products" class="related-grid"></div>
       </div>
-      <div class="contact-form">
-        <form id="contactForm">
-          <label for="name">Naam*</label>
-          <input type="text" id="name" name="name" required placeholder="Jouw naam">
-          <label for="email">E‑mail*</label>
-          <input type="email" id="email" name="email" required placeholder="jij@example.com">
-          <label for="message">Bericht*</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Waar kunnen we je mee helpen?"></textarea>
-          <button type="submit" class="btn">Verstuur bericht</button>
-        </form>
-        <p id="contactStatus" class="status-message" aria-live="polite"></p>
-      </div>
-    </div>
+    </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-content">
       <div class="footer-column">
         <h4>Over GameShop Enter</h4>
-        <p>Wij zijn gespecialiseerd in originele Nintendo‑consoles en games. Sinds 2019 actief op Marktplaats met een 4,8★ beoordeling uit ruim 1.200 ervaringen.</p>
+        <p>Wij zijn gespecialiseerd in originele Nintendo‑consoles en games. Sinds 2019 actief op Marktplaats met een 4,8★ beoordeling uit meer dan 1.200 ervaringen.</p>
       </div>
       <div class="footer-column">
         <h4>Contact</h4>
@@ -97,20 +84,10 @@
     document.addEventListener('DOMContentLoaded', () => {
       if (!window.GSE) return;
       GSE.updateCartCount && GSE.updateCartCount();
-      // Initialise chat but remove loyalty and live purchase popups for a distraction-free page
+      GSE.loadProductDetail && GSE.loadProductDetail();
+      GSE.renderRelatedProducts && GSE.renderRelatedProducts();
+      // Retain chat widget only; remove loyalty and live purchase popups
       // Chatwidget init verwijderd voor een rustige pagina
-      // Contactformulier handler
-      const form = document.getElementById('contactForm');
-      const statusEl = document.getElementById('contactStatus');
-      if (form) {
-        form.addEventListener('submit', e => {
-          e.preventDefault();
-          if (statusEl) {
-            statusEl.textContent = 'Bedankt! We nemen zo snel mogelijk contact met je op.';
-          }
-          form.reset();
-        });
-      }
     });
   </script>
 </body>
