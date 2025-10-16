@@ -1579,15 +1579,27 @@ body.dark-mode a {
 
 /* On the homepage, enlarge the category cards and adjust grid spacing */
 .home-page .category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  /* Convert home page categories to a horizontally scrollable row inspired by
+     modern gaming stores. This improves usability on mobile and desktop. */
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1rem;
   margin-top: 2rem;
+  padding-bottom: 1rem;
 }
 
 .home-page .category-card img {
   height: 200px;
   object-fit: cover;
+}
+
+/* Ensure category cards in the home-page horizontal slider have a fixed width */
+.home-page .category-card {
+  flex: 0 0 200px;
+  max-width: 200px;
+  position: relative;
+  display: block;
 }
 
 .home-page .category-card span {
@@ -2287,7 +2299,9 @@ body.dark-mode a {
  */
 .simple-hero {
   /* Override gradient from .hero-block */
+  /* Ensure the simplified hero has no gradient. Override both background color and image. */
   background: #ffffff;
+  background-image: none;
   padding: 3rem 0 2rem;
   border-bottom: 1px solid #e5e5e5;
   text-align: center;
@@ -2298,6 +2312,24 @@ body.dark-mode a {
   height: auto;
   margin-bottom: 1rem;
   animation: none; /* disable floating animation */
+}
+
+/* Call to action button inside the simplified hero
+   Provides a clear prompt to visit the product catalogue. */
+.simple-hero .hero-cta-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #0f7a2a;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.simple-hero .hero-cta-btn:hover {
+  background-color: #0c5f20;
 }
 
 /*
@@ -2314,6 +2346,63 @@ body.dark-mode a {
 .simple-hero .btn,
 .simple-hero .btn-primary {
   display: none;
+}
+
+/*
+ * Category‑specific backgrounds for product pages
+ * To evoke the individuality of each console category, we apply a subtle
+ * pastel background colour to the product detail wrapper based on the
+ * category of the product. These classes are added dynamically in
+ * main.js (cat-<slug>) and help customers associate each product with
+ * its platform without overwhelming the content.
+ */
+.product-detail-wrapper.cat-nintendo-3ds {
+  background-color: #e9f5ff;
+}
+.product-detail-wrapper.cat-nintendo-ds {
+  background-color: #fdf0f0;
+}
+.product-detail-wrapper.cat-game-boy-advance {
+  background-color: #e8ffe8;
+}
+.product-detail-wrapper.cat-nintendo-switch {
+  background-color: #fff0f0;
+}
+.product-detail-wrapper.cat-gamecube {
+  background-color: #f0e8ff;
+}
+.product-detail-wrapper.cat-wii {
+  background-color: #f5faff;
+}
+.product-detail-wrapper.cat-snes {
+  background-color: #f8f3f0;
+}
+.product-detail-wrapper.cat-nes {
+  background-color: #f8f8f8;
+}
+.product-detail-wrapper.cat-n64 {
+  background-color: #fffbe5;
+}
+.product-detail-wrapper.cat-game-boy {
+  background-color: #f6ffe8;
+}
+.product-detail-wrapper.cat-game-boy-color {
+  background-color: #e8fff6;
+}
+.product-detail-wrapper.cat-nintendo-2ds {
+  background-color: #f6f0ff;
+}
+.product-detail-wrapper.cat-trading-cards {
+  background-color: #fff8e8;
+}
+.product-detail-wrapper.cat-playstation {
+  background-color: #e8f0ff;
+}
+.product-detail-wrapper.cat-xbox {
+  background-color: #e8ffe8;
+}
+.product-detail-wrapper.cat-game-watch {
+  background-color: #fff5e8;
 }
 
 /* =========================================================

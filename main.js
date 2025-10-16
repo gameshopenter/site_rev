@@ -563,6 +563,7 @@ const GSE = (() => {
     // Build a list of images for the gallery.  If a gallery array is present on the item
     // use that, otherwise fall back to a single‑element array containing the primary image.
     const imageList = Array.isArray(item.gallery) && item.gallery.length ? item.gallery : [item.image];
+    // Build wrapper div with category-specific class placeholder. The class will be added later via JS
     let detailHtml = '<div class="product-detail-wrapper">';
     // Render an image gallery: primary image and optional thumbnails.  Users can click
     // thumbnails to update the main image.  If only a single image is present the
@@ -604,7 +605,7 @@ const GSE = (() => {
     } else {
       // Use generic description for in‑store items
       detailHtml += '<p class="condition">Gebruikt – voorbeeldfoto</p>';
-      detailHtml += `<p class="description">Dit is een algemene productbeschrijving voor <strong>${displayTitle}</strong>. Alle tweedehands games en consoles worden door ons zorgvuldig getest en schoongemaakt. De getoonde afbeelding dient als voorbeeld; de daadwerkelijke staat kan licht afwijken. We verzenden elk product stevig verpakt; afhalen is niet mogelijk.</p>`;
+      detailHtml += `<p class="description">Dit is een algemene productbeschrijving voor <strong>${displayTitle}</strong>. Alle tweedehands games en consoles worden door ons zorgvuldig getest op functionaliteit en authenticiteit. De getoonde afbeelding dient als voorbeeld; de daadwerkelijke staat kan licht afwijken. We verzenden elk product stevig verpakt; afhalen is niet mogelijk.</p>`;
       // Trust badges: security, payment, satisfaction guarantee, free shipping
       detailHtml += `<div class="trust-badges">
         <div class="badge-item"><span class="badge-icon">🔒</span><span>Veilige SSL‑betaling</span></div>
@@ -616,6 +617,14 @@ const GSE = (() => {
     detailHtml += '</div>';
     detailHtml += '</div>';
     container.innerHTML = detailHtml;
+
+    // Apply a category-specific class to the product detail wrapper to enable themed backgrounds
+    const wrapper = container.querySelector('.product-detail-wrapper');
+    if (wrapper && item.category) {
+      // Generate a slug from the category to form a valid CSS class
+      const catSlug = slugify(item.category);
+      wrapper.classList.add('cat-' + catSlug);
+    }
 
     // Initialise gallery thumbnail behaviour.  If a gallery contains multiple
     // images, clicking on a thumbnail updates the main product image.  The
