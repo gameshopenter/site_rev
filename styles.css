@@ -276,7 +276,12 @@ body.dark-mode .dark-toggle {
 }
 /* Heldere actieknop in de kleuren van het logo */
 .welcome-hero .btn {
+  /* Animerend verloop dat zachtjes beweegt om de aandacht te trekken
+     zonder te overweldigen. Het verloop gebruikt dezelfde kleuren als
+     het logo en schuift langzaam heen en weer. */
   background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+  background-size: 200% 200%;
+  animation: btnGradient 8s ease infinite;
   color: #ffffff;
   padding: 0.75rem 2rem;
   font-size: 1rem;
@@ -326,7 +331,8 @@ body.dark-mode .dark-toggle {
   height: 120px;
   background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
   /* Maak de vormen subtieler zodat ze niet de aandacht van de content afleiden */
-  opacity: 0.12;
+  /* Verminder de dekking voor een subtielere achtergrondanimatie */
+  opacity: 0.08;
   clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
   filter: blur(1px);
   animation: floatUp var(--dur) linear infinite;
@@ -340,6 +346,23 @@ body.dark-mode .dark-toggle {
   }
   to {
     transform: translateY(-110vh) rotate(360deg) scale(0.8);
+  }
+}
+
+/*
+ * Knopverloop animatie
+ * De achtergrond van de call‑to‑action knoppen schuift heen en weer,
+ * wat een subtiele glans creëert zonder de leesbaarheid te beïnvloeden.
+ */
+@keyframes btnGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
@@ -390,35 +413,22 @@ body.dark-mode .dark-toggle {
 
 .btn {
   display: inline-block;
-<<<<<<< HEAD
-  background: var(--color-primary);
-  border: 2px solid var(--color-primary);
-=======
   /* Gebruik een opvallend verloop dat aansluit op het logo voor een moderne look */
   background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
   border: none;
->>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
   color: #ffffff;
   padding: 0.6rem 1.4rem;
   font-weight: 600;
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-<<<<<<< HEAD
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .btn:hover {
-  background-color: var(--color-secondary);
-  border-color: var(--color-secondary);
-=======
-  transition: opacity 0.2s ease;
-}
-
-.btn:hover {
-  /* Verminder de dekking bij hover om interactie subtiel aan te geven */
+  /* Verminder de dekking en voeg een subtiele lift toe om interactie aan te geven */
   opacity: 0.9;
->>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
+  transform: translateY(-2px) scale(1.03);
   color: #ffffff;
 }
 
@@ -570,25 +580,16 @@ body.dark-mode .dark-toggle {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-<<<<<<< HEAD
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-=======
   /* Voeg een vloeiende hovertransitie toe voor een subtiele micro‑animatie */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
->>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
   border: 1px solid var(--color-border);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 
 .product-card:hover {
-<<<<<<< HEAD
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-=======
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
->>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
 }
 
 
@@ -642,12 +643,13 @@ body.dark-mode .dark-toggle {
   text-align: center;
   border-radius: 4px;
   font-size: 0.85rem;
-  transition: opacity 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .btn-small:hover {
   opacity: 0.9;
   color: #ffffff;
+  transform: translateY(-2px) scale(1.03);
 }
 
 /* Dark mode styles */
@@ -821,10 +823,48 @@ body.dark-mode a {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 }
 
+/*
+ * Geef de categoriekaarten een subtiele glijverloopanimatie op hover.
+ * Dit effect gebruikt dezelfde kleuren als het logo en zorgt voor een
+ * moderne uitstraling zonder te veel af te leiden. De glans schuift
+ * over de kaart wanneer de gebruiker erover beweegt.
+ */
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg,
+    rgba(52, 211, 153, 0.25),
+    rgba(59, 130, 246, 0.25),
+    rgba(52, 211, 153, 0.25));
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.category-card:hover::before {
+  animation: slide-shimmer 4s linear infinite;
+}
+
+@keyframes slide-shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
 .category-card img {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  /* Toon het volledige pictogram of product met behoud van verhoudingen */
+  object-fit: contain;
+  padding: 1rem;
+  background-color: #ffffff;
   /* Verminder verzadiging en verhoog de helderheid licht voor een zachter effect */
   filter: brightness(1.05) saturate(0.7);
   transition: filter 0.3s ease;
@@ -2421,6 +2461,32 @@ body.dark-mode a {
 .instagram-grid a:hover img {
   transform: scale(1.05);
 }
+
+/* =====================
+   Rating styling
+   Displays a row of stars followed by a numeric rating.  The stars use a
+   golden hue inspired by common review systems.  The rating value is bold
+   and uses the default text colour for contrast.  We apply spacing and
+   alignment so the rating integrates neatly within product details.
+====================== */
+.product-detail-info .rating {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.product-detail-info .rating .stars {
+  color: #fbbf24;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.product-detail-info .rating .rating-value {
+  color: var(--color-text);
+  font-weight: 600;
+}
 .instagram-cta {
   margin-top: 0.5rem;
   font-size: 0.85rem;
@@ -2556,10 +2622,6 @@ body.dark-mode a {
    Simplified hero styling for a professional look
    Only display the logo and brand name on a clean white background
 ============================================================= */
-<<<<<<< HEAD
-.simple-hero {
-  background-color: #ffffff;
-=======
 /*
  * Simplified hero styling
  *
@@ -2574,7 +2636,6 @@ body.dark-mode a {
   /* Ensure the simplified hero has no gradient. Override both background color and image. */
   background: #ffffff;
   background-image: none;
->>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
   padding: 3rem 0 2rem;
   border-bottom: 1px solid #e5e5e5;
   text-align: center;
@@ -2587,13 +2648,6 @@ body.dark-mode a {
   animation: none; /* disable floating animation */
 }
 
-<<<<<<< HEAD
-.simple-hero .hero-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111111;
-  margin-bottom: 0;
-=======
 /* Call to action button inside the simplified hero
    Provides a clear prompt to visit the product catalogue. */
 .simple-hero .hero-cta-btn {
@@ -2640,7 +2694,6 @@ body.dark-mode a {
   max-width: none;
   margin-left: 0;
   margin-bottom: 1rem;
->>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
 }
 
 /* Hide tagline and CTA within the simplified hero if present */
@@ -2651,45 +2704,6 @@ body.dark-mode a {
   display: none;
 }
 
-<<<<<<< HEAD
-/* =============================================================
-   Visual sell steps on the inkoop page
-   A grid layout to illustrate the trade‑in process clearly
-============================================================= */
-.sell-steps {
-  margin-top: 2rem;
-  text-align: center;
-}
-.sell-steps h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-.step {
-  background-color: var(--color-card-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-.step-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-.steps-grid h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-.steps-grid p {
-  font-size: 0.85rem;
-  color: var(--color-muted);
-=======
 /*
  * Category‑specific backgrounds for product pages
  * To evoke the individuality of each console category, we apply a subtle
@@ -2898,5 +2912,4 @@ body.dark-mode a {
  */
 .product-detail-wrapper[class*="cat-"] {
   background-color: #ffffff !important;
->>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
 }

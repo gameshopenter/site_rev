@@ -97,29 +97,6 @@
     <p class="copyright">© 2025 GameShop Enter – Alle rechten voorbehouden.</p>
   </footer>
 
-<<<<<<< HEAD
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (!window.GSE) return;
-      GSE.updateCartCount && GSE.updateCartCount();
-      // Initialise chat but remove loyalty and live purchase popups for a distraction-free page
-      GSE.initChatWidget && GSE.initChatWidget();
-      // Contactformulier handler
-      const form = document.getElementById('contactForm');
-      const statusEl = document.getElementById('contactStatus');
-      if (form) {
-        form.addEventListener('submit', e => {
-          e.preventDefault();
-          if (statusEl) {
-            statusEl.textContent = 'Bedankt! We nemen zo snel mogelijk contact met je op.';
-          }
-          form.reset();
-        });
-      }
-    });
-  </script>
-=======
   <!-- Geen pagina-specifieke script nodig omdat mailto rechtstreeks via de browser wordt afgehandeld -->
->>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
 </body>
 </html>

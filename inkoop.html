@@ -47,33 +47,6 @@
   <!-- Inkoop pagina inhoud -->
   <main class="inkoop-page container">
     <h2 class="animate-fade-up">Verkoop je games & consoles aan ons</h2>
-<<<<<<< HEAD
-    <p class="intro animate-fade-up animate-delay-1">Heb je Nintendo‑games of consoles die je niet meer gebruikt? Wij kopen ze graag in tegen een eerlijke prijs en zoeken altijd leuke titels voor onze klanten.</p>
-    <p class="intro animate-fade-up animate-delay-2">We accepteren consoles en games van NES tot Nintendo Switch. Laat ons weten wat je wilt verkopen en wij nemen snel contact met je op.</p>
-    <!-- Visuele stappen uitleg -->
-    <section class="sell-steps animate-fade-up animate-delay-2">
-      <h3>Zo werkt het</h3>
-      <div class="steps-grid">
-        <div class="step">
-          <div class="step-icon" aria-hidden="true">📸</div>
-          <h4>Foto &amp; omschrijving</h4>
-          <p>Maak duidelijke foto's van je producten en beschrijf de staat.</p>
-        </div>
-        <div class="step">
-          <div class="step-icon" aria-hidden="true">💬</div>
-          <h4>Neem contact op</h4>
-          <p>Stuur je lijst via WhatsApp, e‑mail of het formulier.</p>
-        </div>
-        <div class="step">
-          <div class="step-icon" aria-hidden="true">📦</div>
-          <h4>Gratis verzenden</h4>
-          <p>We sturen je een verzendlabel zodat je veilig en gratis kunt versturen.</p>
-        </div>
-        <div class="step">
-          <div class="step-icon" aria-hidden="true">💶</div>
-          <h4>Snelle uitbetaling</h4>
-          <p>Na ontvangst en controle betalen we direct uit.</p>
-=======
     <p class="intro animate-fade-up animate-delay-1">Heb je Nintendo‑games of consoles die je niet meer gebruikt? Bij GameShop Enter nemen we jouw games en consoles graag over voor een eerlijke prijs. We zijn gepassioneerde gamers en zorgen ervoor dat jouw verzameling een nieuw thuis krijgt bij andere liefhebbers.</p>
     <p class="intro animate-fade-up animate-delay-2">We accepteren onder andere NES, SNES, Nintendo 64, GameCube, Wii, Wii U, Nintendo DS/3DS en Nintendo Switch. Stuur ons gerust een bericht met wat je wilt verkopen. Je hebt direct persoonlijk contact met ons team; we doen je een eerlijk bod en begeleiden je stap voor stap.</p>
 
@@ -100,7 +73,6 @@
           <div class="step-icon" aria-hidden="true">💶</div>
           <h4>Snelle uitbetaling</h4>
           <p>Zodra we je items ontvangen hebben, betalen we het afgesproken bedrag direct. Je hoeft dus nooit lang op je geld te wachten.</p>
->>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
         </div>
       </div>
     </section>
@@ -191,26 +163,10 @@
       if (!window.GSE) return;
       GSE.updateCartCount && GSE.updateCartCount();
       // Initialize interactive features (keep chat only, remove loyalty and live purchase popups)
-<<<<<<< HEAD
-      GSE.initChatWidget && GSE.initChatWidget();
-      // Verstuur inkoopformulier (simulatie)
-      const sellForm = document.getElementById('sellForm');
-      const sellStatus = document.getElementById('sellStatus');
-      if (sellForm) {
-        sellForm.addEventListener('submit', e => {
-          e.preventDefault();
-          if (sellStatus) {
-            sellStatus.textContent = 'Bedankt voor je aanbod! We nemen binnen één werkdag contact met je op.';
-          }
-          sellForm.reset();
-        });
-      }
-=======
       // Chatwidget init verwijderd voor een rustige pagina
       // Verstuur inkoopformulier
       // Het formulier wordt via Netlify Forms verstuurd. Een bevestiging wordt na
       // verzenden door Netlify verzorgd. Er is geen custom submit‑handler nodig.
->>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
     });
   </script>
 </body>
