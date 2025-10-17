@@ -168,6 +168,46 @@ const DISCOUNTS = {
   'xenoblade-chronicles-2-torna-the-golden-country-complete': 0.20
 };
 
+/**
+ * Genereer een unieke productbeschrijving op basis van de titel en categorie.
+ * De beschrijving gebruikt enkele sleutelwoorden om sfeer en nostalgie
+ * op te roepen, passend bij de verschillende Nintendo‑generaties. Voor
+ * generieke producten wordt een standaardtekst teruggegeven.
+ *
+ * @param {string} title
+ * @param {string} category
+ * @returns {string}
+ */
+function generateDescription(title, category) {
+  const lowerCat = (category || '').toLowerCase();
+  // Beschrijving voor Nintendo Switch producten
+  if (lowerCat.includes('switch')) {
+    return `Beleef de magie van de moderne <strong>Nintendo Switch</strong> met <em>${title}</em>. Deze hybride console biedt zowel handheld‑plezier als docked gamen op het grote scherm. Alle games zijn zorgvuldig getest en klaar voor eindeloos speelplezier.`;
+  }
+  // Beschrijving voor Nintendo DS en 3DS games
+  if (lowerCat.includes('3ds') || lowerCat.includes('ds')) {
+    return `Herbeleef je favoriete avonturen op de <strong>${category}</strong> met <em>${title}</em>. Geniet van dubbele schermen en een ruime bibliotheek aan klassieke Nintendo‑titels. Dit tweedehands exemplaar is gecontroleerd op authenticiteit en wordt netjes verpakt verzonden.`;
+  }
+  // Beschrijving voor Game Boy Advance (GBA) games
+  if (lowerCat.includes('game boy advance') || lowerCat.includes('gba')) {
+    return `Stap terug in de tijd met <em>${title}</em> voor de <strong>Game Boy Advance</strong>. Deze retro handheld biedt kleurrijke 32‑bit graphics en onvergetelijke titels. Ons exemplaar is getest en klaar voor nostalgische speelsessies.`;
+  }
+  // Beschrijving voor Game Boy en Game Boy Color games
+  if (lowerCat.includes('game boy') && !lowerCat.includes('advance')) {
+    return `Ervaar de charme van de originele <strong>${category}</strong> met <em>${title}</em>. Perfect voor verzamelaars en liefhebbers van klassieke handheld‑games. Deze cartridge is zorgvuldig nagekeken en wordt goed verpakt verzonden.`;
+  }
+  // Beschrijving voor retro consoles zoals NES, SNES, N64, GameCube, Wii
+  if (lowerCat.includes('n64') || lowerCat.includes('nes') || lowerCat.includes('snes') || lowerCat.includes('gamecube') || lowerCat.includes('wii')) {
+    return `Ervaar een stukje Nintendo‑geschiedenis met <em>${title}</em> voor de <strong>${category}</strong>. Deze console‑klassieker staat garant voor uren plezier en nostalgie. Ons tweedehands exemplaar is technisch in orde en klaar voor een nieuw leven.`;
+  }
+  // Beschrijving voor trading cards
+  if (lowerCat.includes('trading')) {
+    return `Verzamel, ruil en speel met deze officiële Pokémon Trading Card Game producten. <em>${title}</em> is een geweldige aanvulling op je collectie. Alle kaarten zijn gecontroleerd op authenticiteit en worden zorgvuldig verpakt verzonden.`;
+  }
+  // Fallback generieke beschrijving
+  return `Dit exemplaar van <em>${title}</em> is zorgvuldig getest op functionaliteit en authenticiteit. De getoonde afbeelding is een voorbeeld; de werkelijke staat kan licht afwijken. We verzenden elk product stevig verpakt zodat je zorgeloos kunt genieten.`;
+}
+
 const GSE = (() => {
   /**
    * Slugify a string to generate a URL‑friendly identifier.
@@ -365,14 +405,19 @@ const GSE = (() => {
         // Afbeelding tonen tenzij het een Marktplaats item is
         // De Marktplaats‑categorie is verwijderd; toon alle geüploade items als normale producten
         const isMarktplaats = false;
-        const imgTag = isMarktplaats ? '' : `<img src="${fixImage(it.image)}" alt="${it.title}" class="shop-thumb">`;
-        const dataImage = isMarktplaats ? '' : fixImage(it.image);
+        // Toon een miniatuurafbeelding op de overzichtspagina.  Gebruik
+        // object-fit: contain in CSS om de afbeelding netjes te tonen op een witte achtergrond.
+        const dataImage = fixImage(it.image);
+        const imgTag = isMarktplaats ? '' : `<img class="shop-thumb" src="${dataImage}" alt="${displayTitle}">`;
         // Conditie label
         const conditionLabel = (it.condition && it.condition.toLowerCase() === 'new') ? 'Nieuw' : 'Gebruikt';
         const badgeClass = (conditionLabel === 'Nieuw') ? 'new' : 'used';
         // Categorie label: verberg de oude Marktplaatscategorie zodat geüploade items netjes worden getoond
         const categoryLabel = (it.category && it.category !== 'Marktplaats') ? `<span class="category">${it.category}</span>` : '';
         // HTML samenstellen
+        // Elke kaart bevat nu ook een beschrijvingsknop (btn-desc) en een verborgen
+        // beschrijvingssectie die verschijnt na een klik op de knop.  De
+        // beschrijving gebruikt een algemene tekst voor tweedehands producten.
         card.innerHTML = `
           <a href="product.html?slug=${encodeURIComponent(slug)}" class="product-thumb-link">
             ${imgTag}
@@ -391,9 +436,23 @@ const GSE = (() => {
           <div class="actions">
             <a href="product.html?slug=${encodeURIComponent(slug)}" class="btn-view">Bekijk product</a>
             <button class="btn-cart" data-slug="${slug}" data-title="${displayTitle}" data-price="${finalPrice}" data-image="${dataImage}" data-category="${it.category || ''}">🛒</button>
+            <button type="button" class="btn-desc">Omschrijving</button>
+          </div>
+          <div class="description-section">
+            <p>${generateDescription(displayTitle, it.category)}</p>
           </div>
         `;
         grid.appendChild(card);
+        // Bind description toggle for this card.  When de 'Omschrijving' knop wordt aangeklikt,
+        // wordt de beschrijvingssectie zichtbaar of verborgen.
+        const descBtnEl = card.querySelector('.btn-desc');
+        const descSectionEl = card.querySelector('.description-section');
+        if (descBtnEl && descSectionEl) {
+          descBtnEl.addEventListener('click', () => {
+            const isVisible = descSectionEl.style.display === 'block';
+            descSectionEl.style.display = isVisible ? 'none' : 'block';
+          });
+        }
       }
       // Bind add to cart buttons voor de dynamisch gegenereerde kaarten
       grid.querySelectorAll('.btn-cart').forEach(btn => {
@@ -562,7 +621,23 @@ const GSE = (() => {
       : item.title;
     // Build a list of images for the gallery.  If a gallery array is present on the item
     // use that, otherwise fall back to a single‑element array containing the primary image.
-    const imageList = Array.isArray(item.gallery) && item.gallery.length ? item.gallery : [item.image];
+    // Build a list of images for the gallery.  If a gallery array is present on the item use that,
+    // otherwise fall back to a single‑element array containing the primary image.  When a
+    // combined image (front+back) is available it should appear as the first entry in the gallery.
+    let imageList = Array.isArray(item.gallery) && item.gallery.length ? item.gallery.slice() : [item.image];
+    if (item.combined_image) {
+      const combined = item.combined_image;
+      if (!imageList.includes(combined)) {
+        imageList.unshift(combined);
+      } else {
+        const idx = imageList.indexOf(combined);
+        if (idx > 0) {
+          imageList.splice(idx, 1);
+          imageList.unshift(combined);
+        }
+      }
+    }
+    // Build wrapper div with category-specific class placeholder. The class will be added later via JS
     let detailHtml = '<div class="product-detail-wrapper">';
     // Render an image gallery: primary image and optional thumbnails.  Users can click
     // thumbnails to update the main image.  If only a single image is present the
@@ -591,7 +666,9 @@ const GSE = (() => {
 
     // Display shipping and return information to reduce purchase hesitation
     if (!isMarktplaatsItem) {
-      detailHtml += `<p class="shipping-info"><span class="icon">🚚</span> Voor 23:59 besteld, morgen verzonden · <span class="icon">↩️</span> 14 dagen gratis retourneren</p>`;
+      // Shipping info including clear mention of return costs: up to 4 games as a brievenbuspakket (€3,99), 5+ games as pakket (€6,95)
+      // We emphasise a 14‑dagen bedenktijd; return shipping costs are borne by the customer
+      detailHtml += `<p class="shipping-info"><span class="icon">🚚</span> Verzendkosten: €3,99 (tot 4 games) / €6,95 (5+ games) · Voor 23:59 besteld, morgen verzonden · <span class="icon">↩️</span> 14 dagen bedenktijd – retourkosten voor eigen rekening</p>`;
     }
 
     if (isMarktplaatsItem) {
@@ -602,20 +679,60 @@ const GSE = (() => {
         detailHtml += `<p><a href="${safeUrl}" target="_blank" rel="noopener" class="btn">Bekijk advertentie</a></p>`;
       }
     } else {
-      // Use generic description for in‑store items
+      // Gebruik een unieke beschrijving op basis van de titel en categorie.  Toon eveneens
+      // een conditielabel voor tweedehands producten.
       detailHtml += '<p class="condition">Gebruikt – voorbeeldfoto</p>';
-      detailHtml += `<p class="description">Dit is een algemene productbeschrijving voor <strong>${displayTitle}</strong>. Alle tweedehands games en consoles worden door ons zorgvuldig getest en schoongemaakt. De getoonde afbeelding dient als voorbeeld; de daadwerkelijke staat kan licht afwijken. We verzenden elk product stevig verpakt; afhalen is niet mogelijk.</p>`;
+      const description = generateDescription(displayTitle, item.category);
+      detailHtml += `<p class="description">${description}</p>`;
       // Trust badges: security, payment, satisfaction guarantee, free shipping
       detailHtml += `<div class="trust-badges">
         <div class="badge-item"><span class="badge-icon">🔒</span><span>Veilige SSL‑betaling</span></div>
-        <div class="badge-item"><span class="badge-icon">💯</span><span>100% geld terug garantie</span></div>
-        <div class="badge-item"><span class="badge-icon">📦</span><span>Gratis verzending vanaf €50</span></div>
+        <div class="badge-item"><span class="badge-icon">⏱️</span><span>14 dagen bedenktijd</span></div>
+        <div class="badge-item"><span class="badge-icon">📦</span><span>Gratis verzending vanaf €100</span></div>
       </div>`;
+      // Varianten tonen: zoek naar andere varianten van dit product (bijv. Loose vs Met doos)
+      (function() {
+        try {
+          const baseTitle = item.title.replace(/\s*\(.*?\)\s*$/, '').trim();
+          // Filter items met hetzelfde basistitel (na verwijderen van haakjes)
+          const variants = (items || []).filter(v => {
+            const vBase = v.title.replace(/\s*\(.*?\)\s*$/, '').trim();
+            return slugify(vBase) === slugify(baseTitle);
+          });
+          if (variants.length > 1) {
+            detailHtml += '<div class="variants"><h4>Beschikbare varianten</h4><ul class="variant-list">';
+            variants.forEach(v => {
+              const vSlug = slugify(v.title);
+              const rawP = Number(v.price) || 0;
+              const vPrice = Math.floor(rawP) + 0.95;
+              let varName = 'Met doos';
+              if (/\(\s*Loose\s*\)/i.test(v.title) || /\bLoose\b/i.test(v.title)) {
+                varName = 'Losse cartridge';
+              } else if (/Not\s*For\s*Resale/i.test(v.title)) {
+                varName = 'Not For Resale';
+              }
+              detailHtml += `<li><a href="product.html?slug=${encodeURIComponent(vSlug)}">${varName} – € ${vPrice.toFixed(2)}</a></li>`;
+            });
+            detailHtml += '</ul></div>';
+          }
+        } catch (e) {
+          console.error('Variant detection failed', e);
+        }
+      })();
+
       detailHtml += '<button id="add-to-cart-detail" class="btn btn-primary">In winkelwagen</button>';
     }
     detailHtml += '</div>';
     detailHtml += '</div>';
     container.innerHTML = detailHtml;
+
+    // Apply a category-specific class to the product detail wrapper to enable themed backgrounds
+    const wrapper = container.querySelector('.product-detail-wrapper');
+    if (wrapper && item.category) {
+      // Generate a slug from the category to form a valid CSS class
+      const catSlug = slugify(item.category);
+      wrapper.classList.add('cat-' + catSlug);
+    }
 
     // Initialise gallery thumbnail behaviour.  If a gallery contains multiple
     // images, clicking on a thumbnail updates the main product image.  The
@@ -647,7 +764,7 @@ const GSE = (() => {
         <ul>
           <li><strong>Wanneer wordt mijn bestelling verzonden?</strong> Bestel je voor 23:59, dan verzenden wij je game de volgende werkdag.</li>
           <li><strong>Zijn de producten origineel?</strong> Ja, wij verkopen uitsluitend originele Nintendo‑producten die grondig getest zijn.</li>
-          <li><strong>Wat is de staat van het product?</strong> Al onze games zijn gebruikt maar zorgvuldig gereinigd. De staat kan licht variëren.</li>
+          <li><strong>Wat is de staat van het product?</strong> Al onze games en consoles zijn gebruikt maar door ons getest op functionaliteit en authenticiteit. De staat kan variëren.</li>
           <li><strong>Kan ik retourneren?</strong> Je hebt 14 dagen bedenktijd en kunt zonder opgaaf van reden retourneren.</li>
         </ul>
       `;
@@ -688,7 +805,10 @@ const GSE = (() => {
   function loadCartPage() {
     updateCartCount();
     const container = document.getElementById('cart-items');
-    const totalEl = document.getElementById('cart-total');
+    // Locate the container for totals.  Depending on the HTML structure this may be
+    // either a span with id cart-total or a div with id cart-total-container.
+    let totalEl = document.getElementById('cart-total');
+    if (!totalEl) totalEl = document.getElementById('cart-total-container');
     const checkoutBtn = document.getElementById('cart-checkout');
     const cart = getCart();
     container.innerHTML = '';
@@ -715,12 +835,21 @@ const GSE = (() => {
       `;
       container.appendChild(row);
     });
-    // Update total
+    // Update total with shipping.  Compute subtotal in cents
     let subtotalCents = cart.items.reduce((sum, it) => sum + it.priceCents * it.qty, 0);
-    // Er wordt geen algemene bundelkorting meer toegepast. Tel enkel de subtotaal op.
-    const totalCents = subtotalCents;
-    const display = `€ ${(totalCents / 100).toFixed(2)}`;
-    totalEl.innerHTML = display;
+    // Determine total quantity of items to calculate shipping bands
+    const totalItems = cart.items.reduce((sum, it) => sum + it.qty, 0);
+    // Calculate shipping based on number of items and free‑shipping threshold (€100)
+    let shippingCents = 0;
+    if (subtotalCents < 10000) {
+      shippingCents = totalItems <= 4 ? 399 : 695;
+    }
+    const totalCents = subtotalCents + shippingCents;
+    // Display subtotal, shipping and total in a tidy format
+    const subtotalDisplay = (subtotalCents / 100).toFixed(2);
+    const shippingDisplay = (shippingCents / 100).toFixed(2);
+    const totalDisplay = (totalCents / 100).toFixed(2);
+    totalEl.innerHTML = `Subtotaal: € ${subtotalDisplay}<br>Verzendkosten: € ${shippingDisplay}<br><strong>Totaal: € ${totalDisplay}</strong>`;
     // Bind quantity buttons
     container.querySelectorAll('.cart-item-controls button').forEach(btn => {
       btn.addEventListener('click', e => {
@@ -774,6 +903,7 @@ const GSE = (() => {
           category: it.category || ''
         })),
         customer
+        , shippingCents
       };
       try {
         const response = await fetch('/api/create-payment', {
@@ -1133,7 +1263,11 @@ const GSE = (() => {
     chat.innerHTML = `
       <div class="chat-header"><span>Live chat</span><button id="chat-close">×</button></div>
       <div class="chat-messages">
+<<<<<<< HEAD
         <div class="chat-message bot">Hallo! Hoe kunnen we je helpen? Je kunt hier een vraag stellen of mail ons op gameshopenter@gmail.com voor een persoonlijk antwoord.</div>
+=======
+        <div class="chat-message bot">Hallo! Hoe kunnen we je helpen? Je kunt hier een vraag stellen of mail ons op <a href="mailto:gameshopenter@gmail.com">gameshopenter@gmail.com</a> voor een persoonlijk antwoord.</div>
+>>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
       </div>
       <form class="chat-input">
         <input type="text" id="chatInput" placeholder="Typ je bericht..." autocomplete="off" />
@@ -1159,6 +1293,7 @@ const GSE = (() => {
         let reply;
         const lower = text.toLowerCase();
         if (/prijs|kosten|verzend/.test(lower)) {
+<<<<<<< HEAD
           reply = 'Alle prijzen zijn inclusief btw. Verzending kost €4 en is gratis vanaf €50 binnen Nederland.';
         } else if (/voorraad|beschikbaar/.test(lower)) {
           reply = 'De beschikbaarheid staat vermeld bij elk product. Mis je iets? Laat het ons weten!';
@@ -1170,6 +1305,21 @@ const GSE = (() => {
           reply = 'Je kunt ons bereiken via e‑mail: gameshopenter@gmail.com. We reageren meestal binnen één werkdag.';
         } else {
           reply = 'Bedankt voor je bericht! Voor een persoonlijk antwoord kun je een e‑mail sturen naar gameshopenter@gmail.com; we reageren binnen één werkdag.';
+=======
+          // Leg verzendkosten duidelijk uit: brievenbuspakket versus pakketpost
+          reply = 'Verzendkosten bedragen €3,99 voor bestellingen tot 4 games en €6,95 voor 5 games of meer. Bestellingen vanaf €100 worden gratis verzonden.';
+        } else if (/voorraad|beschikbaar/.test(lower)) {
+          reply = 'De beschikbaarheid staat vermeld bij elk product. Heb je iets speciaals nodig? Laat het ons weten!';
+        } else if (/retour|garantie/.test(lower)) {
+          // Retourbeleid: 14 dagen bedenktijd, retourkosten voor eigen rekening
+          reply = 'Je hebt 14 dagen bedenktijd; retourkosten zijn voor eigen rekening. Alle producten worden zorgvuldig getest op functionaliteit en authenticiteit.';
+        } else if (/hallo|hoi|hey/.test(lower)) {
+          reply = 'Hallo! Hoe kunnen we je verder helpen?';
+        } else if (/mail|email|contact/.test(lower)) {
+          reply = 'Je kunt ons altijd mailen op <a href="mailto:gameshopenter@gmail.com">gameshopenter@gmail.com</a>; we reageren binnen één werkdag.';
+        } else {
+          reply = 'Bedankt voor je bericht! Voor een persoonlijk antwoord kun je een e‑mail sturen naar <a href="mailto:gameshopenter@gmail.com">gameshopenter@gmail.com</a>; we reageren binnen één werkdag.';
+>>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
         }
         appendChatMessage(reply, 'bot');
       }, 800);
@@ -1315,12 +1465,25 @@ const GSE = (() => {
         <div class="actions">
           <a href="product.html?slug=${encodeURIComponent(slug)}" class="btn-view">Bekijk</a>
           <button class="btn-cart" data-slug="${slug}" data-title="${it.title}" data-price="${price}" data-image="${fixImage(it.image)}" data-category="${it.category || ''}">🛒</button>
+          <button type="button" class="btn-desc">Omschrijving</button>
+        </div>
+        <div class="description-section">
+          <p>Alle tweedehands games en consoles worden door ons zorgvuldig getest op functionaliteit en authenticiteit. De getoonde afbeelding dient als voorbeeld; de daadwerkelijke staat kan licht afwijken. We verzenden elk product stevig verpakt; afhalen is niet mogelijk.</p>
         </div>
       `;
       const btn = card.querySelector('.btn-cart');
       btn.addEventListener('click', () => {
         addToCart({ title: it.title, priceCents: Math.round(price * 100), image: fixImage(it.image), slug, category: it.category || '' });
       });
+      // Bind description toggle for recommended cards
+      const dBtn = card.querySelector('.btn-desc');
+      const descSec = card.querySelector('.description-section');
+      if (dBtn && descSec) {
+        dBtn.addEventListener('click', () => {
+          const isVisible = descSec.style.display === 'block';
+          descSec.style.display = isVisible ? 'none' : 'block';
+        });
+      }
       grid.appendChild(card);
     });
   }
@@ -1395,19 +1558,9 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (e) {
     // ignore errors during home marquee setup
   }
-  // Contactformulier handler
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    const statusEl = document.getElementById('contactStatus');
-    contactForm.addEventListener('submit', e => {
-      e.preventDefault();
-      // Simuleer het versturen van het formulier
-      if (statusEl) {
-        statusEl.textContent = 'Bedankt! We nemen zo snel mogelijk contact met je op.';
-      }
-      contactForm.reset();
-    });
-  }
+  // Contactformulier handler verwijderd
+  // Het contactformulier gebruikt nu een mailto-action in contact.html. Wanneer de gebruiker het formulier verstuurt,
+  // opent het standaard e‑mailprogramma om het bericht naar gameshopenter@gmail.com te sturen.
 });
 
 // ===================
@@ -1431,5 +1584,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const isDark = document.body.classList.contains('dark-mode');
     localStorage.setItem('GSE_DARK_MODE', isDark);
     darkToggle.setAttribute('aria-pressed', isDark);
+  });
+});
+
+// ===================
+// Scroll reveal animations
+// ===================
+// Voeg een IntersectionObserver toe om elementen met de klasse `scroll-fade`
+// geleidelijk zichtbaar te maken wanneer ze in de viewport komen. Deze
+// functionaliteit wordt na het laden van de DOM geïnitialiseerd en zorgt
+// voor een dynamische, hedendaagse gebruikerservaring zonder zware
+// bibliotheken. Het drempelpercentage bepaalt hoeveel van het element
+// zichtbaar moet zijn voordat de animatie wordt geactiveerd.
+document.addEventListener('DOMContentLoaded', () => {
+  const observerOptions = {
+    threshold: 0.2
+  };
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  document.querySelectorAll('.scroll-fade').forEach(elem => {
+    revealObserver.observe(elem);
   });
 });

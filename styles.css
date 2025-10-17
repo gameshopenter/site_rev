@@ -93,8 +93,9 @@ img {
 }
 
 .logo {
-  width: 40px;
-  height: 40px;
+  /* Vergroot het logo in de navigatiebalk nog verder voor een duidelijke merkidentiteit */
+  width: 120px;
+  height: 120px;
 }
 
 .nav-links {
@@ -121,13 +122,26 @@ img {
   font-size: 1.2rem;
   display: flex;
   align-items: center;
-  /* Use a blue accent color for the cart icon in the navigation */
-  color: #0d6efd;
+  /* Het cart‑icoon zal de kleuren van het logo gebruiken; de daadwerkelijke knop wordt hieronder gestyled */
+  color: inherit;
 }
 
 /* Ensure the cart link inherits the parent colour */
 .cart-link a {
-  color: inherit;
+  /* Geef de winkelwagenlink een opvallende knopstijl met een verloop dat verwijst naar de kleuren van het logo */
+  background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+  color: #ffffff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.cart-link a:hover {
+  opacity: 0.9;
 }
 
 .cart-icon {
@@ -191,6 +205,162 @@ body.dark-mode .dark-toggle {
   filter: invert(100%);
 }
 
+/* =========================================================
+   Welkom hero – introductiesectie op de homepage
+
+   Deze sectie verwelkomt bezoekers met een duidelijke
+   titel, een korte beschrijving en een opvallende knop
+   om het assortiment te bekijken. De sectie staat onder
+   de navigatiebalk voor een warme binnenkomst.
+========================================================= */
+/*
+ * Welkom-hero
+ *
+ * Deze sectie verwelkomt bezoekers met een opvallende achtergrondanimatie
+ * geïnspireerd op de kleuren van het GameShop‑Enter‑logo. De swirl-achtergrond
+ * draait langzaam dankzij een CSS‑animatie. Een lichte overlay zorgt voor
+ * voldoende contrast zodat de tekst altijd goed leesbaar blijft.
+ */
+.welcome-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+  margin-bottom: 4rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* Draaiende swirl-achtergrond op basis van een statisch beeld. Het beeld
+   bevindt zich in ./images/hero_bg.png en is gemaakt in de kleuren
+   groen/blauw van het logo. Door de animatie lijkt de achtergrond te leven. */
+.welcome-hero::before {
+  content: "";
+  position: absolute;
+  /* Maak het achtergrondbeeld extra groot zodat de hoeken buiten beeld blijven
+     tijdens rotatie. Hierdoor ontstaan er geen ongewenste grijze driehoeken. */
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background-image: url('images/hero_bg.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px) brightness(0.8);
+  opacity: 0.7;
+  animation: swirlRotate 45s linear infinite;
+  /* Zet de swirl-achtergrond dieper zodat zwevende vormen erboven verschijnen */
+  z-index: -3;
+}
+/* Transparante overlay om tekstleesbaarheid te verhogen */
+.welcome-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  z-index: -1;
+}
+
+.welcome-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.welcome-hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  color: rgba(255,255,255,0.9);
+}
+/* Heldere actieknop in de kleuren van het logo */
+.welcome-hero .btn {
+  background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+  color: #ffffff;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.welcome-hero .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Animatie voor de swirl-achtergrond */
+@keyframes swirlRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/*
+ * Zwevende hexagonvormen in de welkomstsectie
+ *
+ * Deze elementen creëren een uniek, visueel spektakel door zachte hexagonen
+ * (geïnspireerd op het logo) omhoog te laten zweven. Elke vorm gebruikt
+ * een CSS‑variabele voor positie, duur en vertraging, waardoor de animatie
+ * er willekeurig uitziet zonder extra JavaScript. Ze zijn licht vervaagd
+ * en halftransparant zodat ze niet concurreren met de inhoud.
+ */
+.welcome-hero .floating-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.welcome-hero .floating-shapes .shape {
+  position: absolute;
+  bottom: -20%;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+  /* Maak de vormen subtieler zodat ze niet de aandacht van de content afleiden */
+  opacity: 0.12;
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  filter: blur(1px);
+  animation: floatUp var(--dur) linear infinite;
+  animation-delay: var(--delay);
+  left: var(--left);
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) rotate(0deg) scale(0.5);
+  }
+  to {
+    transform: translateY(-110vh) rotate(360deg) scale(0.8);
+  }
+}
+
+/* =========================================================
+   Scroll-fade animatie
+
+   Elementen met de klasse `scroll-fade` zullen eerst verborgen zijn
+   en vervolgens soepel verschijnen wanneer ze in beeld komen. De klasse
+   `visible` wordt via JavaScript toegevoegd zodra het element in
+   viewport komt, waardoor de overgang geactiveerd wordt.
+========================================================= */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .hero .overlay {
   position: absolute;
   top: 0;
@@ -220,20 +390,35 @@ body.dark-mode .dark-toggle {
 
 .btn {
   display: inline-block;
+<<<<<<< HEAD
   background: var(--color-primary);
   border: 2px solid var(--color-primary);
+=======
+  /* Gebruik een opvallend verloop dat aansluit op het logo voor een moderne look */
+  background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+  border: none;
+>>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
   color: #ffffff;
   padding: 0.6rem 1.4rem;
   font-weight: 600;
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+<<<<<<< HEAD
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .btn:hover {
   background-color: var(--color-secondary);
   border-color: var(--color-secondary);
+=======
+  transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+  /* Verminder de dekking bij hover om interactie subtiel aan te geven */
+  opacity: 0.9;
+>>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
   color: #ffffff;
 }
 
@@ -385,15 +570,25 @@ body.dark-mode .dark-toggle {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+<<<<<<< HEAD
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+=======
+  /* Voeg een vloeiende hovertransitie toe voor een subtiele micro‑animatie */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+>>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
   border: 1px solid var(--color-border);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 
 .product-card:hover {
+<<<<<<< HEAD
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+=======
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+>>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
 }
 
 
@@ -439,18 +634,19 @@ body.dark-mode .dark-toggle {
 .btn-small {
   display: block;
   margin: 0.5rem 1rem 1rem 1rem;
-  background: transparent;
-  border: 1px solid #111;
-  color: #111;
+  /* Gebruik een subtiel verloop voor kleine knoppen voor consistentie met de primaire knop */
+  background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+  border: none;
+  color: #ffffff;
   padding: 0.5rem 0;
   text-align: center;
   border-radius: 4px;
   font-size: 0.85rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .btn-small:hover {
-  background-color: #111;
+  opacity: 0.9;
   color: #ffffff;
 }
 
@@ -682,12 +878,27 @@ body.dark-mode a {
 }
 
 /* Afbeelding bovenaan */
+/* Productafbeelding in een kaart */
 .shop-card img.shop-thumb {
   width: 100%;
-  /* Vergroot de afbeeldingshoogte voor een prominentere presentatie */
   height: 240px;
-  object-fit: cover;
-  background-color: #f8f8f8;
+  object-fit: contain;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Plaatshouder voor productafbeeldingen op de overzichtspagina. De echte afbeelding wordt pas getoond op de detailpagina. */
+.shop-card .image-placeholder {
+  width: 100%;
+  height: 240px;
+  background-color: #f4f6f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 0.8rem;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 /* Informatieblok */
@@ -821,6 +1032,41 @@ body.dark-mode a {
 
 .shop-card .btn-cart:hover {
   background-color: #0b5ed7;
+}
+
+/*
+ * Beschrijving en infoknop voor elke productkaart
+ * De infoknop toont een verborgen beschrijving onderaan de kaart wanneer
+ * erop wordt geklikt. De beschrijving heeft een subtiele achtergrond
+ * en is standaard verborgen.
+ */
+.shop-card .btn-desc {
+  flex: 1;
+  text-align: center;
+  border: 1px solid #0d6efd;
+  color: #0d6efd;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.shop-card .btn-desc:hover {
+  background-color: #0d6efd;
+  color: #ffffff;
+}
+
+/* Beschrijvingstekst binnen productkaarten */
+.shop-card .description-section {
+  display: none;
+  padding: 1rem;
+  border-top: 1px solid #e5e5e5;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #555;
+  background-color: #fafafa;
 }
 
 /* Waarom GameShop Enter sectie */
@@ -1231,7 +1477,14 @@ body.dark-mode a {
 .categories-page .category-card img {
   width: 100%;
   height: 180px;
-  object-fit: cover;
+  /* Toon de gehele afbeelding zonder af te snijden */
+  object-fit: contain;
+  /* Plaats de afbeelding op een witte achtergrond zodat consolefoto's beter uitkomen */
+  background-color: #fff;
+  /* Geef de afbeelding wat binnenruimte zodat hij niet tegen de kaartrand plakt */
+  padding: 0.5rem;
+  /* Verhoog de helderheid iets zodat donkere achtergronden minder dominant zijn */
+  filter: brightness(1.2);
 }
 
 .categories-page .category-card span {
@@ -1579,15 +1832,43 @@ body.dark-mode a {
 
 /* On the homepage, enlarge the category cards and adjust grid spacing */
 .home-page .category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  /* Convert home page categories to a horizontally scrollable row inspired by
+     modern gaming stores. This improves usability on mobile and desktop. */
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1rem;
   margin-top: 2rem;
+  padding-bottom: 1rem;
 }
 
 .home-page .category-card img {
-  height: 200px;
-  object-fit: cover;
+  /* Toon de volledige afbeelding zonder bijsnijden door object-fit: contain toe te passen.
+     Een witte achtergrond en lichte padding zorgen ervoor dat de afbeelding mooi in de kaart staat.
+     Hoogte iets lager zodat de padding ruimte voor de afbeelding creëert. */
+  height: 180px;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 0.75rem;
+  /* Zorg ervoor dat de afbeeldingen lichter en levendiger lijken */
+  filter: brightness(1.1) saturate(1.1);
+}
+
+/* Ensure category cards in the home-page horizontal slider have a fixed width */
+.home-page .category-card {
+  flex: 0 0 200px;
+  max-width: 200px;
+  position: relative;
+  display: block;
+  /* Geef de categoriekaarten een witte achtergrond met een subtiele rand
+     voor een schone uitstraling. Het overschrijft de standaard
+     achtergrondkleur zodat de afbeeldingen op een neutrale ondergrond
+     worden getoond. */
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .home-page .category-card span {
@@ -1596,20 +1877,20 @@ body.dark-mode a {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.55);
-  color: #ffffff;
+  /* Gebruik een lichte overlay met donkere tekst voor betere leesbaarheid.  Een hogere transparantie maakt de tekst nog duidelijker. */
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #222222;
   padding: 0.6rem 0.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.02rem;
-  backdrop-filter: blur(4px);
 }
 
-/* Hide recommended and marquee sections on the homepage */
-.home-page .recommended,
-.home-page .marquee-section {
-  display: none;
+/* Geef de categoriekaarten een mooie hover-animatie: lichte verhoging en schaduw */
+.home-page .category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
+
+/* Toon aanbevolen producten en de marquee-sectie op de homepage voor een rijkere winkelervaring */
+/* De elementen worden via JavaScript gevuld en worden standaard weergegeven. */
 
 /* =============================================================
    Product marquee (homepage slider)
@@ -2275,8 +2556,25 @@ body.dark-mode a {
    Simplified hero styling for a professional look
    Only display the logo and brand name on a clean white background
 ============================================================= */
+<<<<<<< HEAD
 .simple-hero {
   background-color: #ffffff;
+=======
+/*
+ * Simplified hero styling
+ *
+ * The simplified hero uses a solid white background and removes the default
+ * gradient defined on the `.hero-block` class. To accomplish this we
+ * specify the `background` property rather than only `background-color`,
+ * which overrides any previously set gradient. The hero section is
+ * centered and padded similarly to the original hero but kept minimal.
+ */
+.simple-hero {
+  /* Override gradient from .hero-block */
+  /* Ensure the simplified hero has no gradient. Override both background color and image. */
+  background: #ffffff;
+  background-image: none;
+>>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
   padding: 3rem 0 2rem;
   border-bottom: 1px solid #e5e5e5;
   text-align: center;
@@ -2289,11 +2587,60 @@ body.dark-mode a {
   animation: none; /* disable floating animation */
 }
 
+<<<<<<< HEAD
 .simple-hero .hero-title {
   font-size: 2rem;
   font-weight: 700;
   color: #111111;
   margin-bottom: 0;
+=======
+/* Call to action button inside the simplified hero
+   Provides a clear prompt to visit the product catalogue. */
+.simple-hero .hero-cta-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #0f7a2a;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.simple-hero .hero-cta-btn:hover {
+  background-color: #0c5f20;
+}
+
+/*
+ * Hide the title within the simplified hero. The logo already conveys the
+ * brand name, so the heading is suppressed for a cleaner look.
+ */
+.simple-hero .hero-title {
+  display: none;
+}
+
+/* =========================================================
+   Extra ontwerp voor de homepagina met linksuitgelijnd logo
+
+   De klasse `hero-left` wordt toegevoegd aan de hero‑sectie op
+   de homepage. Hiermee positioneren we het logo linksboven en
+   vergroten we het formaat voor een rustig, minimalistisch
+   ontwerp.  De call‑to‑action is in de HTML verwijderd.
+========================================================= */
+/* Containerelement uitlijnen naar links en boven */
+.hero-left .hero-container {
+  align-items: flex-start;
+  text-align: left;
+}
+/* Verhoog de logo‑afmeting en verwijder extra marge */
+.hero-left .hero-logo-large {
+  /* Maak het logo groter voor een sterkere aanwezigheid */
+  width: 300px;
+  max-width: none;
+  margin-left: 0;
+  margin-bottom: 1rem;
+>>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
 }
 
 /* Hide tagline and CTA within the simplified hero if present */
@@ -2304,6 +2651,7 @@ body.dark-mode a {
   display: none;
 }
 
+<<<<<<< HEAD
 /* =============================================================
    Visual sell steps on the inkoop page
    A grid layout to illustrate the trade‑in process clearly
@@ -2341,4 +2689,214 @@ body.dark-mode a {
 .steps-grid p {
   font-size: 0.85rem;
   color: var(--color-muted);
+=======
+/*
+ * Category‑specific backgrounds for product pages
+ * To evoke the individuality of each console category, we apply a subtle
+ * pastel background colour to the product detail wrapper based on the
+ * category of the product. These classes are added dynamically in
+ * main.js (cat-<slug>) and help customers associate each product with
+ * its platform without overwhelming the content.
+ */
+.product-detail-wrapper.cat-nintendo-3ds {
+  background-color: #e9f5ff;
+}
+.product-detail-wrapper.cat-nintendo-ds {
+  background-color: #fdf0f0;
+}
+.product-detail-wrapper.cat-game-boy-advance {
+  background-color: #e8ffe8;
+}
+.product-detail-wrapper.cat-nintendo-switch {
+  background-color: #fff0f0;
+}
+.product-detail-wrapper.cat-gamecube {
+  background-color: #f0e8ff;
+}
+.product-detail-wrapper.cat-wii {
+  background-color: #f5faff;
+}
+.product-detail-wrapper.cat-snes {
+  background-color: #f8f3f0;
+}
+.product-detail-wrapper.cat-nes {
+  background-color: #f8f8f8;
+}
+.product-detail-wrapper.cat-n64 {
+  background-color: #fffbe5;
+}
+.product-detail-wrapper.cat-game-boy {
+  background-color: #f6ffe8;
+}
+.product-detail-wrapper.cat-game-boy-color {
+  background-color: #e8fff6;
+}
+.product-detail-wrapper.cat-nintendo-2ds {
+  background-color: #f6f0ff;
+}
+.product-detail-wrapper.cat-trading-cards {
+  background-color: #fff8e8;
+}
+.product-detail-wrapper.cat-playstation {
+  background-color: #e8f0ff;
+}
+.product-detail-wrapper.cat-xbox {
+  background-color: #e8ffe8;
+}
+.product-detail-wrapper.cat-game-watch {
+  background-color: #fff5e8;
+}
+
+/* =========================================================
+   Verbeterde categoriekaarten op de homepage
+
+   Toon de categorie‑naam onder de afbeelding met een lichte achtergrond
+   zodat bezoekers direct zien welke categorie het betreft. De overlay
+   uit de standaardstijl wordt hier uitgeschakeld en de tekst staat
+   in een blok onder de afbeelding.  
+========================================================= */
+.home-page .category-card span {
+  position: static;
+  display: block;
+  width: 100%;
+  background-color: #f7f7f7;
+  color: #333333;
+  padding: 0.6rem 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02rem;
+  backdrop-filter: none;
+}
+
+.home-page .category-card img {
+  height: 180px;
+  object-fit: cover;
+  /* Verhoog helderheid en verminder verzadiging voor betere leesbaarheid van het label */
+  filter: brightness(1.05) saturate(0.85);
+  transition: filter 0.3s ease;
+}
+
+.home-page .category-card:hover img {
+  filter: brightness(1.10) saturate(1.0);
+}
+
+/*
+ * Nav branding: hide the textual brand name in the header so that
+ * only the logo icon is shown. This avoids duplication when the
+ * brand name appears elsewhere (e.g. in the hero section).
+ */
+.navbar .brand-text {
+  display: none;
+}
+
+/* Variants list styling on product detail page */
+.variants {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+}
+.variants h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.variant-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.variant-list li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+.variant-list li a {
+  color: #0f7a2a;
+  text-decoration: underline;
+}
+.variant-list li a:hover {
+  text-decoration: none;
+}
+
+/* ===========================================
+   Product detail backgrounds override
+   -------------------------------------------
+   Themed backgrounds for product details were
+   replaced with a unified neutral color to
+   ensure a consistent look across all pages.
+*/
+.product-detail-wrapper[class^="cat-"] {
+  background-color: #ffffff !important;
+}
+
+/* Trust section for inkoop page */
+.inkoop-trust {
+  margin-top: 2rem;
+  text-align: center;
+}
+.inkoop-trust .trust-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.inkoop-trust .trust-item {
+  max-width: 250px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.inkoop-trust .trust-icon {
+  font-size: 1.75rem;
+}
+.inkoop-trust p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------------
+   About page highlights styling
+   Toon bedrijfskenmerken in een overzichtelijk grid. Elke highlight
+   heeft een icoon, titel en korte omschrijving. De styling zorgt
+   voor een rustige en uniforme presentatie.
+--------------------------------------------------------- */
+.about-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.about-highlights .highlight-item {
+  flex: 1 1 250px;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  text-align: center;
+}
+.about-highlights .highlight-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.about-highlights h4 {
+  margin: 0.3rem 0;
+  font-size: 1.1rem;
+}
+.about-highlights p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/*
+ * Uniforme achtergrond voor productdetailpagina's
+ * Voor een rustige en vertrouwde uitstraling worden alle categorie-specifieke
+ * pastelkleuren overschreven. Ongeacht de categorie krijgen productdetail
+ * wrappers een witte achtergrondkleur.
+ */
+.product-detail-wrapper[class*="cat-"] {
+  background-color: #ffffff !important;
+>>>>>>> 5f30527d993d3e765cff1e14d018a2d846f62065
 }
