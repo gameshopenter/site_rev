@@ -304,6 +304,28 @@ body.dark-mode .dark-toggle {
   to { transform: rotate(360deg); }
 }
 
+/* Scroll progress bar: sits at top of viewport and fills as the user scrolls */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #34d399 0%, #3b82f6 100%);
+  z-index: 10000;
+  transition: width 0.15s ease-out;
+}
+
+/* Add subtle 3D tilt and lift effect for cards to enhance luxury feel */
+.shop-card, .category-card {
+  transition: transform 0.3s cubic-bezier(.25,.46,.45,.94), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+.shop-card:hover, .category-card:hover {
+  transform: translateY(-4px) scale(1.03) rotateX(1deg) rotateY(-1deg);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
 /*
  * Zwevende hexagonvormen in de welkomstsectie
  *

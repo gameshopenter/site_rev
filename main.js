@@ -179,6 +179,23 @@ const DISCOUNTS = {
  * @returns {string}
  */
 function generateDescription(title, category) {
+  // Special descriptions based on keywords in the title.
+  // Provide richer, more engaging descriptions for popular franchises.
+  if (/pok[eé]mon/i.test(title)) {
+    return `Stap in de wereld van Pokémon met <em>${title}</em>. Vang, train en strijd met je favoriete pocket monsters in een episch avontuur. Dit tweedehands exemplaar is geverifieerd en klaar voor jouw collectie.`;
+  }
+  if (/mario/i.test(title)) {
+    return `Ga met Mario op een spannend platformavontuur in <em>${title}</em>. Spring, ren en red Prinses Peach in deze klassieker die nooit verveelt. Ons exemplaar is getest en compleet.`;
+  }
+  if (/zelda/i.test(title)) {
+    return `Ontdek de legendarische wereld van Hyrule in <em>${title}</em>. Los puzzels op, bestrijd vijanden en ervaar een episch verhaal met Link. Dit spel is nauwkeurig gecontroleerd en klaar voor een nieuw avontuur.`;
+  }
+  if (/donkey\s*kong/i.test(title)) {
+    return `Beleef retro platformactie met <em>${title}</em>. Help Donkey Kong en vrienden obstakels te overwinnen in dit geliefde avontuur. Ons spel is zorgvuldig getest voor uren speelplezier.`;
+  }
+  if (/animal\s*crossing/i.test(title)) {
+    return `Ontsnap naar een vredig eiland in <em>${title}</em>. Verzamel, bouw en socialiseer met schattige bewoners in dit ontspannende spel. De cartridge is gecheckt en werkt perfect.`;
+  }
   const lowerCat = (category || '').toLowerCase();
   // Beschrijving voor Nintendo Switch producten
   if (lowerCat.includes('switch')) {
@@ -1641,4 +1658,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.scroll-fade').forEach(elem => {
     revealObserver.observe(elem);
   });
+
+  // Scroll progress bar: update width based on scroll position
+  const progressBar = document.getElementById('scrollProgress');
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      progressBar.style.width = scrolled + '%';
+    });
+  }
 });
