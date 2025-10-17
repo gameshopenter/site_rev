@@ -431,14 +431,9 @@ const GSE = (() => {
         // generateRating() hulpprogramma retourneert zowel een numerieke rating
         // (4.0–4.9) als een string met sterren (★ en ☆).  Deze benadering
         // zorgt voor consistente weergave van beoordelingen zonder externe data.
-        const { rating: numericRating, stars } = generateRating(displayTitle);
-        const rating = numericRating.toFixed(1);
-        // Calculate a percentage for the rating progress bar.  The rating
-        // ranges from 4.0–4.9 out of 5, so scale accordingly to produce a
-        // number between 80 and 98.  We round to the nearest integer for
-        // cleaner width values.
-        const ratingPercent = Math.round((numericRating / 5) * 100);
-        const reviewCount = Math.floor(Math.random() * 51) + 10;
+        // Generate a deterministic rating but we will not display it on product cards.
+        const { rating: numericRating } = generateRating(displayTitle);
+        // Random stock count to simulate inventory; ratings and review counts are hidden for a premium feel.
         const stockCount = Math.floor(Math.random() * 5) + 1;
         const card = document.createElement('article');
         card.className = 'shop-card';
@@ -471,18 +466,12 @@ const GSE = (() => {
               ${saleBadge}
               <span class="original-price">€ ${displayOriginal}</span>
             </div>
-            <div class="rating-stock">
-              <span class="stars">${stars}</span> ${rating} (${reviewCount}) • Nog ${stockCount} op voorraad
-              <div class="rating-bar"><div class="bar-fill" style="width:${ratingPercent}%"></div></div>
-            </div>
+            <!-- Stock indicator only; reviews and ratings are hidden for a premium feel -->
+            <div class="stock"><span class="icon">📦</span> Nog ${stockCount} op voorraad</div>
           </div>
           <div class="actions">
             <a href="product.html?slug=${encodeURIComponent(slug)}" class="btn-view">Bekijk product</a>
             <button class="btn-cart" data-slug="${slug}" data-title="${displayTitle}" data-price="${finalPrice}" data-image="${dataImage}" data-category="${it.category || ''}">🛒</button>
-            <button type="button" class="btn-desc">Omschrijving</button>
-          </div>
-          <div class="description-section">
-            <p>${generateDescription(displayTitle, it.category)}</p>
           </div>
         `;
         grid.appendChild(card);
@@ -711,8 +700,7 @@ const GSE = (() => {
     // krijgen van de kwaliteit op basis van vergelijkbare aankopen.  Het
     // gebruik van een vaste titelgebaseerde algoritme garandeert dat de
     // rating consistent blijft tussen sessies.
-    const { rating: avgRating, stars: ratingStars } = generateRating(displayTitle);
-    detailHtml += `<p class="rating"><span class="stars">${ratingStars}</span> <span class="rating-value">${avgRating.toFixed(1)}</span></p>`;
+    // Rating display removed on product detail page for a cleaner, premium look
 
     // Display shipping and return information to reduce purchase hesitation
     if (!isMarktplaatsItem) {
