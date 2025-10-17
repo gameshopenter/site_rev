@@ -2965,3 +2965,36 @@ body.dark-mode a {
   color: #f5c518;
   margin-right: 0.3rem;
 }
+
+/*
+ * Progress bar styling for rating
+ * We add a slim horizontal bar beneath the star rating on product cards
+ * to visually convey the rating percentage.  The bar uses the border
+ * colour as its track and the primary and success colours for the filled
+ * portion.  Rounded corners keep the look modern and refined.
+ */
+.rating-bar {
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-border);
+  border-radius: 3px;
+  margin-top: 0.3rem;
+  overflow: hidden;
+}
+
+.rating-bar .bar-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 3px;
+  /* Use a gradient that matches the logo colours for the fill */
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-success) 100%);
+}
+
+/* Dark mode adjustments for rating bar */
+body.dark-mode .rating-bar {
+  background-color: #333;
+}
+
+body.dark-mode .rating-bar .bar-fill {
+  background: linear-gradient(90deg, #34d399 0%, #3b82f6 100%);
+}

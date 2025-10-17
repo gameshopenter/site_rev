@@ -433,6 +433,11 @@ const GSE = (() => {
         // zorgt voor consistente weergave van beoordelingen zonder externe data.
         const { rating: numericRating, stars } = generateRating(displayTitle);
         const rating = numericRating.toFixed(1);
+        // Calculate a percentage for the rating progress bar.  The rating
+        // ranges from 4.0–4.9 out of 5, so scale accordingly to produce a
+        // number between 80 and 98.  We round to the nearest integer for
+        // cleaner width values.
+        const ratingPercent = Math.round((numericRating / 5) * 100);
         const reviewCount = Math.floor(Math.random() * 51) + 10;
         const stockCount = Math.floor(Math.random() * 5) + 1;
         const card = document.createElement('article');
@@ -466,7 +471,10 @@ const GSE = (() => {
               ${saleBadge}
               <span class="original-price">€ ${displayOriginal}</span>
             </div>
-            <div class="rating-stock"><span class="stars">${stars}</span> ${rating} (${reviewCount}) • Nog ${stockCount} op voorraad</div>
+            <div class="rating-stock">
+              <span class="stars">${stars}</span> ${rating} (${reviewCount}) • Nog ${stockCount} op voorraad
+              <div class="rating-bar"><div class="bar-fill" style="width:${ratingPercent}%"></div></div>
+            </div>
           </div>
           <div class="actions">
             <a href="product.html?slug=${encodeURIComponent(slug)}" class="btn-view">Bekijk product</a>
