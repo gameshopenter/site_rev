@@ -1,0 +1,21 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gebruik een diagonale gradient die van groen naar blauw loopt, identiek aan het logo -->
+    <linearGradient id="gradGBC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+  <!-- Body van de Game Boy Color -->
+  <rect x="25" y="15" width="50" height="70" rx="6" ry="6" fill="url(#gradGBC)" />
+  <!-- Scherm -->
+  <rect x="32" y="22" width="36" height="25" rx="2" ry="2" fill="#ffffff" />
+  <!-- D‑pad: verticale balk -->
+  <rect x="32" y="60" width="4" height="12" fill="#ffffff" />
+  <!-- D‑pad: horizontale balk -->
+  <rect x="29" y="64" width="12" height="4" fill="#ffffff" />
+  <!-- A‑knop -->
+  <circle cx="60" cy="65" r="4" fill="#ffffff" />
+  <!-- B‑knop -->
+  <circle cx="70" cy="70" r="4" fill="#ffffff" />
+</svg>
