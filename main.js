@@ -426,7 +426,13 @@ const GSE = (() => {
           saleBadge = `<span class="sale-badge">-${Math.round(discount * 100)}% korting</span>`;
         }
         // Genereer social proof statistieken
-        const rating = (Math.random() * 1 + 4).toFixed(1);
+        // Gebruik een deterministische rating op basis van de titel zodat
+        // dezelfde producten altijd hetzelfde aantal sterren hebben. Het
+        // generateRating() hulpprogramma retourneert zowel een numerieke rating
+        // (4.0–4.9) als een string met sterren (★ en ☆).  Deze benadering
+        // zorgt voor consistente weergave van beoordelingen zonder externe data.
+        const { rating: numericRating, stars } = generateRating(displayTitle);
+        const rating = numericRating.toFixed(1);
         const reviewCount = Math.floor(Math.random() * 51) + 10;
         const stockCount = Math.floor(Math.random() * 5) + 1;
         const card = document.createElement('article');
@@ -460,7 +466,7 @@ const GSE = (() => {
               ${saleBadge}
               <span class="original-price">€ ${displayOriginal}</span>
             </div>
-            <div class="rating-stock">★ ${rating} (${reviewCount}) • Nog ${stockCount} op voorraad</div>
+            <div class="rating-stock"><span class="stars">${stars}</span> ${rating} (${reviewCount}) • Nog ${stockCount} op voorraad</div>
           </div>
           <div class="actions">
             <a href="product.html?slug=${encodeURIComponent(slug)}" class="btn-view">Bekijk product</a>

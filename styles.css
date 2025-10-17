@@ -595,9 +595,17 @@ body.dark-mode .dark-toggle {
 
 .product-card img.product-thumb {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  background-color: #eef2f8;
+  /*
+   * Make product images more prominent. Increase their height
+   * and ensure the entire product fits within the frame by
+   * switching to object-fit: contain. Use a clean white
+   * background so that dark console photos don't look muted
+   * against the card. These tweaks help the product photos
+   * stand out and give a more premium feel on listing pages.
+   */
+  height: 260px;
+  object-fit: contain;
+  background-color: #ffffff;
 }
 
 
@@ -811,7 +819,12 @@ body.dark-mode a {
 
 .category-card {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-height: 150px;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
@@ -861,13 +874,12 @@ body.dark-mode a {
 .category-card img {
   width: 100%;
   height: 200px;
-  /* Toon het volledige pictogram of product met behoud van verhoudingen */
   object-fit: contain;
   padding: 1rem;
   background-color: #ffffff;
-  /* Verminder verzadiging en verhoog de helderheid licht voor een zachter effect */
   filter: brightness(1.05) saturate(0.7);
   transition: filter 0.3s ease;
+  margin-bottom: 0.5rem;
 }
 
 .category-card:hover img {
@@ -2912,4 +2924,44 @@ body.dark-mode a {
  */
 .product-detail-wrapper[class*="cat-"] {
   background-color: #ffffff !important;
+}
+
+/*
+ * Testimonials section: highlight customer feedback on the homepage
+ */
+.home-testimonials {
+  padding: 3rem 0;
+  background-color: var(--color-bg);
+  text-align: center;
+}
+.home-testimonials h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+.home-testimonials .testimonial {
+  max-width: 700px;
+  margin: 0 auto 1.25rem auto;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+.home-testimonials .author {
+  display: block;
+  margin-top: 0.4rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/*
+ * Styling for star ratings on product cards
+ */
+.rating-stock {
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  color: var(--color-muted);
+}
+.rating-stock .stars {
+  color: #f5c518;
+  margin-right: 0.3rem;
 }
