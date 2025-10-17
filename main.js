@@ -168,6 +168,27 @@ const DISCOUNTS = {
   'xenoblade-chronicles-2-torna-the-golden-country-complete': 0.20
 };
 
+// Algemene consolebeschrijvingen per categorie.  Deze teksten worden gebruikt
+// als basisbeschrijving voor iedere game, zodat bezoekers een beter beeld
+// krijgen van de mogelijkheden van het systeem waarop een spel wordt gespeeld.
+// Sleutels worden in kleine letters opgeslagen om eenvoudige matching mogelijk
+// te maken.  De teksten zijn beknopt maar informatief en passen binnen het
+// premium gevoel van de site.
+const GENERAL_CATEGORY_DESCRIPTION = {
+  'nintendo 3ds': 'De Nintendo 3DS biedt 3D‑gaming met dubbele schermen en een uitgebreide bibliotheek aan titels.',
+  'nintendo ds': 'De Nintendo DS introduceerde dubbele schermen en een enorme selectie games voor jong en oud.',
+  'game boy advance': 'De Game Boy Advance is een 32‑bit handheld met kleurrijke retrographics en onvergetelijke avonturen.',
+  'nintendo switch': 'De Nintendo Switch is een hybride console waarmee je zowel handheld als op het grote scherm kunt spelen.',
+  'gamecube': 'De GameCube is een krachtige mini‑console die klassiekers als Super Smash Bros. Melee en The Legend of Zelda bood.',
+  'wii': 'De Wii revolutioneerde casual gaming met intuïtieve bewegingsbesturing en vrolijke partygames.',
+  'snes': 'De Super Nintendo Entertainment System (SNES) is de iconische 16‑bit console met tijdloze klassiekers.',
+  'nes': 'De Nintendo Entertainment System (NES) bracht 8‑bit‑gaming naar de huiskamer en introduceerde vele iconische helden.',
+  'n64': 'De Nintendo 64 bracht 3D‑gaming naar een breed publiek en introduceerde de analoge stick voor nauwkeurige besturing.',
+  'game boy': 'De Game Boy was Nintendo’s eerste draagbare console en maakte het mogelijk om overal te gamen.',
+  'game boy color': 'De Game Boy Color voegde kleur toe aan de klassieke Game Boy en bleef compatibel met bestaande spellen.',
+  'trading cards': 'De Pokémon Trading Card Game laat je kaarten verzamelen, ruilen en spelen met je favoriete monsters.'
+};
+
 /**
  * Genereer een unieke productbeschrijving op basis van de titel en categorie.
  * De beschrijving gebruikt enkele sleutelwoorden om sfeer en nostalgie
@@ -179,50 +200,61 @@ const DISCOUNTS = {
  * @returns {string}
  */
 function generateDescription(title, category) {
-  // Special descriptions based on keywords in the title.
-  // Provide richer, more engaging descriptions for popular franchises.
-  if (/pok[eé]mon/i.test(title)) {
-    return `Stap in de wereld van Pokémon met <em>${title}</em>. Vang, train en strijd met je favoriete pocket monsters in een episch avontuur. Dit tweedehands exemplaar is geverifieerd en klaar voor jouw collectie.`;
+  // Determine lowercase versions for matching
+  const lowerTitle = String(title || '').toLowerCase();
+  const lowerCat = String(category || '').toLowerCase();
+  let specific = '';
+  // Franchise‑specifieke beschrijvingen – rijkere teksten voor bekende reeksen
+  if (/pok[eé]mon/.test(lowerTitle)) {
+    specific = `Stap in de wereld van Pokémon met <em>${title}</em>. Vang, train en strijd met je favoriete pocket monsters in een episch avontuur. Dit tweedehands exemplaar is geverifieerd en klaar voor jouw collectie.`;
+  } else if (/mario/.test(lowerTitle)) {
+    specific = `Ga met Mario op een spannend platformavontuur in <em>${title}</em>. Spring, ren en red Prinses Peach in deze klassieker die nooit verveelt. Ons exemplaar is getest en compleet.`;
+  } else if (/zelda/.test(lowerTitle)) {
+    specific = `Ontdek de legendarische wereld van Hyrule in <em>${title}</em>. Los puzzels op, bestrijd vijanden en ervaar een episch verhaal met Link. Dit spel is nauwkeurig gecontroleerd en klaar voor een nieuw avontuur.`;
+  } else if (/donkey\s*kong/.test(lowerTitle)) {
+    specific = `Beleef retro platformactie met <em>${title}</em>. Help Donkey Kong en vrienden obstakels te overwinnen in dit geliefde avontuur. Ons spel is zorgvuldig getest voor uren speelplezier.`;
+  } else if (/animal\s*crossing/.test(lowerTitle)) {
+    specific = `Ontsnap naar een vredig eiland in <em>${title}</em>. Verzamel, bouw en socialiseer met schattige bewoners in dit ontspannende spel. De cartridge is gecheckt en werkt perfect.`;
   }
-  if (/mario/i.test(title)) {
-    return `Ga met Mario op een spannend platformavontuur in <em>${title}</em>. Spring, ren en red Prinses Peach in deze klassieker die nooit verveelt. Ons exemplaar is getest en compleet.`;
+
+  // Als er nog geen specifieke beschrijving is en de categorie bevat een console‑hint,
+  // maak een basistekst gericht op de ervaring met die console.
+  if (!specific) {
+    if (lowerCat.includes('3ds') || lowerCat.includes('ds')) {
+      specific = `Herbeleef je favoriete avonturen met <em>${title}</em>. Dit tweedehands exemplaar is gecontroleerd op authenticiteit en wordt netjes verpakt verzonden.`;
+    } else if (lowerCat.includes('game boy advance') || lowerCat.includes('gba')) {
+      specific = `Stap terug in de tijd met <em>${title}</em>. Ons exemplaar is getest en klaar voor nostalgische speelsessies.`;
+    } else if (lowerCat.includes('game boy') && !lowerCat.includes('advance')) {
+      specific = `Ervaar de charme van <em>${title}</em>. Perfect voor verzamelaars en liefhebbers van klassieke handheld‑games. Deze cartridge is zorgvuldig nagekeken en wordt goed verpakt verzonden.`;
+    } else if (lowerCat.includes('switch')) {
+      specific = `Beleef eindeloos speelplezier met <em>${title}</em>. Deze game is grondig getest en klaar voor gebruik.`;
+    } else if (lowerCat.includes('n64') || lowerCat.includes('nes') || lowerCat.includes('snes') || lowerCat.includes('gamecube') || lowerCat.includes('wii')) {
+      specific = `Ervaar een stukje Nintendo‑geschiedenis met <em>${title}</em>. Ons tweedehands exemplaar is technisch in orde en klaar voor een nieuw leven.`;
+    } else if (lowerCat.includes('trading')) {
+      specific = `Verzamel, ruil en speel met deze officiële Pokémon Trading Card Game producten. Alle kaarten zijn gecontroleerd op authenticiteit en worden zorgvuldig verpakt verzonden.`;
+    } else {
+      // Fallback generieke tekst
+      specific = `Dit exemplaar van <em>${title}</em> is zorgvuldig getest op functionaliteit en authenticiteit. We verzenden elk product stevig verpakt zodat je zorgeloos kunt genieten.`;
+    }
   }
-  if (/zelda/i.test(title)) {
-    return `Ontdek de legendarische wereld van Hyrule in <em>${title}</em>. Los puzzels op, bestrijd vijanden en ervaar een episch verhaal met Link. Dit spel is nauwkeurig gecontroleerd en klaar voor een nieuw avontuur.`;
+
+  // Voeg een algemene categorie‑omschrijving toe (indien beschikbaar) om
+  // context te bieden over het platform of type product.  Gebruik de categorie
+  // als sleutel; als er geen directe match is wordt alleen de specifieke
+  // beschrijving geretourneerd.  Hiermee krijgen bezoekers zowel een
+  // productbeschrijving als een korte uitleg over het platform.
+  let general = '';
+  // Zoek exact naar de categorie; probeer vervolgens een meer generieke sleutel
+  // door bijvoorbeeld witruimte en hoofdletters te normaliseren.
+  const generalKey = lowerCat.trim();
+  if (GENERAL_CATEGORY_DESCRIPTION[generalKey]) {
+    general = GENERAL_CATEGORY_DESCRIPTION[generalKey];
+  } else {
+    // Voor subcategorieën zoals 'nintendo 3ds' binnen 'nintendo 3ds' werkt dit automatisch
+    // maar voor andere categorieën zoals 'game boy advance' kan het nodig zijn
+    // om verschillende schrijfwijzen te proberen.  Als geen match: general blijft leeg.
   }
-  if (/donkey\s*kong/i.test(title)) {
-    return `Beleef retro platformactie met <em>${title}</em>. Help Donkey Kong en vrienden obstakels te overwinnen in dit geliefde avontuur. Ons spel is zorgvuldig getest voor uren speelplezier.`;
-  }
-  if (/animal\s*crossing/i.test(title)) {
-    return `Ontsnap naar een vredig eiland in <em>${title}</em>. Verzamel, bouw en socialiseer met schattige bewoners in dit ontspannende spel. De cartridge is gecheckt en werkt perfect.`;
-  }
-  const lowerCat = (category || '').toLowerCase();
-  // Beschrijving voor Nintendo Switch producten
-  if (lowerCat.includes('switch')) {
-    return `Beleef de magie van de moderne <strong>Nintendo Switch</strong> met <em>${title}</em>. Deze hybride console biedt zowel handheld‑plezier als docked gamen op het grote scherm. Alle games zijn zorgvuldig getest en klaar voor eindeloos speelplezier.`;
-  }
-  // Beschrijving voor Nintendo DS en 3DS games
-  if (lowerCat.includes('3ds') || lowerCat.includes('ds')) {
-    return `Herbeleef je favoriete avonturen op de <strong>${category}</strong> met <em>${title}</em>. Geniet van dubbele schermen en een ruime bibliotheek aan klassieke Nintendo‑titels. Dit tweedehands exemplaar is gecontroleerd op authenticiteit en wordt netjes verpakt verzonden.`;
-  }
-  // Beschrijving voor Game Boy Advance (GBA) games
-  if (lowerCat.includes('game boy advance') || lowerCat.includes('gba')) {
-    return `Stap terug in de tijd met <em>${title}</em> voor de <strong>Game Boy Advance</strong>. Deze retro handheld biedt kleurrijke 32‑bit graphics en onvergetelijke titels. Ons exemplaar is getest en klaar voor nostalgische speelsessies.`;
-  }
-  // Beschrijving voor Game Boy en Game Boy Color games
-  if (lowerCat.includes('game boy') && !lowerCat.includes('advance')) {
-    return `Ervaar de charme van de originele <strong>${category}</strong> met <em>${title}</em>. Perfect voor verzamelaars en liefhebbers van klassieke handheld‑games. Deze cartridge is zorgvuldig nagekeken en wordt goed verpakt verzonden.`;
-  }
-  // Beschrijving voor retro consoles zoals NES, SNES, N64, GameCube, Wii
-  if (lowerCat.includes('n64') || lowerCat.includes('nes') || lowerCat.includes('snes') || lowerCat.includes('gamecube') || lowerCat.includes('wii')) {
-    return `Ervaar een stukje Nintendo‑geschiedenis met <em>${title}</em> voor de <strong>${category}</strong>. Deze console‑klassieker staat garant voor uren plezier en nostalgie. Ons tweedehands exemplaar is technisch in orde en klaar voor een nieuw leven.`;
-  }
-  // Beschrijving voor trading cards
-  if (lowerCat.includes('trading')) {
-    return `Verzamel, ruil en speel met deze officiële Pokémon Trading Card Game producten. <em>${title}</em> is een geweldige aanvulling op je collectie. Alle kaarten zijn gecontroleerd op authenticiteit en worden zorgvuldig verpakt verzonden.`;
-  }
-  // Fallback generieke beschrijving
-  return `Dit exemplaar van <em>${title}</em> is zorgvuldig getest op functionaliteit en authenticiteit. De getoonde afbeelding is een voorbeeld; de werkelijke staat kan licht afwijken. We verzenden elk product stevig verpakt zodat je zorgeloos kunt genieten.`;
+  return general ? `${specific} ${general}` : specific;
 }
 
 const GSE = (() => {

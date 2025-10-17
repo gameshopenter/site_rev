@@ -723,6 +723,14 @@ body.dark-mode .category-card {
   background-color: #1e1e1e;
 }
 
+/* Pas tekstkleuren aan in dark mode voor categoriekaarten */
+body.dark-mode .category-card .category-name {
+  color: #f3f4f6;
+}
+body.dark-mode .category-card .category-tagline {
+  color: #9ca3af;
+}
+
 body.dark-mode .hero-block {
   background: linear-gradient(180deg, #1e1e1e 0%, #121212 100%);
 }
@@ -847,7 +855,8 @@ body.dark-mode a {
   justify-content: center;
   align-items: center;
   padding: 2rem 1rem;
-  min-height: 150px;
+  /* Vergroot de minimale hoogte zodat zowel naam als tagline comfortabel passen */
+  min-height: 180px;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
@@ -909,22 +918,23 @@ body.dark-mode a {
   filter: brightness(1.05);
 }
 
-.category-card span {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  /* Vergroot de padding en tekst voor betere leesbaarheid */
-  padding: 0.6rem 0.5rem;
+/* De categorie‑naam wordt boven de tagline geplaatst. We hebben de absolute
+ * positionering en donkere overlay verwijderd omdat we geen achtergrondfoto
+ * gebruiken voor categoriekaarten. Hierdoor ontstaat een open, luchtige
+ * uitstraling die past bij een luxe webwinkel. */
+.category-card .category-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+  color: var(--text-color, #1f2933);
   text-align: center;
-  /* Make the label overlay slightly more transparent for improved legibility */
-  /* Maak de overlay iets transparanter voor een subtieler effect */
-  background-color: rgba(0, 0, 0, 0.35);
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 0.02rem;
-  backdrop-filter: blur(3px);
+}
+
+/* Tagline onder de categorie‑naam met subtiele styling */
+.category-card .category-tagline {
+  font-size: 0.85rem;
+  color: var(--muted-text-color, #5e6c84);
+  text-align: center;
 }
 
 /* ==================================================================
