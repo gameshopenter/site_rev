@@ -5,11 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GameShop Enter – Tweedehands Games &amp; Consoles</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Ultra‑luxe custom styles for hero slider, horizontal categories and micro‑interactions -->
+  <link rel="stylesheet" href="ultra.css">
   <!-- Import a modern font (Poppins) to enhance typography on the site -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <script defer src="main.js"></script>
   <!-- Voeg dynamische uploads toe zodat alle geüploade foto's in de productlijst verschijnen -->
   <script defer src="uploads_inventory.js"></script>
+  <!-- Ultra‑luxe interactiviteit voor hero slider en 3D tilt -->
+  <script defer src="ultra.js"></script>
 </head>
 <body>
   <!-- Scroll progress bar for a luxury feel: shows page scroll progress -->
@@ -53,78 +57,93 @@
 
   <!-- Welkomstsectie -->
   <main class="home-page">
-    <!-- Welkom hero: verwelkomt bezoekers met een korte introductie en knop naar het assortiment -->
-    <section class="welcome-hero">
-      <div class="container welcome-container">
-        <h1>Welkom bij GameShop Enter</h1>
-        <p>Ontdek onze collectie tweedehands consoles, games en trading cards.</p>
-        <a href="products.html" class="btn">Bekijk assortiment</a>
+    <!-- Luxe hero slider met auto‑rotatie en pauze op hover -->
+    <section class="hero-slider">
+      <!-- Slide 1: Nintendo Switch -->
+      <div class="hero-slide slide-switch">
+        <div class="hero-content">
+          <h1>Nintendo Switch</h1>
+          <p>Speel overal. Samen of solo.</p>
+          <a href="products.html?cat=Nintendo%20Switch" class="btn">Bekijk Switch</a>
+        </div>
       </div>
-      <!-- Zwevende hexagonen voor een unieke animatie -->
-      <div class="floating-shapes">
-        <!-- Verminder het aantal zwevende vormen voor een rustigere animatie -->
-        <span class="shape" style="--left: 15%; --dur: 48s; --delay: 0s;"></span>
-        <span class="shape" style="--left: 40%; --dur: 52s; --delay: 8s;"></span>
-        <span class="shape" style="--left: 65%; --dur: 46s; --delay: 16s;"></span>
-        <span class="shape" style="--left: 85%; --dur: 54s; --delay: 24s;"></span>
+      <!-- Slide 2: Retro Collectie -->
+      <div class="hero-slide slide-retro">
+        <div class="hero-content">
+          <h1>Retro Collectie</h1>
+          <p>Nostalgie in topconditie.</p>
+          <a href="products.html?cat=Retro" class="btn">Ontdek Retro</a>
+        </div>
+      </div>
+      <!-- Slide 3: Trading Cards -->
+      <div class="hero-slide slide-cards">
+        <div class="hero-content">
+          <h1>Trading Cards</h1>
+          <p>Vang, ruil &amp; verzamel.</p>
+          <a href="products.html?cat=Trading%20Cards" class="btn">Collecties bekijken</a>
+        </div>
+      </div>
+      <!-- Optionele navigatieknoppen, verborgen tot hover -->
+      <div class="hero-controls">
+        <button class="hero-prev" aria-label="Vorige">&#8249;</button>
+        <button class="hero-next" aria-label="Volgende">&#8250;</button>
       </div>
     </section>
-    <!-- De hero‑sectie is verwijderd voor een strakke homepage zonder dubbele logo's -->
 
     <!-- Categorieënoverzicht op de homepage zodat bezoekers snel kunnen navigeren -->
     <section class="home-categories categories-page">
       <div class="container">
         <h2>Ontdek onze categorieën</h2>
-        <div class="category-grid">
+        <div class="category-strip">
           <!-- Basis Nintendo‑categorieën met echte foto’s -->
-          <a href="products.html?cat=Nintendo%203DS" class="category-card scroll-fade">
+          <a href="products.html?cat=Nintendo%203DS" class="category-card cat-3ds scroll-fade">
             <span class="category-name">Nintendo 3DS</span>
             <small class="category-tagline">3D‑gaming met dubbele schermen</small>
           </a>
           <!-- Plaats de Nintendo DS categorie terug; verwijder 2DS categorie -->
-          <a href="products.html?cat=Nintendo%20DS" class="category-card scroll-fade">
+          <a href="products.html?cat=Nintendo%20DS" class="category-card cat-ds scroll-fade">
             <span class="category-name">Nintendo DS</span>
             <small class="category-tagline">Twee schermen voor dubbel plezier</small>
           </a>
-          <a href="products.html?cat=Game%20Boy%20Advance" class="category-card scroll-fade">
+          <a href="products.html?cat=Game%20Boy%20Advance" class="category-card cat-gba scroll-fade">
             <span class="category-name">Game Boy Advance</span>
             <small class="category-tagline">32‑bit retro handheld</small>
           </a>
-          <a href="products.html?cat=Nintendo%20Switch" class="category-card scroll-fade">
+          <a href="products.html?cat=Nintendo%20Switch" class="category-card cat-switch scroll-fade">
             <span class="category-name">Nintendo Switch</span>
             <small class="category-tagline">Hybride: handheld en tv‑gaming</small>
           </a>
           <!-- Uitgebreide retro‑categorieën met iconen -->
-          <a href="products.html?cat=GameCube" class="category-card scroll-fade">
+          <a href="products.html?cat=GameCube" class="category-card cat-gamecube scroll-fade">
             <span class="category-name">GameCube</span>
             <small class="category-tagline">Compacte krachtpatser met klassiekers</small>
           </a>
-          <a href="products.html?cat=Wii" class="category-card scroll-fade">
+          <a href="products.html?cat=Wii" class="category-card cat-wii scroll-fade">
             <span class="category-name">Wii</span>
             <small class="category-tagline">Beweging brengt games tot leven</small>
           </a>
-          <a href="products.html?cat=SNES" class="category-card scroll-fade">
+          <a href="products.html?cat=SNES" class="category-card cat-snes scroll-fade">
             <span class="category-name">SNES</span>
             <small class="category-tagline">16‑bit retro‑legende</small>
           </a>
-          <a href="products.html?cat=NES" class="category-card scroll-fade">
+          <a href="products.html?cat=NES" class="category-card cat-nes scroll-fade">
             <span class="category-name">NES</span>
             <small class="category-tagline">Het 8‑bit tijdperk startte hier</small>
           </a>
-          <a href="products.html?cat=N64" class="category-card scroll-fade">
+          <a href="products.html?cat=N64" class="category-card cat-n64 scroll-fade">
             <span class="category-name">N64</span>
             <small class="category-tagline">3D‑revolutie met analoge stick</small>
           </a>
-          <a href="products.html?cat=Game%20Boy" class="category-card scroll-fade">
+          <a href="products.html?cat=Game%20Boy" class="category-card cat-gb scroll-fade">
             <span class="category-name">Game Boy</span>
             <small class="category-tagline">De originele handheld</small>
           </a>
-          <a href="products.html?cat=Game%20Boy%20Color" class="category-card scroll-fade">
+          <a href="products.html?cat=Game%20Boy%20Color" class="category-card cat-gbc scroll-fade">
             <span class="category-name">Game Boy Color</span>
             <small class="category-tagline">Kleurvolle variant van de klassieker</small>
           </a>
         <!-- Trading card category -->
-        <a href="products.html?cat=Trading%20Cards" class="category-card scroll-fade">
+        <a href="products.html?cat=Trading%20Cards" class="category-card cat-cards scroll-fade">
           <span class="category-name">Trading Cards</span>
           <small class="category-tagline">Ruil en verzamel Pokémon‑kaarten</small>
         </a>
