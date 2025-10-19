@@ -106,33 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Price row
     const priceRow = document.createElement('div');
     priceRow.className = 'price-row';
-    // Determine price display; if item has discount property, show old price
-    let price = item.price;
-    let discountPct = 0;
-    // Check global DISCOUNTS (defined in main.js) for discount
-    try {
-      if (typeof DISCOUNTS !== 'undefined') {
-        const slug = slugify(item.title);
-        if (DISCOUNTS[slug]) {
-          discountPct = DISCOUNTS[slug];
-        }
-      }
-    } catch (e) {}
+    // Always show the full price (no discounts) for a premium uitstraling
+    const price = item.price;
     const priceEl = document.createElement('span');
     priceEl.className = 'price';
-    const oldPriceEl = document.createElement('span');
-    oldPriceEl.className = 'old-price';
-    if (discountPct > 0) {
-      const oldPrice = price;
-      const newPrice = Math.max(0, (1 - discountPct) * price).toFixed(2);
-      priceEl.innerText = `€${newPrice}`;
-      oldPriceEl.innerText = `€${oldPrice.toFixed(2)}`;
-      priceRow.appendChild(priceEl);
-      priceRow.appendChild(oldPriceEl);
-    } else {
-      priceEl.innerText = `€${(price || 0).toFixed(2)}`;
-      priceRow.appendChild(priceEl);
-    }
+    priceEl.innerText = `€${(price || 0).toFixed(2)}`;
+    priceRow.appendChild(priceEl);
     info.appendChild(priceRow);
     card.appendChild(info);
     return card;
@@ -156,32 +135,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const validItems = combined.filter(it => typeof it.price === 'number' && it.price > 0);
     // New arrivals: take the last 8 items (assuming newly added are at the end)
     const newArrivals = validItems.slice(-8).reverse();
-    // Deals: items with price <= 20 (subjective threshold) or with discount in DISCOUNTS
-    const deals = validItems.filter(it => it.price <= 20);
-    // If not enough deals, include discounted items from DISCOUNTS
-    if (typeof DISCOUNTS !== 'undefined') {
-      const discountedItems = validItems.filter(it => {
-        try {
-          const slug = slugify(it.title);
-          return DISCOUNTS[slug] > 0;
-        } catch (e) { return false; }
-      });
-      discountedItems.forEach(it => {
-        if (!deals.includes(it)) deals.push(it);
-      });
-    }
-    // Limit deals to 8 items
-    const dealsLimited = deals.slice(0, 8);
-    // Pre‑order items: manually defined upcoming releases
-    const preorders = [
-      { title: 'The Legend of Zelda: Echoes of Time', image: 'images/placeholder_light_gray_block.png', category: 'Nintendo Switch', price: 59.99 },
-      { title: 'Metroid: Return of Samus (Switch 2)', image: 'images/placeholder_light_gray_block.png', category: 'Nintendo Switch', price: 54.99 },
-      { title: 'Mario Kart 9', image: 'images/placeholder_light_gray_block.png', category: 'Nintendo Switch', price: 64.99 }
-    ];
-    // Populate each section
+    // Premium selectie: selecteer de producten met de hoogste prijzen voor een luxe uitstraling
+    const premium = validItems
+      .filter(it => typeof it.price === 'number')
+      .sort((a, b) => b.price - a.price)
+      .slice(0, 8);
+    // Populaire games: selecteer de duurste of bestsellers. Sorteer op prijs aflopend en neem top 8
+    const popular = validItems
+      .filter(it => typeof it.price === 'number')
+      .sort((a, b) => b.price - a.price)
+      .slice(0, 8);
+    // Populate each section (preorders removed; only second-hand items are shown)
     populateSection('newArrivalsStrip', newArrivals);
-    populateSection('dealsStrip', dealsLimited);
-    populateSection('preorderStrip', preorders);
+    populateSection('premiumStrip', premium);
+    populateSection('popularStrip', popular);
   }
 
   // Initialise sections once DOM is ready
@@ -198,6 +165,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof INVENTORY !== 'undefined') searchItems = searchItems.concat(INVENTORY);
     if (typeof UPLOAD_ITEMS !== 'undefined') searchItems = searchItems.concat(UPLOAD_ITEMS);
   } catch (e) {}
+
+  // Helperfunctie: normaliseert tekst naar kleine letters en verwijdert accenten
+  function normalizeString(str) {
+    return String(str)
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+  }
   // Event handler voor het zoekformulier
   const searchForm = document.getElementById('homeSearchForm');
   if (searchForm) {
@@ -214,9 +189,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       // Filter items waarvan de titel de query bevat
+      // Normaliseer query en titels om accenten te negeren
+      const normalizedQuery = normalizeString(query);
       const matches = searchItems.filter(item => {
         try {
-          return item.title.toLowerCase().includes(query);
+          return normalizeString(item.title).includes(normalizedQuery);
         } catch (e) {
           return false;
         }

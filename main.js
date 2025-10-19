@@ -162,11 +162,8 @@ const INVENTORY = [
 // Bepaal specifieke kortingen voor een beperkt aantal producten.
 // De sleutel is de slug (gegenereerd uit de titel) en de waarde is het kortingspercentage (0.10 = 10%).
 // We geven slechts enkele artikelen korting om exclusiviteit te behouden.
-const DISCOUNTS = {
-  'pokemon-emerald-version-loose': 0.15,
-  'luigi-s-mansion-3-complete': 0.10,
-  'xenoblade-chronicles-2-torna-the-golden-country-complete': 0.20
-};
+// Kortingsstructuur gedeactiveerd voor premium prijzen: we geven geen kortingen meer.
+const DISCOUNTS = {};
 
 // Algemene consolebeschrijvingen per categorie.  Deze teksten worden gebruikt
 // als basisbeschrijving voor iedere game, zodat bezoekers een beter beeld
@@ -1326,15 +1323,7 @@ const GSE = (() => {
    * @returns {number}
    */
   function applyBundleDiscount(cartItems, subtotalCents) {
-    // Determine eligible items: exclude Marktplaats category to avoid discount
-    const eligibleCount = cartItems.filter(it => {
-      // Some items may store category instead of source
-      const cat = (it.category || '').toLowerCase();
-      return cat !== 'marktplaats';
-    }).length;
-    if (eligibleCount >= 3) {
-      return Math.round(subtotalCents * 0.05);
-    }
+    // Bundelkorting gedeactiveerd: altijd 0 teruggeven voor premium prijzen
     return 0;
   }
 

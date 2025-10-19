@@ -50,16 +50,12 @@
 }
 
 /* Slide backgrounds */
-.slide-switch {
-  background: linear-gradient(135deg, #ff6363, #ffa26c);
-}
-
-.slide-retro {
-  background: linear-gradient(135deg, #6b5b95, #b8a9c9);
-}
-
+/* Geef alle hero‑slides een uniforme blauwe gradient voor een consistente uitstraling */
+.slide-switch,
+.slide-retro,
 .slide-cards {
-  background: linear-gradient(135deg, #4ca1af, #c4e0e5);
+  /* Blauwe gradient geïnspireerd op de oorspronkelijke hero-afbeelding */
+  background: linear-gradient(135deg, #007aff, #00c6ff);
 }
 
 /* Hero controls: appear on hover */
@@ -277,9 +273,10 @@
 }
 
 /* Titels van de nieuwe secties */
+/* Titels van de nieuwe secties: nieuw binnen, premium selectie en populaire games */
 .home-new-arrivals h2,
-.home-deals h2,
-.home-preorder h2 {
+.home-premium h2,
+.home-popular h2 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
