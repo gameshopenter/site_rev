@@ -1861,6 +1861,13 @@ body.dark-mode a {
   color: #e60023;
 }
 
+/* Link within benefits bar: styled as blue underline to draw attention */
+.benefits-bar .benefit-link {
+  color: #007aff;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 /* Verzendformulier in de winkelwagen */
 .shipping-form {
   margin: 2rem 0;

@@ -51,10 +51,11 @@
 
 /* Slide backgrounds */
 /* Geef alle hero‑slides een uniforme blauwe gradient voor een consistente uitstraling */
+/* Blauwe gradient voor alle hero-slides om een consistente, premium look te creëren */
 .slide-switch,
 .slide-retro,
-.slide-cards {
-  /* Blauwe gradient geïnspireerd op de oorspronkelijke hero-afbeelding */
+.slide-cards,
+.slide-sell {
   background: linear-gradient(135deg, #007aff, #00c6ff);
 }
 
