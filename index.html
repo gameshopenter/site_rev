@@ -90,6 +90,25 @@
       </div>
     </section>
 
+    <!-- Zoekbar voor snelle zoekopdrachten naar games of consoles -->
+    <section class="home-search scroll-fade">
+      <div class="container">
+        <form id="homeSearchForm" class="search-form" action="#" onsubmit="return false;">
+          <input type="search" id="homeSearchInput" placeholder="Zoek naar games of consoles…" aria-label="Zoek naar games of consoles">
+          <button type="submit">Zoek</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Zoekresultaten sectie: wordt dynamisch getoond na een zoekopdracht -->
+    <section id="searchResults" class="home-search-results scroll-fade" style="display: none;">
+      <div class="container">
+        <h2>Zoekresultaten</h2>
+        <div class="product-strip" id="searchStrip"></div>
+        <p id="noResultsMessage" style="display:none; margin-top: 1rem;">Geen resultaten gevonden.</p>
+      </div>
+    </section>
+
     <!-- Categorieënoverzicht op de homepage zodat bezoekers snel kunnen navigeren -->
     <section class="home-categories categories-page">
       <div class="container">
@@ -198,6 +217,29 @@
     <!-- Uitgelichte producten sectie verwijderd voor een rustiger homepage -->
 
     <!-- Instagram feed verwijderd voor een cleaner ontwerp -->
+    <!-- Nieuw binnen: toon recent toegevoegde games als horizontale strip -->
+    <section class="home-new-arrivals scroll-fade">
+      <div class="container">
+        <h2>Nieuw binnen</h2>
+        <div class="product-strip" id="newArrivalsStrip"></div>
+      </div>
+    </section>
+
+    <!-- Aanbiedingen: toon games met een scherpe prijs in een horizontale strip -->
+    <section class="home-deals scroll-fade">
+      <div class="container">
+        <h2>Aanbiedingen</h2>
+        <div class="product-strip" id="dealsStrip"></div>
+      </div>
+    </section>
+
+    <!-- Pre‑order: highlight binnenkort verwachte releases -->
+    <section class="home-preorder scroll-fade">
+      <div class="container">
+        <h2>Pre‑orders</h2>
+        <div class="product-strip" id="preorderStrip"></div>
+      </div>
+    </section>
 
   </main>
 

@@ -199,3 +199,133 @@
   width: 0;
   z-index: 9999;
 }
+
+/* ------------------------------------------------------------
+   Nieuw binnen / Aanbiedingen / Pre‑order strips
+   Horizontale productoverzichten met luxe afwerking
+--------------------------------------------------------------*/
+.product-strip {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+  scroll-behavior: smooth;
+}
+
+/* Verberg standaard scrollbar in WebKit-browsers zonder functionaliteit te verliezen */
+.product-strip::-webkit-scrollbar {
+  height: 8px;
+}
+.product-strip::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.product-strip::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Kaart voor producten in strips */
+.product-card {
+  flex: 0 0 auto;
+  min-width: 200px;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.product-card .product-info {
+  padding: 0.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product-card h3 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.product-card .price-row {
+  margin-top: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.product-card .price-row .price {
+  font-weight: 700;
+  font-size: 1rem;
+}
+.product-card .price-row .old-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.875rem;
+}
+
+/* Titels van de nieuwe secties */
+.home-new-arrivals h2,
+.home-deals h2,
+.home-preorder h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ------------------------------------------------------------
+   Home search bar and search results
+--------------------------------------------------------------*/
+.home-search {
+  padding: 2rem 0;
+}
+
+.home-search .search-form {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.home-search input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.home-search button {
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  background: #0072ff;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.home-search button:hover {
+  background: #005bb5;
+}
+
+#searchResults {
+  padding: 2rem 0;
+}
+
+#searchResults h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
