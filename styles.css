@@ -1,0 +1,298 @@
+/*
+  styles.css – Global styling for GameShop Enter
+
+  This stylesheet defines the typography, layout, colours, and components for
+  the improved GameShop Enter website. It relies on CSS custom properties to
+  support dark mode and provides responsive breakpoints for mobile and
+  desktop devices. Images in the category grid are slightly brightened and
+  saturated to improve clarity without editing the source files.
+*/
+
+/* Reset box model and remove default margins */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg, #fdfdfd);
+  color: var(--text, #222);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom properties for light and dark themes */
+:root {
+  --bg: #fdfdfd;
+  --bg-alt: #fafafa;
+  --text: #222;
+  --text-muted: #555;
+  --primary: #0070f3;
+  --primary-dark: #0051a3;
+  --accent: #d81b60;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'] {
+  --bg: #1a1a1a;
+  --bg-alt: #222;
+  --text: #e4e4e4;
+  --text-muted: #bbb;
+  --primary: #0a84ff;
+  --primary-dark: #0060ca;
+  --accent: #ff4081;
+  --card-bg: #2a2a2a;
+  --card-shadow: rgba(0, 0, 0, 0.4);
+}
+
+header {
+  background-color: var(--bg-alt);
+  box-shadow: 0 2px 4px var(--card-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.brand-area {
+  display: flex;
+  align-items: center;
+}
+
+.brand-area img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: var(--primary);
+}
+
+.nav-links .active {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.dark-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text);
+  padding: 0.25rem 0.5rem;
+}
+
+/* Hero section */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+.btn {
+  background-color: var(--card-bg);
+  color: var(--primary);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--card-shadow);
+}
+
+/* Category grid */
+.categories {
+  padding: 3rem 0;
+}
+
+.category-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.category-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px var(--card-shadow);
+  background-color: var(--card-bg);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.category-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  filter: brightness(1.2) saturate(1.1);
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+}
+
+.category-card span {
+  display: block;
+  padding: 0.75rem 0.5rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Benefits bar */
+.benefits {
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem 0;
+}
+
+.benefits-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.benefits-list span,
+.benefits-list a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  background-color: var(--bg-alt);
+  color: var(--text-muted);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Product grid and item styles */
+.product-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.product-item {
+  background-color: var(--card-bg);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px var(--card-shadow);
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  transition: transform 0.2s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-4px);
+}
+
+.product-item h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0.25rem 0;
+}
+
+.product-item p.price {
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+}
+
+.product-image {
+  border-radius: 4px;
+}
+
+/* Afbeeldingen in producttegel: toon voor- en achterkant naast elkaar */
+.product-images {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.product-images img {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px var(--card-shadow);
+}
+
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+  .hero p {
+    font-size: 1.25rem;
+  }
+  .category-card img {
+    height: 150px;
+  }
+}

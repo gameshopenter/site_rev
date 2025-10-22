@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameShop Enter – Tweedehands Games &amp; Consoles</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Import a modern font (Poppins) to enhance typography on the site -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script defer src="main.js"></script>
+  <!-- Voeg dynamische uploads toe zodat alle geüploade foto's in de productlijst verschijnen -->
+  <script defer src="uploads_inventory.js"></script>
+</head>
+<body>
+  <!-- Navigatie -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="brand-area">
+        <img src="images/logo.png" alt="GameShop Enter logo" class="logo">
+        <span class="brand-text">GameShop&nbsp;Enter</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="products.html">Producten</a></li>
+        <li><a href="categories.html">Categorieën</a></li>
+        <li><a href="inkoop.html">Inkoop</a></li>
+        <li><a href="about.html">Over ons</a></li>
+        <!-- Verzendinformatie pagina is verwijderd; alle verzendinformatie komt in het afrekenproces -->
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <!-- Zoekformulier voor snelle navigatie naar producten -->
+      <form class="nav-search" action="products.html" method="get">
+        <input type="search" name="q" placeholder="Zoek producten…" aria-label="Zoek producten">
+        <button type="submit">Zoek</button>
+      </form>
+      <div class="cart-link">
+        <a href="cart.html" title="Winkelwagen"><span class="cart-icon">🛒</span> <span id="cartCount">0</span></a>
+      </div>
+      <!-- Dark mode toggle button -->
+      <button id="darkModeToggle" class="dark-toggle" aria-label="Schakel dark mode">🌙</button>
+    </nav>
+    <!-- Benefits bar: highlight store advantages -->
+    <div class="benefits-bar">
+      <span>Gratis verzending vanaf €100</span>
+      <span>14 dagen retour &amp; 4,8★ beoordeling uit meer dan 1.200 ervaringen</span>
+      <!-- Duurzaam verpakt & zorgvuldig getest verwijderd om de boodschap te focussen -->
+    </div>
+  </header>
+
+  <!-- Welkomstsectie -->
+  <main class="home-page">
+    <!-- Hero-sectie vereenvoudigd: toon alleen logo en merknaam op een witte achtergrond -->
+    <section class="hero-block simple-hero">
+      <div class="container hero-container">
+        <img src="images/logo.png" alt="GameShop Enter logo" class="hero-logo-large">
+        <!-- Titel verwijderd voor een minimalistische hero; het logo volstaat -->
+      </div>
+    </section>
+
+    <!-- Categorieënoverzicht op de homepage zodat bezoekers snel kunnen navigeren -->
+    <section class="home-categories categories-page">
+      <div class="container">
+        <h2>Ontdek onze categorieën</h2>
+        <div class="category-grid">
+          <!-- Basis Nintendo‑categorieën met echte foto’s -->
+          <a href="products.html?cat=Nintendo%203DS" class="category-card">
+            <img src="images/gallery/0915BF92-4898-4CDB-8913-36E66C6CCBE0.jpeg" alt="Nintendo 3DS">
+            <span>Nintendo 3DS</span>
+          </a>
+          <a href="products.html?cat=Nintendo%20DS" class="category-card">
+            <img src="images/gallery/4489A3AB-0815-4783-8030-157AFEDCD950.jpeg" alt="Nintendo DS">
+            <span>Nintendo DS</span>
+          </a>
+          <a href="products.html?cat=Game%20Boy%20Advance" class="category-card">
+            <img src="images/gallery/62DFD134-04B9-451C-BDA0-C16F0CF0FCEE.jpeg" alt="Game Boy Advance">
+            <span>Game Boy Advance</span>
+          </a>
+          <a href="products.html?cat=Nintendo%20Switch" class="category-card">
+            <img src="images/gallery/A91C86FB-AF6B-4428-8E6C-5661B217C3EB.jpeg" alt="Nintendo Switch">
+            <span>Nintendo Switch</span>
+          </a>
+          <!-- Uitgebreide retro‑categorieën met iconen -->
+          <a href="products.html?cat=GameCube" class="category-card icon-category">
+            <img src="images/gallery/category_gamecube.png" alt="GameCube">
+            <span>GameCube</span>
+          </a>
+          <a href="products.html?cat=Wii" class="category-card icon-category">
+            <img src="images/gallery/category_wii.png" alt="Nintendo Wii">
+            <span>Wii</span>
+          </a>
+          <a href="products.html?cat=SNES" class="category-card icon-category">
+            <img src="images/gallery/category_snes.png" alt="Super Nintendo Entertainment System">
+            <span>SNES</span>
+          </a>
+          <a href="products.html?cat=NES" class="category-card icon-category">
+            <img src="images/gallery/category_nes.png" alt="Nintendo Entertainment System">
+            <span>NES</span>
+          </a>
+          <a href="products.html?cat=N64" class="category-card icon-category">
+            <img src="images/gallery/category_n64.png" alt="Nintendo 64">
+            <span>N64</span>
+          </a>
+          <a href="products.html?cat=Game%20Boy" class="category-card icon-category">
+            <img src="images/gallery/category_gameboy.png" alt="Nintendo Game Boy">
+            <span>Game Boy</span>
+          </a>
+          <a href="products.html?cat=Game%20Boy%20Color" class="category-card icon-category">
+            <img src="images/gallery/category_gameboycolor.png" alt="Nintendo Game Boy Color">
+            <span>Game Boy Color</span>
+          </a>
+          <a href="products.html?cat=Nintendo%202DS" class="category-card icon-category">
+            <img src="images/gallery/category_nintendo2ds.png" alt="Nintendo 2DS">
+            <span>Nintendo 2DS</span>
+          </a>
+        <!-- Trading card category -->
+        <a href="products.html?cat=Trading%20Cards" class="category-card">
+          <img src="images/gallery/category_tradingcards.jpg" alt="Trading Cards">
+          <span>Trading Cards</span>
+        </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Voordelen sectie: benadrukt waarom klanten voor GameShop Enter kiezen -->
+    <section class="home-benefits">
+      <div class="container">
+        <h2>Waarom kiezen voor GameShop Enter?</h2>
+        <div class="icons-row">
+          <!-- Voordelen: bijgewerkt om de focus te leggen op snelle levering, garantie en uitstekende beoordelingen -->
+          <div class="feature-item">
+            <div class="feature-icon">🚚</div>
+            <h3>Snelle levering</h3>
+            <p>Gratis verzending vanaf €100 en binnen twee werkdagen bezorgd.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔒</div>
+            <h3>Garantie &amp; retour</h3>
+            <p>14 dagen bedenktijd en betrouwbare kwaliteit.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">⭐</div>
+            <h3>Uitstekende score</h3>
+            <p>Gemiddelde beoordeling van 4,8★ uit meer dan 1.200 ervaringen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Horizontale productslider: toont een selectie van producten die van rechts naar links bewegen. Klikken navigeert naar het product. -->
+    <section class="product-marquee">
+      <div class="container">
+        <h2>Onze topkeuzes</h2>
+        <div id="marquee-track" class="marquee-track"></div>
+      </div>
+    </section>
+
+    <!-- Uitgelichte producten sectie verwijderd voor een rustiger homepage -->
+
+    <!-- Instagram feed verwijderd voor een cleaner ontwerp -->
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-column">
+        <h4>Over GameShop Enter</h4>
+        <p>Wij zijn gespecialiseerd in originele Nintendo‑consoles en games. Sinds 2019 actief met een 4,8★ beoordeling uit meer dan 1.200 ervaringen.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <p><strong>Telefoon:</strong> <a href="tel:+31641126067">+31 6 41126067</a></p>
+        <p><strong>Email:</strong> <a href="mailto:gameshopenter@gmail.com">gameshopenter@gmail.com</a></p>
+        <p><strong>KVK:</strong> 936424274</p>
+        <p>Verzending: €4 per bestelling via PostNL; afhalen is niet mogelijk.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Volg ons</h4>
+        <p>
+          <!-- Link naar de officiële Instagram‑pagina -->
+          <a href="https://www.instagram.com/Gameshop_Enter" target="_blank" rel="noopener">Instagram</a><br>
+          <a href="#" style="display:none;">Facebook</a><br>
+          <a href="#" style="display:none;">Twitter</a>
+        </p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 GameShop Enter – Alle rechten voorbehouden.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!window.GSE) return;
+      GSE.updateCartCount && GSE.updateCartCount();
+      // Initialise homepage marquee and recommendations
+      GSE.loadHomeMarquee && GSE.loadHomeMarquee();
+      GSE.renderRecommendedGames && GSE.renderRecommendedGames();
+      // Load featured products and Instagram feed
+      // Uitgelichte producten en Instagram feed niet geladen voor een rustigere homepage
+      // Engage visitors: retain chat widget but remove intrusive popups for a calmer experience
+      // Removed loyalty popup and live purchase notifications
+      // Chatwidget init uitgeschakeld voor een cleanere ervaring
+    });
+  </script>
+</body>
+</html>

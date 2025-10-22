@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – GameShop Enter</title>
+  <meta name="description" content="Neem contact op met GameShop Enter. Wij helpen je graag verder met vragen over jouw bestelling, producten of verkoop.">
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="assets/css2">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand-area"><a href="index.html" aria-label="Home"><img src="assets/images/logo.png" alt="GameShop Enter logo"></a></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Producten</a></li>
+          <li><a href="inkoop.html">Inkoop</a></li>
+          <li><a href="about.html">Over&nbsp;ons</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="cart.html">Winkelwagen</a></li>
+        </ul>
+        <button id="darkModeToggle" class="dark-toggle" aria-label="Schakel dark mode">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <main class="container" style="padding: 3rem 0; max-width: 800px;">
+    <h1>Contact</h1>
+    <p>Heb je vragen over een bestelling, onze producten of wil je gewoon hallo zeggen? Vul het formulier in en we nemen zo snel mogelijk contact met je op.</p>
+    <form style="display:flex; flex-direction:column; gap:1rem; margin-top:1.5rem;" onsubmit="event.preventDefault(); alert('Bedankt voor je bericht! We nemen spoedig contact met je op.'); this.reset();">
+      <div>
+        <label for="name" style="display:block; margin-bottom:0.25rem;">Naam</label>
+        <input type="text" id="name" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
+      </div>
+      <div>
+        <label for="email" style="display:block; margin-bottom:0.25rem;">E‑mail</label>
+        <input type="email" id="email" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
+      </div>
+      <div>
+        <label for="message" style="display:block; margin-bottom:0.25rem;">Bericht</label>
+        <textarea id="message" rows="5" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;"></textarea>
+      </div>
+      <button type="submit" class="btn" style="align-self:flex-start;">Verstuur</button>
+    </form>
+    <div style="margin-top:2rem;">
+      <h2>Onze gegevens</h2>
+      <p>GameShop Enter<br>
+      Dorpsstraat 123<br>
+      7468AA Enter, Nederland</p>
+      <p>E‑mail: <a href="mailto:info@gameshopenter.nl">info@gameshopenter.nl</a><br>
+      Telefoon: 06‑12345678</p>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 GameShop Enter. Alle rechten voorbehouden.</p>
+      <p><a href="about.html">Over ons</a> · <a href="contact.html" class="active">Contact</a> · <a href="inkoop.html">Inkoop</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categorieën | GameShop Enter</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Ultra luxe stylesheet om categoriekaarten consistent te stylen met gekleurde achtergronden -->
+  <link rel="stylesheet" href="ultra.css">
+  <script defer src="main.js"></script>
+  <!-- Dynamische geüploade items toevoegen -->
+  <script defer src="uploads_inventory.js"></script>
+  <!-- SEO meta tags -->
+  <meta name="description" content="Bekijk alle console- en verzamelkaarten categorieën van GameShop Enter. Ontdek Nintendo consoles zoals 3DS, DS, Game Boy, GameCube, Wii, SNES, NES, N64 en trading cards.">
+  <meta name="keywords" content="GameShop Enter categorieën, retro consoles, Nintendo 3DS, Nintendo DS, Game Boy, GameCube, Wii, SNES, NES, N64, trading cards">
+</head>
+<body>
+  <!-- Navigatie -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="brand-area">
+        <img src="images/logo.png" alt="GameShop Enter logo" class="logo">
+        <!-- Merknaam verborgen: alleen logo wordt getoond -->
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Producten</a></li>
+        <!-- Categorieën link verwijderd uit navigatie; categoriepagina is actief maar wordt niet getoond in nav -->
+        <li><a href="inkoop.html">Inkoop</a></li>
+        <li><a href="about.html">Over ons</a></li>
+        <!-- Verzendinformatie pagina is verwijderd; verzendinformatie komt in het afrekenproces -->
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <!-- Zoekformulier voor snelle navigatie naar producten -->
+      <form class="nav-search" action="products.html" method="get">
+        <input type="search" name="q" placeholder="Zoek producten…" aria-label="Zoek producten">
+        <button type="submit">Zoek</button>
+      </form>
+      <div class="cart-link">
+        <a href="cart.html" title="Winkelwagen"><span class="cart-icon">🛒</span> <span id="cartCount">0</span></a>
+      </div>
+    </nav>
+    <!-- Benefits bar: highlight store advantages -->
+    <div class="benefits-bar">
+      <!-- Voordelen in lijn met de homepage: lagere verzenddrempel en retourtermijn -->
+      <span>Gratis verzending vanaf €50</span>
+      <span>14 dagen bedenktijd/retour</span>
+      <span>4,8★ beoordeling uit meer dan 1.200 ervaringen</span>
+    </div>
+  </header>
+
+  <main class="categories-page">
+    <div class="container">
+      <h2>Categorieën</h2>
+      <p class="intro">Kies een consolecategorie om onze collectie te bekijken.</p>
+      <div class="category-grid">
+        <!-- Gebruik gekleurde achtergrondklassen voor een uniforme look zonder icons -->
+        <a href="products.html?cat=Nintendo%203DS" class="category-card cat-3ds">
+          <img src="images/categories/3ds_new.png" alt="Nintendo 3DS">
+          <span>Nintendo 3DS</span>
+        </a>
+        <!-- Voeg de Nintendo DS categorie toe (de originele DS) -->
+        <a href="products.html?cat=Nintendo%20DS" class="category-card cat-ds">
+          <img src="images/categories/ds_new.png" alt="Nintendo DS">
+          <span>Nintendo DS</span>
+        </a>
+        <a href="products.html?cat=Game%20Boy%20Advance" class="category-card cat-gba">
+          <img src="images/categories/gba_new.jpg" alt="Game Boy Advance">
+          <span>Game Boy Advance</span>
+        </a>
+        <a href="products.html?cat=Nintendo%20Switch" class="category-card cat-switch">
+          <img src="images/categories/switch_new.png" alt="Nintendo Switch">
+          <span>Nintendo Switch</span>
+        </a>
+        <!-- Nieuwe consolecategorieën met foto placeholders -->
+        <a href="products.html?cat=GameCube" class="category-card cat-gamecube">
+          <img src="images/categories/gamecube_new.png" alt="GameCube">
+          <span>GameCube</span>
+        </a>
+        <a href="products.html?cat=Wii" class="category-card cat-wii">
+          <img src="images/categories/wii_new.png" alt="Nintendo Wii">
+          <span>Wii</span>
+        </a>
+        <a href="products.html?cat=SNES" class="category-card cat-snes">
+          <img src="images/categories/snes_new.png" alt="SNES">
+          <span>SNES</span>
+        </a>
+        <a href="products.html?cat=NES" class="category-card cat-nes">
+          <img src="images/categories/nes_new.png" alt="NES">
+          <span>NES</span>
+        </a>
+        <a href="products.html?cat=N64" class="category-card cat-n64">
+          <img src="images/categories/n64_new.png" alt="Nintendo 64">
+          <span>N64</span>
+        </a>
+        <!-- Overige platformen zoals PlayStation, Xbox en Game & Watch worden momenteel niet aangeboden
+             in onze webshop. Deze categoriekaarten zijn verwijderd om verwarring te voorkomen. -->
+        <a href="products.html?cat=Game%20Boy" class="category-card cat-gb">
+          <img src="images/categories/gb_new.png" alt="Game Boy">
+          <span>Game Boy</span>
+        </a>
+        <a href="products.html?cat=Game%20Boy%20Color" class="category-card cat-gbc">
+          <img src="images/categories/gbc_new.png" alt="Game Boy Color">
+          <span>Game Boy Color</span>
+        </a>
+        <!-- Trading card category met foto placeholder -->
+        <a href="products.html?cat=Trading%20Cards" class="category-card cat-cards">
+          <img src="images/categories/cards_new.png" alt="Trading Cards">
+          <span>Trading Cards</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <p><strong>Telefoon:</strong> <a href="tel:+31641126067">+31 6 41126067</a></p>
+        <p><strong>Email:</strong> <a href="mailto:gameshopenter@gmail.com">gameshopenter@gmail.com</a></p>
+        <p><strong>KVK:</strong> 936424274</p>
+        <p>Verzending: €3,99 per brievenbuspakketje (tot 4 games); €6,95 bij 5 games of meer.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Volg ons</h4>
+        <p>
+          <a href="https://www.instagram.com/Gameshop_Enter" target="_blank" rel="noopener">Instagram</a>
+        </p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 GameShop Enter – Alle rechten voorbehouden.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!window.GSE) return;
+      GSE.updateCartCount && GSE.updateCartCount();
+      // Initialise chat widget only; remove loyalty and live purchase popups
+      // Chatwidget init verwijderd voor een rustige pagina
+    });
+  </script>
+</body>
+</html>
