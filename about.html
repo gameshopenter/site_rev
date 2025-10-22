@@ -3,45 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Over ons – GameShop Enter</title>
-  <meta name="description" content="Lees meer over GameShop Enter: wie we zijn, waar we voor staan en hoe we jouw passie voor retro gaming delen.">
-  <link rel="icon" href="favicon.png">
-  <link rel="stylesheet" href="assets/css2">
+  <title>Over ons | GameShop Enter</title>
   <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
+  <script defer src="main.js"></script>
+  <!-- Dynamische geüploade items toevoegen -->
+  <script defer src="uploads_inventory.js"></script>
+  <!-- SEO meta tags -->
+  <meta name="description" content="Lees meer over GameShop Enter: onze missie, passie voor retro gaming, en klantgerichte service.">
+  <meta name="keywords" content="GameShop Enter over ons, missie, retro gaming, klantgericht, tweedehands games">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="brand-area">
-          <a href="index.html" aria-label="Home">
-            <img src="assets/images/logo.png" alt="GameShop Enter logo">
-          </a>
-        </div>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Producten</a></li>
-          <li><a href="inkoop.html">Inkoop</a></li>
-          <li><a href="about.html" class="active">Over&nbsp;ons</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="cart.html">Winkelwagen</a></li>
-        </ul>
-        <button id="darkModeToggle" class="dark-toggle" aria-label="Schakel dark mode">🌙</button>
-      </nav>
+  <!-- Navigatie -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="brand-area">
+        <img src="images/logo.png" alt="GameShop Enter logo" class="logo">
+        <!-- Merknaam verborgen: alleen logo wordt getoond -->
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Producten</a></li>
+        <!-- Categorieën link verwijderd -->
+        <li><a href="inkoop.html">Inkoop</a></li>
+        <li><a href="about.html" class="active">Over ons</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="cart-link">
+        <a href="cart.html" title="Winkelwagen"><span class="cart-icon">🛒</span> <span id="cartCount">0</span></a>
+      </div>
+    </nav>
+    <!-- Benefits bar -->
+    <div class="benefits-bar">
+      <!-- Winkelvoordelen apart gepresenteerd voor duidelijkheid -->
+      <span>Gratis verzending vanaf €100</span>
+      <span>14 dagen retour</span>
+      <span>4,8★ beoordeling uit meer dan 1.200 ervaringen</span>
+      <!-- Milieuvriendelijke verpakking en testvermelding verwijderd voor een beknopte presentatie -->
     </div>
   </header>
-  <main class="container" style="padding: 3rem 0;">
-    <h1>Over&nbsp;ons</h1>
-    <p>GameShop&nbsp;Enter is ontstaan uit liefde voor alles wat met gamen te maken heeft. Als verzamelaars en gamers weten we hoe bijzonder het voelt om een game uit je jeugd opnieuw in handen te krijgen. Daarom hebben we ons gespecialiseerd in het inkopen en verkopen van hoogwaardige tweedehands games en consoles.</p>
-    <p>We inspecteren en testen al onze artikelen zorgvuldig, zodat jij met een gerust hart kunt bestellen. Onze voorraad varieert van de nieuwste Nintendo&nbsp;Switch‑titels tot retro klassiekers voor de NES, SNES en Game&nbsp;Boy‑familie. We streven naar een uitstekende service: snelle verzending, eerlijke prijzen en vriendelijke klantenondersteuning.</p>
-    <p>Natuurlijk zijn we ook altijd op zoek naar mooie aanvullingen op onze collectie. Heb je oude games of consoles liggen die je een nieuw leven wilt geven? Bekijk dan onze <a href="inkoop.html">Inkoop</a>-pagina om te zien hoe je eenvoudig je games aan ons kunt verkopen.</p>
+
+  <!-- Inhoud over ons -->
+  <main class="about-page container">
+    <h2>Over GameShop Enter</h2>
+    <!-- Overzichtelijke hoogtepunten in een grid -->
+    <section class="about-highlights">
+      <div class="highlight-item">
+        <div class="highlight-icon" aria-hidden="true">📅</div>
+        <h4>Actief sinds 2019</h4>
+        <p>GameShop Enter begon als hobby in het hart van Enter en groeide uit tot een vertrouwde webshop voor originele Nintendo‑games en consoles.</p>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon" aria-hidden="true">⭐</div>
+        <h4>Betrouwbare reputatie</h4>
+        <p>Met een gemiddelde score van 4,8★ uit meer dan 1.200 ervaringen tonen we dat kwaliteit, service en eerlijkheid centraal staan.</p>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon" aria-hidden="true">🎮</div>
+        <h4>Passie voor gaming</h4>
+        <p>We willen retro‑gaming en moderne consoles een plek geven waar liefhebbers elkaar vinden en onze collectie zorgvuldig wordt samengesteld.</p>
+      </div>
+    </section>
+
+    <h3>Onze missie</h3>
+    <p>Onze missie is simpel: de magie van games bewaren voor huidige én toekomstige generaties door een zorgvuldig geselecteerde collectie aan te bieden.</p>
+
+    <h3>Hoe wij werken</h3>
+    <p>Al onze producten worden getest op functionaliteit en authenticiteit, zodat jij zonder zorgen kunt genieten. Bestel je voor 23:59, dan wordt je bestelling de volgende werkdag verzonden. Binnen Nederland kost een brievenbuspakket (tot 4 games) €3,99 en een pakket (vanaf 5 games) €6,95. Vanaf €100 verzenden we gratis en je hebt 14 dagen bedenktijd om je aankoop terug te sturen.</p>
+
+    <!-- Teamsectie verwijderd -->
+
+    <h3>Waarom kiezen voor ons?</h3>
+    <ul>
+      <li><strong>Eerlijk geprijsd:</strong> Transparante en marktconforme prijzen met regelmatig scherpe aanbiedingen.</li>
+      <li><strong>Snelle levering:</strong> Brievenbuspakket €3,99 (tot 4 games), pakketpost €6,95 (5 games of meer), gratis verzending vanaf €100 en bezorging binnen twee werkdagen.</li>
+      <li><strong>Uitstekende beoordeling:</strong> Gemiddelde score van 4,8★ uit meer dan 1.200 ervaringen.</li>
+    </ul>
+
+    <p>Ben je klaar om te spelen? <a href="products.html" class="btn btn-primary">Bekijk onze collectie</a></p>
   </main>
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 GameShop Enter. Alle rechten voorbehouden.</p>
-      <p><a href="about.html" class="active">Over ons</a> · <a href="contact.html">Contact</a> · <a href="inkoop.html">Inkoop</a></p>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-column">
+        <h4>Over GameShop Enter</h4>
+        <p>Wij zijn gespecialiseerd in originele Nintendo‑consoles en games. Sinds 2019 actief met een 4,8★ beoordeling uit meer dan 1.200 ervaringen.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <p><strong>Telefoon:</strong> <a href="tel:+31641126067">+31 6 41126067</a></p>
+        <p><strong>Email:</strong> <a href="mailto:gameshopenter@gmail.com">gameshopenter@gmail.com</a></p>
+        <p><strong>KVK:</strong> 936424274</p>
+        <p>Verzending: €3,99 per brievenbuspakketje (tot 4 games), €6,95 bij 5 games of meer; afhalen is niet mogelijk.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Volg ons</h4>
+        <p>
+          <a href="https://www.instagram.com/Gameshop_Enter" target="_blank" rel="noopener">Instagram</a><br>
+          <a href="#">Facebook</a><br>
+          <a href="#">Twitter</a>
+        </p>
+      </div>
     </div>
+    <p class="copyright">© 2025 GameShop Enter – Alle rechten voorbehouden.</p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!window.GSE) return;
+      GSE.updateCartCount && GSE.updateCartCount();
+      // Chatwidget init verwijderd voor een rustige pagina
+    });
+  </script>
 </body>
 </html>
