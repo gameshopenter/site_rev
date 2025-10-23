@@ -1,0 +1,3152 @@
+/* ============================================================
+   GameShop Enter – Stijlblad (lichte variant)
+   Minimalistisch wit‑zwart thema met moderne typografie
+============================================================ */
+
+/* Algemene instellingen */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/*
+ * Globale kleurvariabelen voor de gehele site
+ * Hiermee zorgen we voor een consistent kleurenpalet over
+ * alle pagina’s. Door de kleuren als CSS variabelen te
+ * declareren kunnen we eenvoudig het uiterlijk van de site
+ * aanpassen zonder op meerdere plekken afzonderlijk wijzigingen
+ * te hoeven doen. Kies zachte, zakelijke tinten voor een
+ * professionele uitstraling.
+ */
+:root {
+  --color-primary: #0d6efd; /* warme blauwe basiskleur voor knoppen, links en accenten */
+  --color-secondary: #6c63ff; /* zacht paars voor secundaire elementen */
+  --color-success: #2cb67d; /* groen voor positieve badges of labels */
+  --color-danger: #e33e5a; /* rood voor aanbiedingen of waarschuwingen */
+  --color-bg: #f8f9fb; /* algemene achtergrondkleur */
+  --color-card-bg: #ffffff; /* achtergrondkleur van kaarten en overlays */
+  --color-border: #e5eaf5; /* subtiele borderkleur voor scheiding zonder harde lijnen */
+  --color-text: #1f2937; /* donkergrijze tekst voor goede leesbaarheid */
+  --color-muted: #6c757d; /* gedempte kleur voor minder prominente teksten */
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.95rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Navigatie */
+.site-header {
+  /* Use a clean white header with a subtle drop shadow for a professional look */
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.brand-area {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+
+.logo {
+  /* Vergroot het logo in de navigatiebalk nog verder voor een duidelijke merkidentiteit */
+  width: 120px;
+  height: 120px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  font-size: 1rem;
+}
+
+.nav-links a {
+  position: relative;
+  padding-bottom: 2px;
+  color: #222;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  font-weight: 600;
+  border-bottom: 2px solid #111;
+  color: #111;
+}
+
+.cart-link {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  /* Het cart‑icoon zal de kleuren van het logo gebruiken; de daadwerkelijke knop wordt hieronder gestyled */
+  color: inherit;
+}
+
+/* Ensure the cart link inherits the parent colour */
+.cart-link a {
+  /* Geef de winkelwagenlink een opvallende knopstijl met een verloop dat verwijst naar de kleuren van het logo */
+  background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+  color: #ffffff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.cart-link a:hover {
+  opacity: 0.9;
+}
+
+.cart-icon {
+  margin-right: 0.25rem;
+}
+
+/* Dark mode toggle button in the header */
+.dark-toggle {
+  margin-left: 1rem;
+  font-size: 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #0d6efd;
+  line-height: 1;
+}
+
+.dark-toggle:focus {
+  outline: 2px dotted #0d6efd;
+  outline-offset: 2px;
+}
+
+/* Adjust toggle color in dark mode */
+body.dark-mode .dark-toggle {
+  color: #4da8ff;
+}
+
+/* Hero sectie */
+.hero {
+  position: relative;
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* Nieuwe hero met zwart-wit vibe */
+.new-hero {
+  /* Gebruik het neon-geïnspireerde hero-beeld als achtergrond, maar maak het zwart‑wit */
+  background-image: url('images/hero-new.png');
+  background-size: cover;
+  background-position: center;
+  /* Pas filter toe zodat het beeld in zwart‑wit verschijnt en iets donkerder is */
+  filter: grayscale(100%) brightness(0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  color: #ffffff;
+}
+
+/* Logo styling binnen de nieuwe hero */
+.new-hero .hero-logo {
+  width: 200px;
+  height: auto;
+  /* Inverteer de kleuren van het logo zodat hij helder oogt op de donkere achtergrond */
+  filter: invert(100%);
+}
+
+/* =========================================================
+   Welkom hero – introductiesectie op de homepage
+
+   Deze sectie verwelkomt bezoekers met een duidelijke
+   titel, een korte beschrijving en een opvallende knop
+   om het assortiment te bekijken. De sectie staat onder
+   de navigatiebalk voor een warme binnenkomst.
+========================================================= */
+/*
+ * Welkom-hero
+ *
+ * Deze sectie verwelkomt bezoekers met een opvallende achtergrondanimatie
+ * geïnspireerd op de kleuren van het GameShop‑Enter‑logo. De swirl-achtergrond
+ * draait langzaam dankzij een CSS‑animatie. Een lichte overlay zorgt voor
+ * voldoende contrast zodat de tekst altijd goed leesbaar blijft.
+ */
+.welcome-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+  margin-bottom: 4rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* Draaiende swirl-achtergrond op basis van een statisch beeld. Het beeld
+   bevindt zich in ./images/hero_bg.png en is gemaakt in de kleuren
+   groen/blauw van het logo. Door de animatie lijkt de achtergrond te leven. */
+.welcome-hero::before {
+  content: "";
+  position: absolute;
+  /* Maak het achtergrondbeeld extra groot zodat de hoeken buiten beeld blijven
+     tijdens rotatie. Hierdoor ontstaan er geen ongewenste grijze driehoeken. */
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background-image: url('images/hero_bg.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px) brightness(0.8);
+  opacity: 0.7;
+  animation: swirlRotate 45s linear infinite;
+  /* Zet de swirl-achtergrond dieper zodat zwevende vormen erboven verschijnen */
+  z-index: -3;
+}
+/* Transparante overlay om tekstleesbaarheid te verhogen */
+.welcome-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  z-index: -1;
+}
+
+.welcome-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.welcome-hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  color: rgba(255,255,255,0.9);
+}
+/* Heldere actieknop in de kleuren van het logo */
+.welcome-hero .btn {
+  /* Animerend verloop dat zachtjes beweegt om de aandacht te trekken
+     zonder te overweldigen. Het verloop gebruikt dezelfde kleuren als
+     het logo en schuift langzaam heen en weer. */
+  background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+  background-size: 200% 200%;
+  animation: btnGradient 8s ease infinite;
+  color: #ffffff;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.welcome-hero .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Animatie voor de swirl-achtergrond */
+@keyframes swirlRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Scroll progress bar: sits at top of viewport and fills as the user scrolls */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #34d399 0%, #3b82f6 100%);
+  z-index: 10000;
+  transition: width 0.15s ease-out;
+}
+
+/* Add subtle 3D tilt and lift effect for cards to enhance luxury feel */
+.shop-card, .category-card {
+  transition: transform 0.3s cubic-bezier(.25,.46,.45,.94), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+.shop-card:hover, .category-card:hover {
+  transform: translateY(-4px) scale(1.03) rotateX(1deg) rotateY(-1deg);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+/*
+ * Zwevende hexagonvormen in de welkomstsectie
+ *
+ * Deze elementen creëren een uniek, visueel spektakel door zachte hexagonen
+ * (geïnspireerd op het logo) omhoog te laten zweven. Elke vorm gebruikt
+ * een CSS‑variabele voor positie, duur en vertraging, waardoor de animatie
+ * er willekeurig uitziet zonder extra JavaScript. Ze zijn licht vervaagd
+ * en halftransparant zodat ze niet concurreren met de inhoud.
+ */
+.welcome-hero .floating-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.welcome-hero .floating-shapes .shape {
+  position: absolute;
+  bottom: -20%;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+  /* Maak de vormen subtieler zodat ze niet de aandacht van de content afleiden */
+  /* Verminder de dekking voor een subtielere achtergrondanimatie */
+  opacity: 0.08;
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  filter: blur(1px);
+  animation: floatUp var(--dur) linear infinite;
+  animation-delay: var(--delay);
+  left: var(--left);
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) rotate(0deg) scale(0.5);
+  }
+  to {
+    transform: translateY(-110vh) rotate(360deg) scale(0.8);
+  }
+}
+
+/*
+ * Knopverloop animatie
+ * De achtergrond van de call‑to‑action knoppen schuift heen en weer,
+ * wat een subtiele glans creëert zonder de leesbaarheid te beïnvloeden.
+ */
+@keyframes btnGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* =========================================================
+   Scroll-fade animatie
+
+   Elementen met de klasse `scroll-fade` zullen eerst verborgen zijn
+   en vervolgens soepel verschijnen wanneer ze in beeld komen. De klasse
+   `visible` wordt via JavaScript toegevoegd zodra het element in
+   viewport komt, waardoor de overgang geactiveerd wordt.
+========================================================= */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero-inner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-inner p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+}
+
+.btn {
+  display: inline-block;
+  /* Gebruik een opvallend verloop dat aansluit op het logo voor een moderne look */
+  background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+  border: none;
+  color: #ffffff;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  /* Verminder de dekking en voeg een subtiele lift toe om interactie aan te geven */
+  opacity: 0.9;
+  transform: translateY(-2px) scale(1.03);
+  color: #ffffff;
+}
+
+/* Features sectie */
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+
+/* Een rij met iconen op de homepagina; gebruikt voor de belangrijkste voordelen */
+.icons-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Iconen in de features/benefits sectie */
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #0d6efd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hergebruik feature item, maar maak achtergrond lichter voor iconenrij */
+.icons-row .feature-item {
+  flex: 1;
+  min-width: 200px;
+  background: #f8f8f8;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #e5e5e5;
+}
+
+/* Kleine titel en tekst in icons-row */
+.icons-row .feature-item h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  color: #111;
+}
+
+.icons-row .feature-item p {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* Home benefits section to separate icons row from surrounding content */
+.home-benefits {
+  padding: 3rem 0;
+  background-color: #fafbfd;
+}
+
+.home-benefits h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #111;
+}
+
+
+.feature-item {
+  flex: 1;
+  min-width: 250px;
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  color: #222;
+  border: 1px solid #e5e5e5;
+}
+
+
+.feature-item h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #111;
+}
+
+
+.feature-item p {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Uitgelichte producten */
+
+.featured {
+  padding: 3rem 0;
+}
+
+
+.featured h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  color: #111;
+}
+
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Zoek- en filtergedeelte boven de productlijst */
+.product-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-controls input[type="search"],
+  .product-controls select {
+  flex: 1 1 200px;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus states voor zoekvelden en selectievakjes */
+.product-controls input[type="search"]:focus,
+.product-controls select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.15);
+}
+
+
+.product-card {
+  background: var(--color-card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Voeg een vloeiende hovertransitie toe voor een subtiele micro‑animatie */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+
+.product-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+.product-card img.product-thumb {
+  width: 100%;
+  /*
+   * Make product images more prominent. Increase their height
+   * and ensure the entire product fits within the frame by
+   * switching to object-fit: contain. Use a clean white
+   * background so that dark console photos don't look muted
+   * against the card. These tweaks help the product photos
+   * stand out and give a more premium feel on listing pages.
+   */
+  /* Increase product image height for more impact */
+  height: 300px;
+  object-fit: contain;
+  background-color: #ffffff;
+}
+
+
+.product-info {
+  padding: 1rem;
+  flex: 1;
+  color: var(--color-text);
+}
+
+
+.product-info h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-text);
+}
+
+.product-info h3 a {
+  color: inherit;
+}
+
+
+.product-info p.price {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--color-primary);
+}
+
+
+.product-info p.condition {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+
+.btn-small {
+  display: block;
+  margin: 0.5rem 1rem 1rem 1rem;
+  /* Gebruik een subtiel verloop voor kleine knoppen voor consistentie met de primaire knop */
+  background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+  border: none;
+  color: #ffffff;
+  padding: 0.5rem 0;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-small:hover {
+  opacity: 0.9;
+  color: #ffffff;
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e5e5e5;
+}
+
+body.dark-mode .site-header,
+body.dark-mode .site-footer {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+body.dark-mode .benefits-bar {
+  background-color: #1e1e1e;
+  color: #e5e5e5;
+}
+
+body.dark-mode .nav-links a {
+  color: #e5e5e5;
+}
+
+body.dark-mode .nav-links a.active,
+body.dark-mode .nav-links a:hover {
+  border-bottom-color: #e5e5e5;
+}
+
+body.dark-mode .product-card {
+  background-color: #1e1e1e;
+  border-color: #333;
+  color: #e5e5e5;
+}
+
+body.dark-mode .product-card:hover {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .category-card {
+  background-color: #1e1e1e;
+}
+
+/* Pas tekstkleuren aan in dark mode voor categoriekaarten */
+body.dark-mode .category-card .category-name {
+  color: #f3f4f6;
+}
+body.dark-mode .category-card .category-tagline {
+  color: #9ca3af;
+}
+
+body.dark-mode .hero-block {
+  background: linear-gradient(180deg, #1e1e1e 0%, #121212 100%);
+}
+
+body.dark-mode .btn,
+body.dark-mode .btn-small,
+body.dark-mode .hero-block .btn {
+  background-color: #0f7a2a;
+  color: #ffffff;
+  border-color: #0f7a2a;
+}
+
+body.dark-mode a {
+  color: #8bbdff;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s forwards ease-out;
+}
+
+.animate-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-2 {
+  animation-delay: 0.4s;
+}
+
+.animate-delay-3 {
+  animation-delay: 0.6s;
+}
+
+/* =============================================================
+   Custom hero block for the homepage
+   We use a gentle gradient background and a subtle floating
+   animation on the logo to draw attention without overwhelming
+   the visitor. The text is centered and kept concise.
+============================================================= */
+
+.hero-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem 3rem;
+  text-align: center;
+  background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
+}
+
+.hero-block .hero-logo-large {
+  width: 220px;
+  height: auto;
+  margin-bottom: 1rem;
+  /* Subtle floating animation */
+  animation: floatUpDown 4s ease-in-out infinite;
+}
+
+.hero-block h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  color: #111;
+  line-height: 1.2;
+}
+
+.hero-block .hero-tagline {
+  max-width: 640px;
+  margin: 0 auto 1.5rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.hero-block .btn {
+  margin-top: 0.5rem;
+  padding: 0.8rem 2rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  /* Gebruik de groentint van het logo voor de primaire knop op de homepagina */
+  background-color: #0f7a2a;
+  color: #fff;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.hero-block .btn:hover {
+  background-color: #0c5f20;
+  color: #fff;
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* =============================================================
+   Category card hover effects
+   Provide subtle lift and brightness on hover to create a sense
+   of interactivity. The category label is overlaid on the image
+   for better readability.
+============================================================= */
+
+.category-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  /* Verlaag de minimale hoogte nu de fotoplaceholders zijn verwijderd */
+  min-height: 140px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+/*
+ * Geef de categoriekaarten een subtiele glijverloopanimatie op hover.
+ * Dit effect gebruikt dezelfde kleuren als het logo en zorgt voor een
+ * moderne uitstraling zonder te veel af te leiden. De glans schuift
+ * over de kaart wanneer de gebruiker erover beweegt.
+ */
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg,
+    rgba(52, 211, 153, 0.25),
+    rgba(59, 130, 246, 0.25),
+    rgba(52, 211, 153, 0.25));
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.category-card:hover::before {
+  animation: slide-shimmer 4s linear infinite;
+}
+
+@keyframes slide-shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Toon categorieafbeeldingen standaard en zorg dat ze responsive zijn.  
+ * Categorieën zonder een <img> element hebben automatisch geen afbeelding,  
+ * waardoor lege kaarten gewoon zonder foto worden getoond. */
+.category-card img {
+  display: block;
+  width: 100%;
+  /* Geef afbeeldingen een vaste hoogte en behoud de verhoudingen. Hierdoor ogen ze scherper en vullend zonder te vervormen. */
+  height: 150px;
+  object-fit: contain;
+  background-color: #f7f7f7;
+  margin-bottom: 0.5rem;
+}
+
+.category-card:hover img {
+  filter: brightness(1.05);
+}
+
+/* De categorie‑naam wordt boven de tagline geplaatst. We hebben de absolute
+ * positionering en donkere overlay verwijderd omdat we geen achtergrondfoto
+ * gebruiken voor categoriekaarten. Hierdoor ontstaat een open, luchtige
+ * uitstraling die past bij een luxe webwinkel. */
+.category-card .category-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+  color: var(--text-color, #1f2933);
+  text-align: center;
+}
+
+/* Tagline onder de categorie‑naam met subtiele styling */
+.category-card .category-tagline {
+  font-size: 0.85rem;
+  color: var(--muted-text-color, #5e6c84);
+  text-align: center;
+}
+
+/* ==================================================================
+   Twente‑style product cards
+   Deze nieuwe componenten vervangen de standaard productkaartweergave.
+   Elke kaart toont een grote cover, titel, conditie en prijs in
+   een duidelijk raster. Onderaan staan knoppen voor bekijken en
+   toevoegen aan de winkelwagen.
+================================================================== */
+
+/* Kaartcontainer */
+.shop-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  border: 1px solid #e5e5e5;
+}
+
+.shop-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+/* Afbeelding bovenaan */
+/* Productafbeelding in een kaart */
+.shop-card img.shop-thumb {
+  width: 100%;
+  /* Larger product images to emphasise product quality. Increased height for a premium look. */
+  height: 300px;
+  object-fit: contain;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Plaatshouder voor productafbeeldingen op de overzichtspagina. De echte afbeelding wordt pas getoond op de detailpagina. */
+.shop-card .image-placeholder {
+  width: 100%;
+  height: 300px;
+  background-color: #f4f6f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 0.8rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Informatieblok */
+.shop-card .info {
+  padding: 1rem;
+  flex: 1;
+  color: #111;
+}
+
+.shop-card .info h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  min-height: 2.6rem;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.shop-card .info h3 a {
+  color: inherit;
+}
+
+/* Metadata (conditie en prijs) */
+.shop-card .meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Categorie-label in de meta sectie */
+.shop-card .meta .category {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.shop-card .badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.shop-card .badge.used {
+  background-color: #e6f4ea;
+  color: #0f7a2a;
+}
+
+.shop-card .badge.new {
+  background-color: #e8f1fc;
+  color: #1947ba;
+}
+
+.shop-card .price {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #0f7a2a; /* Gebruik groen accentkleur uit het logo voor prijzen */
+}
+
+/* Gekleurde prijstags: match kleur met conditie */
+.shop-card .price.used {
+  background-color: #e6f4ea; /* lichtgroen */
+  color: #0f7a2a;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.shop-card .price.new {
+  background-color: #e8f1fc; /* lichtblauw */
+  color: #1947ba;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+/* Op voorraad indicatie */
+.shop-card .stock {
+  font-size: 0.75rem;
+  color: #0f7a2a;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.shop-card .stock .icon {
+  font-size: 0.85rem;
+}
+
+/* Actieknoppen */
+.shop-card .actions {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 1rem 1rem 1rem;
+}
+
+.shop-card .btn-view {
+  flex: 1;
+  text-align: center;
+  border: 1px solid #111;
+  color: #111;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  background: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.shop-card .btn-view:hover {
+  background-color: #111;
+  color: #ffffff;
+}
+
+.shop-card .btn-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: none;
+  /* Blue accent for add-to-cart button */
+  background-color: #0d6efd;
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.shop-card .btn-cart:hover {
+  background-color: #0b5ed7;
+}
+
+/*
+ * Beschrijving en infoknop voor elke productkaart
+ * De infoknop toont een verborgen beschrijving onderaan de kaart wanneer
+ * erop wordt geklikt. De beschrijving heeft een subtiele achtergrond
+ * en is standaard verborgen.
+ */
+.shop-card .btn-desc {
+  flex: 1;
+  text-align: center;
+  border: 1px solid #0d6efd;
+  color: #0d6efd;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.shop-card .btn-desc:hover {
+  background-color: #0d6efd;
+  color: #ffffff;
+}
+
+/* Beschrijvingstekst binnen productkaarten */
+.shop-card .description-section {
+  display: none;
+  padding: 1rem;
+  border-top: 1px solid #e5e5e5;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #555;
+  background-color: #fafafa;
+}
+
+/* Waarom GameShop Enter sectie */
+.why-us {
+  padding: 3rem 0;
+  background-color: #fafafa;
+}
+
+.why-us h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  color: #111;
+}
+
+.why-us-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.why-us-item {
+  flex: 1;
+  min-width: 250px;
+  background: #ffffff;
+  padding: 2rem 1.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-us-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.1);
+}
+
+.why-us-item .icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.why-us-item h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #111;
+}
+
+.why-us-item p {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Product details */
+
+.product-detail-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+
+.product-detail-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+
+.product-detail-image img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  background-color: #f8f8f8;
+}
+
+/*
+ * Product image gallery styles
+ * When a product has a gallery array, we display the main image and a row of
+ * thumbnails.  Clicking a thumbnail updates the main image and highlights
+ * the selected thumbnail.  These classes work in tandem with the JS that
+ * injects the gallery into the page.
+ */
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.product-gallery #main-product-image {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.product-gallery .thumbnail-list {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+.product-gallery .thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  flex-shrink: 0;
+}
+.product-gallery .thumbnail.active {
+  border-color: #007bff;
+}
+
+
+.product-detail-info {
+  flex: 2;
+  min-width: 300px;
+  color: var(--color-text);
+}
+
+
+.product-detail-info h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  color: var(--color-text);
+}
+
+
+.product-detail-info .price {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  color: var(--color-primary);
+}
+
+
+.product-detail-info .condition {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+}
+
+
+.product-detail-info .description {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+
+.product-detail-info .btn {
+  margin-top: 1rem;
+}
+
+/* Cart page */
+
+.cart-page {
+  padding: 3rem 0;
+  min-height: 60vh;
+}
+
+
+.cart-page h2 {
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+
+.cart-item-info {
+  flex: 1;
+  color: #111;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+.cart-item-controls button {
+  background: transparent;
+  border: 1px solid #111;
+  color: #111;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.cart-item-controls button:hover {
+  background-color: #111;
+  color: #ffffff;
+}
+
+
+.cart-summary {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #111;
+}
+
+.cart-summary .btn {
+  margin-left: auto;
+}
+
+/* Contact page */
+
+.contact-page {
+  padding: 3rem 0;
+  min-height: 60vh;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+
+.contact-info,
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  color: #111;
+}
+
+.contact-info h2,
+.contact-form h2 {
+  margin-bottom: 1rem;
+}
+
+
+.contact-info p {
+  margin-bottom: 0.75rem;
+  color: #555;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #111;
+  font-size: 0.9rem;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+
+.contact-form .btn {
+  align-self: flex-start;
+}
+
+/* Footer */
+
+.site-footer {
+  background: #f8f8f8;
+  padding: 2rem 0;
+  color: #444;
+  border-top: 1px solid #e5e5e5;
+}
+
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+
+.footer-column h4 {
+  margin-bottom: 0.75rem;
+  color: #111;
+}
+
+
+.footer-column p,
+.footer-column a {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.footer-column a:hover {
+  color: #111;
+  text-decoration: underline;
+}
+
+
+.copyright {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+  .hero-inner h1 {
+    font-size: 2rem;
+  }
+  .features {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .product-detail-wrapper {
+    flex-direction: column;
+  }
+}
+
+/* Galerij grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.gallery-item.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ===== Categorieën pagina ===== */
+.categories-page .category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.categories-page .category-card {
+  display: block;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  /* Laat de achtergrondkleur bepalen door de categorieklasse (bijvoorbeeld cat-3ds) zodat
+     gekleurde verlopen zichtbaar zijn op de categoriepagina. */
+  background: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.categories-page .category-card img {
+  width: 100%;
+  height: 180px;
+  /* Toon de gehele afbeelding zonder af te snijden */
+  object-fit: contain;
+  /* Plaats de afbeelding op een witte achtergrond zodat consolefoto's beter uitkomen */
+  background-color: #fff;
+  /* Geef de afbeelding wat binnenruimte zodat hij niet tegen de kaartrand plakt */
+  padding: 0.5rem;
+  /* Verhoog de helderheid iets zodat donkere achtergronden minder dominant zijn */
+  filter: brightness(1.2);
+}
+
+.categories-page .category-card span {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  background: #f7f7f7;
+}
+
+.categories-page .category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================== Benefits bar ========================
+   Inspired by GameShop Twente: display shipping and service
+   advantages across all pages. The bar shows three messages
+   with a red checkmark and subtle styling. To include the
+   bar in your pages, insert a <div class="benefits-bar"> element
+   right below the navigation. See the HTML pages for usage. */
+.benefits-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 0.85rem;
+  color: #111;
+}
+
+/* =============================================
+   Redesigned hero section
+   The hero uses a soft gradient background and modern typography
+   to create a welcoming first impression. The call-to-action
+   button adopts the site's primary blue accent.
+================================================ */
+.hero-block {
+  background: linear-gradient(135deg, #f5f8ff 0%, #e6f0ff 100%);
+  padding: 4rem 0;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.hero-block .hero-logo-large {
+  width: 180px;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.hero-block .hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 1rem;
+}
+
+.hero-block .hero-tagline {
+  font-size: 1.1rem;
+  color: #555555;
+  margin-bottom: 2rem;
+}
+
+.hero-block .btn-primary {
+  display: inline-block;
+  background-color: #0d6efd;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-block .btn-primary:hover {
+  background-color: #0a58ca;
+  transform: translateY(-2px);
+}
+
+/* Hide the old featured section completely */
+.featured-section {
+  display: none !important;
+}
+
+/* Icon categories on the categories page should also be softened. Override the default
+   styling by desaturating the images and lightening the label background. */
+.categories-page .icon-category img {
+  filter: grayscale(0.6) brightness(1.4) saturate(0.4);
+  object-fit: cover;
+  object-position: top;
+}
+
+.categories-page .icon-category span {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  color: #111 !important;
+}
+
+/* Lighten and desaturate icon-based category cards on the homepage
+   to reduce the harshness of solid colour backgrounds. The label
+   becomes dark-on-light for better contrast. */
+.icon-category img {
+  /* Apply stronger desaturation and brightness to neutralise intense colours of icon images */
+  filter: grayscale(0.6) brightness(1.4) saturate(0.4);
+  /* Crop the bottom of icon-based images to remove harsh colour bands */
+  object-fit: cover;
+  object-position: top;
+}
+
+.icon-category span {
+  /* Override the default dark overlay for icon categories with a light one. Use !important to trump
+     the more specific .home-page .category-card span selector. */
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  color: #111 !important;
+}
+
+/* ================= Inkoop pagina ========================= */
+.inkoop-page {
+  padding: 2rem 0;
+}
+
+.sell-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.sell-option {
+  flex: 1 1 280px;
+  background: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.sell-option h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #111;
+}
+
+.sell-option p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.sell-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #0d6efd;
+}
+
+.sell-form-section {
+  margin-top: 3rem;
+}
+
+.sell-form-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+
+.sell-form-section p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.sell-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sell-form label {
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.sell-form input,
+.sell-form textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.sell-form button {
+  align-self: flex-start;
+  background-color: #0d6efd;
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sell-form button:hover {
+  background-color: #0b5ed7;
+}
+
+/* ================= Recommended section ==================== */
+.recommended {
+  padding: 3rem 0;
+}
+
+.recommended h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #111;
+}
+
+.recommended-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ================= Marquee section ======================== */
+.marquee-section {
+  padding: 3rem 0;
+}
+
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+  height: 260px;
+  position: relative;
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 30s linear infinite;
+}
+
+.marquee-content img {
+  width: auto;
+  height: 260px;
+  margin-right: 1rem;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ================= Related products section ================ */
+.related-section {
+  padding: 3rem 0;
+}
+
+.related-section h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+/* Inherited shop-card styles will be used for related products */
+
+.benefits-bar span {
+  position: relative;
+  padding-left: 1.2rem;
+  font-weight: 500;
+}
+
+/* Red checkmark preceding each benefit */
+.benefits-bar span::before {
+  content: '\2714';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #e60023;
+}
+
+/* Link within benefits bar: styled as blue underline to draw attention */
+.benefits-bar .benefit-link {
+  color: #007aff;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Verzendformulier in de winkelwagen */
+.shipping-form {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+}
+
+.shipping-form h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #111;
+}
+
+.shipping-form p {
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.shipping-form .form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+
+.shipping-form label {
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+  color: #333;
+}
+
+.shipping-form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* ====================================
+   Homepage-specific tweaks
+   To create a calmer landing page with a large logo
+   and prominent categories
+==================================== */
+
+/* Big logo in hero section */
+.hero-logo-large {
+  width: 220px;
+  height: auto;
+  margin: 1rem auto;
+  /* Slight drop shadow to stand out against white background */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* On the homepage, enlarge the category cards and adjust grid spacing */
+.home-page .category-grid {
+  /* Convert home page categories to a horizontally scrollable row inspired by
+     modern gaming stores. This improves usability on mobile and desktop. */
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.home-page .category-card img {
+  /* Toon de volledige afbeelding zonder bijsnijden door object-fit: contain toe te passen.
+     Een witte achtergrond en lichte padding zorgen ervoor dat de afbeelding mooi in de kaart staat.
+     Hoogte iets lager zodat de padding ruimte voor de afbeelding creëert. */
+  height: 180px;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 0.75rem;
+  /* Zorg ervoor dat de afbeeldingen lichter en levendiger lijken */
+  filter: brightness(1.1) saturate(1.1);
+}
+
+/* Ensure category cards in the home-page horizontal slider have a fixed width */
+.home-page .category-card {
+  flex: 0 0 200px;
+  max-width: 200px;
+  position: relative;
+  display: block;
+  /* Geef de categoriekaarten een witte achtergrond met een subtiele rand
+     voor een schone uitstraling. Het overschrijft de standaard
+     achtergrondkleur zodat de afbeeldingen op een neutrale ondergrond
+     worden getoond. */
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-page .category-card span {
+  /* On the homepage, overlay the caption over the image rather than below it */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* Gebruik een lichte overlay met donkere tekst voor betere leesbaarheid.  Een hogere transparantie maakt de tekst nog duidelijker. */
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #222222;
+  padding: 0.6rem 0.5rem;
+}
+
+/* Geef de categoriekaarten een mooie hover-animatie: lichte verhoging en schaduw */
+.home-page .category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Toon aanbevolen producten en de marquee-sectie op de homepage voor een rijkere winkelervaring */
+/* De elementen worden via JavaScript gevuld en worden standaard weergegeven. */
+
+/* =============================================================
+   Product marquee (homepage slider)
+   Horizontale slider die automatisch alle producten laat scrollen.
+   Itemelementen worden via JavaScript geladen.
+============================================================= */
+
+.product-marquee {
+  overflow: hidden;
+  padding: 1.5rem 0;
+  background-color: #f8f8f8;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+}
+
+.product-marquee h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* The track holds all marquee items and scrolls horizontally */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.marquee-item {
+  flex: 0 0 auto;
+  margin-right: 2rem;
+}
+
+.marquee-item img {
+  height: 120px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.marquee-item:hover img {
+  transform: scale(1.05);
+}
+
+/* =============================================================
+   Trust badges & shipping info
+   Visual signals that reassure visitors about security, returns and shipping
+============================================================= */
+.shipping-info {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0.5rem 0 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.shipping-info .icon {
+  margin-right: 0.25rem;
+}
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.trust-badges .badge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #333;
+  background-color: #f8f8f8;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+.trust-badges .badge-icon {
+  font-size: 1rem;
+}
+
+/* =============================================================
+   Cross‑sell section
+   Suggest complementary items in the cart
+============================================================= */
+.cross-sell-section {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e5e5;
+}
+.cross-sell-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.cross-sell-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.cross-sell-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 0.8rem;
+  background-color: #fafafa;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cross-sell-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.cross-sell-thumb img {
+  width: 100%;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+.cross-sell-info h4 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+.cross-sell-info .price {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  color: #222;
+}
+
+/* Small button variant for cross-sell cards */
+.btn.btn-sm {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  border-width: 1px;
+}
+
+/* Navigatie‑zoekbalk */
+.nav-search {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+.nav-search input {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  font-size: 0.9rem;
+  min-width: 200px;
+}
+.nav-search button {
+  padding: 0.45rem 0.8rem;
+  border: 1px solid #ccc;
+  border-left: 0;
+  border-radius: 0 4px 4px 0;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+.nav-search button:hover {
+  background-color: #eaeaea;
+}
+.btn.btn-link {
+  background: none;
+  border: none;
+  color: #0d6efd;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* Primary button variant to stand out in popups */
+.btn.btn-primary {
+  background-color: #0f7a2a;
+  color: #ffffff;
+  border-color: #0f7a2a;
+}
+.btn.btn-primary:hover {
+  background-color: #0c5f20;
+  border-color: #0c5f20;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =============================================================
+   Nieuwe componenten voor conversie‑optimalisatie
+   Prijsankering, beoordelingen, FAQ, sticky cart en social proof popups
+============================================================= */
+/* Toon originele prijs met doorhaling voor prijsankering */
+.original-price {
+  text-decoration: line-through;
+  color: #8a8a8a;
+  font-size: 0.8rem;
+  margin-left: 0.4rem;
+}
+
+/* Badge voor afgeprijsde producten op kaarten en detailpagina's */
+.sale-badge {
+  background: #dc3545;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.75rem;
+  margin-left: 0.4rem;
+}
+
+/* Sterrenbeoordeling en voorraadmelding onder productkaart */
+.rating-stock {
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 0.3rem;
+}
+
+/* Sticky add-to-cart bar op productpagina's */
+.sticky-add {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+  font-size: 0.9rem;
+}
+.sticky-add .sticky-title {
+  font-weight: 600;
+  flex-grow: 1;
+  margin-right: 0.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.sticky-add .sticky-price {
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+/* FAQ sectie op productpagina's */
+.faq-section {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 0.6rem 0.8rem;
+  background: #f9f9f9;
+}
+.faq-section summary {
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+.faq-section ul {
+  margin-left: 1rem;
+  list-style: disc;
+  padding-left: 0.5rem;
+}
+.faq-section li {
+  margin: 0.3rem 0;
+}
+
+/* Live purchase pop-up voor social proof */
+.purchase-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  padding: 0.6rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  z-index: 2000;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Loyalty popup styling */
+.loyalty-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3000;
+  transition: opacity 0.4s ease;
+}
+.loyalty-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.loyalty-modal {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.loyalty-modal h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+.loyalty-modal p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.loyalty-modal input[type="email"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+.loyalty-modal button.btn-primary {
+  width: 100%;
+}
+.loyalty-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  /* Maak de sluitknop groter en donkerder zodat deze beter opvalt */
+  font-size: 1.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Chat widget styling */
+.chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ffb703;
+  color: #222;
+  font-size: 1.5rem;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 2500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chat-widget {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 280px;
+  height: 350px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2500;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.chat-widget.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.chat-header {
+  background-color: #f4f4f4;
+  padding: 0.6rem;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+.chat-header button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #999;
+}
+.chat-messages {
+  flex: 1;
+  padding: 0.6rem;
+  overflow-y: auto;
+  font-size: 0.85rem;
+}
+.chat-message {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  max-width: 80%;
+}
+.chat-message.bot {
+  background: #f0f0f0;
+  align-self: flex-start;
+}
+.chat-message.user {
+  background: #e6f7ff;
+  align-self: flex-end;
+}
+.chat-input {
+  display: flex;
+  border-top: 1px solid #e0e0e0;
+}
+.chat-input input {
+  flex: 1;
+  border: none;
+  padding: 0.6rem;
+  font-size: 0.85rem;
+}
+.chat-input button {
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+}
+.chat-input button:hover {
+  background-color: #2563eb;
+}
+
+/* Featured products section */
+.featured-section {
+  margin: 2rem 0;
+}
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.featured-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.featured-thumb {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+.featured-info {
+  padding: 0.8rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.featured-info h4 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+.featured-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+}
+.featured-meta .rating {
+  color: #fbbf24;
+  font-weight: bold;
+}
+.featured-card .btn.btn-sm {
+  align-self: flex-start;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+}
+
+/* Instagram feed styling */
+.instagram-section {
+  margin: 2rem 0;
+  text-align: center;
+}
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 6px;
+  margin-top: 1rem;
+}
+.instagram-grid img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+.instagram-grid a:hover img {
+  transform: scale(1.05);
+}
+
+/* =====================
+   Rating styling
+   Displays a row of stars followed by a numeric rating.  The stars use a
+   golden hue inspired by common review systems.  The rating value is bold
+   and uses the default text colour for contrast.  We apply spacing and
+   alignment so the rating integrates neatly within product details.
+====================== */
+.product-detail-info .rating {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.product-detail-info .rating .stars {
+  color: #fbbf24;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.product-detail-info .rating .rating-value {
+  color: var(--color-text);
+  font-weight: 600;
+}
+.instagram-cta {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+/* Cart discount text */
+.cart-discount {
+  display: block;
+  color: #16a34a;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+/* =============================================================
+   Hero-block (homepage bovenste banner)
+   Een uitnodigende sectie met logo, titel, tagline en knop
+============================================================= */
+
+.hero-block {
+  background: linear-gradient(135deg, #0a1931, #133b5c);
+  color: #ffffff;
+  padding: 4rem 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-logo-large {
+  width: 200px;
+  max-width: 60%;
+  height: auto;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 1rem;
+  opacity: 0.85;
+}
+
+.hero-cta {
+  display: inline-block;
+  background-color: #ffcf33;
+  color: #111111;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.hero-cta:hover {
+  background-color: #e6b800;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-tagline {
+    font-size: 1.3rem;
+  }
+  .hero-cta {
+    font-size: 1rem;
+  }
+}
+
+/* =============================================================
+   Custom adjustments for homepage category cards
+
+   The default icon-based category cards on the homepage were
+   using their original image dimensions, leading to uneven
+   heights compared to photo-based categories. To create a more
+   harmonious grid, we override the dimensions for icon
+   categories. The label backgrounds are also softened to
+   improve contrast and readability.
+*/
+
+.category-card.icon-category img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.category-card.icon-category span {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #111;
+}
+
+/* =============================================
+   Animations for product cards
+   Subtle fade-in when products load and enhanced hover effect
+============================================= */
+.product-grid .product-card {
+  /* Start hidden and slightly translated for a fade-in effect */
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Intensify hover feedback on product cards */
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================================================
+   Simplified hero styling for a professional look
+   Only display the logo and brand name on a clean white background
+============================================================= */
+/*
+ * Simplified hero styling
+ *
+ * The simplified hero uses a solid white background and removes the default
+ * gradient defined on the `.hero-block` class. To accomplish this we
+ * specify the `background` property rather than only `background-color`,
+ * which overrides any previously set gradient. The hero section is
+ * centered and padded similarly to the original hero but kept minimal.
+ */
+.simple-hero {
+  /* Override gradient from .hero-block */
+  /* Ensure the simplified hero has no gradient. Override both background color and image. */
+  background: #ffffff;
+  background-image: none;
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+}
+
+.simple-hero .hero-logo-large {
+  width: 200px;
+  height: auto;
+  margin-bottom: 1rem;
+  animation: none; /* disable floating animation */
+}
+
+/* Call to action button inside the simplified hero
+   Provides a clear prompt to visit the product catalogue. */
+.simple-hero .hero-cta-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #0f7a2a;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.simple-hero .hero-cta-btn:hover {
+  background-color: #0c5f20;
+}
+
+/*
+ * Hide the title within the simplified hero. The logo already conveys the
+ * brand name, so the heading is suppressed for a cleaner look.
+ */
+.simple-hero .hero-title {
+  display: none;
+}
+
+/* =========================================================
+   Extra ontwerp voor de homepagina met linksuitgelijnd logo
+
+   De klasse `hero-left` wordt toegevoegd aan de hero‑sectie op
+   de homepage. Hiermee positioneren we het logo linksboven en
+   vergroten we het formaat voor een rustig, minimalistisch
+   ontwerp.  De call‑to‑action is in de HTML verwijderd.
+========================================================= */
+/* Containerelement uitlijnen naar links en boven */
+.hero-left .hero-container {
+  align-items: flex-start;
+  text-align: left;
+}
+/* Verhoog de logo‑afmeting en verwijder extra marge */
+.hero-left .hero-logo-large {
+  /* Maak het logo groter voor een sterkere aanwezigheid */
+  width: 300px;
+  max-width: none;
+  margin-left: 0;
+  margin-bottom: 1rem;
+}
+
+/* Hide tagline and CTA within the simplified hero if present */
+.simple-hero .hero-tagline,
+.simple-hero .hero-cta,
+.simple-hero .btn,
+.simple-hero .btn-primary {
+  display: none;
+}
+
+/*
+ * Category‑specific backgrounds for product pages
+ * To evoke the individuality of each console category, we apply a subtle
+ * pastel background colour to the product detail wrapper based on the
+ * category of the product. These classes are added dynamically in
+ * main.js (cat-<slug>) and help customers associate each product with
+ * its platform without overwhelming the content.
+ */
+.product-detail-wrapper.cat-nintendo-3ds {
+  background-color: #e9f5ff;
+}
+.product-detail-wrapper.cat-nintendo-ds {
+  background-color: #fdf0f0;
+}
+.product-detail-wrapper.cat-game-boy-advance {
+  background-color: #e8ffe8;
+}
+.product-detail-wrapper.cat-nintendo-switch {
+  background-color: #fff0f0;
+}
+.product-detail-wrapper.cat-gamecube {
+  background-color: #f0e8ff;
+}
+.product-detail-wrapper.cat-wii {
+  background-color: #f5faff;
+}
+.product-detail-wrapper.cat-snes {
+  background-color: #f8f3f0;
+}
+.product-detail-wrapper.cat-nes {
+  background-color: #f8f8f8;
+}
+.product-detail-wrapper.cat-n64 {
+  background-color: #fffbe5;
+}
+.product-detail-wrapper.cat-game-boy {
+  background-color: #f6ffe8;
+}
+.product-detail-wrapper.cat-game-boy-color {
+  background-color: #e8fff6;
+}
+.product-detail-wrapper.cat-nintendo-2ds {
+  background-color: #f6f0ff;
+}
+.product-detail-wrapper.cat-trading-cards {
+  background-color: #fff8e8;
+}
+.product-detail-wrapper.cat-playstation {
+  background-color: #e8f0ff;
+}
+.product-detail-wrapper.cat-xbox {
+  background-color: #e8ffe8;
+}
+.product-detail-wrapper.cat-game-watch {
+  background-color: #fff5e8;
+}
+
+/* =========================================================
+   Verbeterde categoriekaarten op de homepage
+
+   Toon de categorie‑naam onder de afbeelding met een lichte achtergrond
+   zodat bezoekers direct zien welke categorie het betreft. De overlay
+   uit de standaardstijl wordt hier uitgeschakeld en de tekst staat
+   in een blok onder de afbeelding.  
+========================================================= */
+.home-page .category-card span {
+  position: static;
+  display: block;
+  width: 100%;
+  background-color: #f7f7f7;
+  color: #333333;
+  padding: 0.6rem 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02rem;
+  backdrop-filter: none;
+}
+
+.home-page .category-card img {
+  height: 180px;
+  object-fit: cover;
+  /* Verhoog helderheid en verminder verzadiging voor betere leesbaarheid van het label */
+  filter: brightness(1.05) saturate(0.85);
+  transition: filter 0.3s ease;
+}
+
+.home-page .category-card:hover img {
+  filter: brightness(1.10) saturate(1.0);
+}
+
+/*
+ * Nav branding: hide the textual brand name in the header so that
+ * only the logo icon is shown. This avoids duplication when the
+ * brand name appears elsewhere (e.g. in the hero section).
+ */
+.navbar .brand-text {
+  display: none;
+}
+
+/* Variants list styling on product detail page */
+.variants {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+}
+.variants h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.variant-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.variant-list li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+.variant-list li a {
+  color: #0f7a2a;
+  text-decoration: underline;
+}
+.variant-list li a:hover {
+  text-decoration: none;
+}
+
+/* ===========================================
+   Product detail backgrounds override
+   -------------------------------------------
+   Themed backgrounds for product details were
+   replaced with a unified neutral color to
+   ensure a consistent look across all pages.
+*/
+.product-detail-wrapper[class^="cat-"] {
+  background-color: #ffffff !important;
+}
+
+/* Trust section for inkoop page */
+.inkoop-trust {
+  margin-top: 2rem;
+  text-align: center;
+}
+.inkoop-trust .trust-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.inkoop-trust .trust-item {
+  max-width: 250px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.inkoop-trust .trust-icon {
+  font-size: 1.75rem;
+}
+.inkoop-trust p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------------
+   About page highlights styling
+   Toon bedrijfskenmerken in een overzichtelijk grid. Elke highlight
+   heeft een icoon, titel en korte omschrijving. De styling zorgt
+   voor een rustige en uniforme presentatie.
+--------------------------------------------------------- */
+.about-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.about-highlights .highlight-item {
+  flex: 1 1 250px;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  text-align: center;
+}
+.about-highlights .highlight-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.about-highlights h4 {
+  margin: 0.3rem 0;
+  font-size: 1.1rem;
+}
+.about-highlights p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/*
+ * Uniforme achtergrond voor productdetailpagina's
+ * Voor een rustige en vertrouwde uitstraling worden alle categorie-specifieke
+ * pastelkleuren overschreven. Ongeacht de categorie krijgen productdetail
+ * wrappers een witte achtergrondkleur.
+ */
+.product-detail-wrapper[class*="cat-"] {
+  background-color: #ffffff !important;
+}
+
+/*
+ * Testimonials section: highlight customer feedback on the homepage
+ */
+.home-testimonials {
+  padding: 3rem 0;
+  background-color: var(--color-bg);
+  text-align: center;
+}
+.home-testimonials h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+.home-testimonials .testimonial {
+  max-width: 700px;
+  margin: 0 auto 1.25rem auto;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+.home-testimonials .author {
+  display: block;
+  margin-top: 0.4rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/*
+ * Styling for star ratings on product cards
+ */
+.rating-stock {
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  color: var(--color-muted);
+}
+.rating-stock .stars {
+  color: #f5c518;
+  margin-right: 0.3rem;
+}
+
+/*
+ * Progress bar styling for rating
+ * We add a slim horizontal bar beneath the star rating on product cards
+ * to visually convey the rating percentage.  The bar uses the border
+ * colour as its track and the primary and success colours for the filled
+ * portion.  Rounded corners keep the look modern and refined.
+ */
+.rating-bar {
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-border);
+  border-radius: 3px;
+  margin-top: 0.3rem;
+  overflow: hidden;
+}
+
+.rating-bar .bar-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 3px;
+  /* Use a gradient that matches the logo colours for the fill */
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-success) 100%);
+}
+
+/* Dark mode adjustments for rating bar */
+body.dark-mode .rating-bar {
+  background-color: #333;
+}
+
+body.dark-mode .rating-bar .bar-fill {
+  background: linear-gradient(90deg, #34d399 0%, #3b82f6 100%);
+}
+
+/* === Discount section styles === */
+.discount-section {
+  margin-top: 4rem;
+}
+
+.discount-section h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.discount-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow: hidden;
+  animation: scroll-discounts 30s linear infinite;
+}
+
+.discount-card {
+  flex: 0 0 250px;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.discount-card img {
+  /* Gebruik contain zodat de volledige verpakking zichtbaar is en niet wordt afgesneden */
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  background-color: #f7f7f7;
+}
+
+.discount-info {
+  padding: 0.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.discount-info h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.discount-info p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.discount-price {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+@keyframes scroll-discounts {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Welkomstsectie met nostalgische tagline */
+.home-welcome {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.home-welcome h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-welcome p {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Introductie sectie voor welkom tekst */
+.home-intro {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.home-intro h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-intro p {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}

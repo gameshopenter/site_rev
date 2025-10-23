@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameShop Enter – Tweedehands Games &amp; Consoles</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Ultra‑luxe custom styles for hero slider, horizontal categories and micro‑interactions -->
+  <link rel="stylesheet" href="ultra.css">
+  <!-- Import a modern font (Poppins) to enhance typography on the site -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script defer src="main.js"></script>
+  <!-- Voeg dynamische uploads toe zodat alle geüploade foto's in de productlijst verschijnen -->
+  <script defer src="uploads_inventory.js"></script>
+  <!-- Ultra‑luxe interactiviteit voor hero slider en 3D tilt -->
+  <script defer src="ultra.js"></script>
+  <!-- SEO meta tags -->
+  <meta name="description" content="GameShop Enter – dé specialist in tweedehands retro games en consoles. Ontdek Nintendo Switch, Nintendo DS en 3DS, Game Boy (Advance/Color), GameCube, Wii, SNES, NES, N64 en trading cards. Snelle verzending en premium service.">
+  <meta name="keywords" content="GameShop Enter, tweedehands games, retro games, Nintendo Switch, Nintendo DS, Nintendo 3DS, Game Boy, Game Boy Advance, Game Boy Color, GameCube, Wii, SNES, NES, N64, trading cards, kopen, verkopen">
+</head>
+<body>
+  <!-- Scroll progress bar for a luxury feel: shows page scroll progress -->
+  <div id="scrollProgress"></div>
+  <!-- Navigatie -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="brand-area">
+        <img src="images/logo.png" alt="GameShop Enter logo" class="logo">
+        <!-- Merknaam verborgen: alleen logo wordt getoond -->
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="products.html">Producten</a></li>
+        <!-- Categorieën link verwijderd -->
+        <li><a href="inkoop.html">Inkoop</a></li>
+        <li><a href="about.html">Over ons</a></li>
+        <!-- Verzendinformatie pagina is verwijderd; alle verzendinformatie komt in het afrekenproces -->
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <!-- Zoekformulier voor snelle navigatie naar producten -->
+      <form class="nav-search" action="products.html" method="get">
+        <input type="search" name="q" placeholder="Zoek producten…" aria-label="Zoek producten">
+        <button type="submit">Zoek</button>
+      </form>
+      <div class="cart-link">
+        <a href="cart.html" title="Winkelwagen"><span class="cart-icon">🛒</span> <span id="cartCount">0</span></a>
+      </div>
+      <!-- Dark mode toggle button -->
+      <button id="darkModeToggle" class="dark-toggle" aria-label="Schakel dark mode">🌙</button>
+    </nav>
+    <!-- Benefits bar: highlight store advantages -->
+    <div class="benefits-bar">
+      <!-- Toon elke winkelvoordeel apart voor betere leesbaarheid -->
+      <span>Gratis verzending vanaf €50</span>
+      <span>14 dagen bedenktijd/retour</span>
+      <span>4,8★ beoordeling uit meer dan 1.200 ervaringen</span>
+      <span><a href="inkoop.html" class="benefit-link">Verkoop je games</a></span>
+      <!-- We benadrukken nu een lagere verzenddrempel en langere garantie, geïnspireerd door internationale gamewinkels die gratis verzending en uitgebreide garantie bieden【207937541725220†L10-L14】【378724934131215†L146-L149】 -->
+    </div>
+  </header>
+
+  <!-- Welkomstsectie -->
+  <main class="home-page">
+    <!-- Luxe hero slider met auto‑rotatie en pauze op hover -->
+    <section class="hero-slider">
+      <!-- Slide 1: Nintendo Switch -->
+      <div class="hero-slide slide-switch">
+        <div class="hero-content">
+          <h1>Nintendo Switch</h1>
+          <p>Speel overal. Samen of solo.</p>
+          <a href="products.html?cat=Nintendo%20Switch" class="btn">Bekijk Switch</a>
+        </div>
+      </div>
+      <!-- Slide 2: Retro Collectie -->
+      <div class="hero-slide slide-retro">
+        <div class="hero-content">
+          <h1>Herbeleef retro gaming</h1>
+          <p>Ontdek je favoriete consoles, games en trading cards – in topconditie en direct uit voorraad.</p>
+          <a href="#home-categories" class="btn">Blader door categorieën</a>
+        </div>
+      </div>
+      <!-- Slide 3: Trading Cards -->
+      <div class="hero-slide slide-cards">
+        <div class="hero-content">
+          <h1>Trading Cards</h1>
+          <p>Vang, ruil &amp; verzamel.</p>
+          <a href="products.html?cat=Trading%20Cards" class="btn">Collecties bekijken</a>
+        </div>
+      </div>
+
+      <!-- Slide 4: Verkoop je games -->
+      <div class="hero-slide slide-sell">
+        <div class="hero-content">
+          <h1>Verkoop&nbsp;je&nbsp;games</h1>
+          <p>Krijg direct contant geld voor je oude games.</p>
+          <a href="inkoop.html" class="btn">Verkoop nu</a>
+        </div>
+      </div>
+      <!-- Optionele navigatieknoppen, verborgen tot hover -->
+      <div class="hero-controls">
+        <button class="hero-prev" aria-label="Vorige">&#8249;</button>
+        <button class="hero-next" aria-label="Volgende">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- Zoekbar voor snelle zoekopdrachten naar games of consoles -->
+    <section class="home-search scroll-fade">
+      <div class="container">
+        <form id="homeSearchForm" class="search-form" action="#" onsubmit="return false;">
+          <input type="search" id="homeSearchInput" placeholder="Zoek naar games of consoles…" aria-label="Zoek naar games of consoles">
+          <button type="submit">Zoek</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Introductie sectie met nostalgische boodschap -->
+    <section class="home-intro">
+      <div class="container">
+        <h2>Welkom bij GameShop Enter</h2>
+        <p>Dé plek voor retro consoles, tweedehands games en trading cards. Herbeleef de magie van vroeger en vind jouw nieuwe favorieten.</p>
+      </div>
+    </section>
+
+
+
+    <!-- Zoekresultaten sectie: wordt dynamisch getoond na een zoekopdracht -->
+    <section id="searchResults" class="home-search-results scroll-fade" style="display: none;">
+      <div class="container">
+        <h2>Zoekresultaten</h2>
+        <div class="product-strip" id="searchStrip"></div>
+        <p id="noResultsMessage" style="display:none; margin-top: 1rem;">Geen resultaten gevonden.</p>
+      </div>
+    </section>
+
+    <!-- Aanbiedingen sectie met kortingen -->
+    <section class="discount-section scroll-fade">
+      <div class="container">
+        <h2>Aanbiedingen</h2>
+        <div class="discount-carousel">
+          <!-- We dupliceren de kaarten voor een eindeloze scrollanimatie -->
+          <!-- Set 1 -->
+          <div class="discount-card">
+            <img src="images/gallery/0915BF92-4898-4CDB-8913-36E66C6CCBE0.jpg" alt="Pokémon Alpha Sapphire (Loose)">
+            <div class="discount-info">
+              <h3>Pokémon Alpha Sapphire</h3>
+              <p><s>€79,43</s> <span class="discount-price">€63,54</span></p>
+            </div>
+          </div>
+          <div class="discount-card">
+            <img src="images/gallery/15EC6FA7-5A21-4064-97DA-6DC4531656B2.jpg" alt="Pokémon Omega Ruby (Complete)">
+            <div class="discount-info">
+              <h3>Pokémon Omega Ruby</h3>
+              <p><s>€286,70</s> <span class="discount-price">€229,36</span></p>
+            </div>
+          </div>
+          <div class="discount-card">
+            <img src="images/gallery/62DFD134-04B9-451C-BDA0-C16F0CF0FCEE.jpg" alt="Pokémon Emerald Version (Loose)">
+            <div class="discount-info">
+              <h3>Pokémon Emerald Version</h3>
+              <p><s>€199,83</s> <span class="discount-price">€159,86</span></p>
+            </div>
+          </div>
+          <div class="discount-card">
+            <img src="images/gallery/4489A3AB-0815-4783-8030-157AFEDCD950.jpg" alt="Pokémon Platinum Version (Loose)">
+            <div class="discount-info">
+              <h3>Pokémon Platinum Version</h3>
+              <p><s>€105,07</s> <span class="discount-price">€84,06</span></p>
+            </div>
+          </div>
+          <!-- Set 2 (duplicate of set 1 for seamless scrolling) -->
+          <div class="discount-card">
+            <img src="images/gallery/0915BF92-4898-4CDB-8913-36E66C6CCBE0.jpg" alt="Pokémon Alpha Sapphire (Loose)">
+            <div class="discount-info">
+              <h3>Pokémon Alpha Sapphire</h3>
+              <p><s>€79,43</s> <span class="discount-price">€63,54</span></p>
+            </div>
+          </div>
+          <div class="discount-card">
+            <img src="images/gallery/15EC6FA7-5A21-4064-97DA-6DC4531656B2.jpg" alt="Pokémon Omega Ruby (Complete)">
+            <div class="discount-info">
+              <h3>Pokémon Omega Ruby</h3>
+              <p><s>€286,70</s> <span class="discount-price">€229,36</span></p>
+            </div>
+          </div>
+          <div class="discount-card">
+            <img src="images/gallery/62DFD134-04B9-451C-BDA0-C16F0CF0FCEE.jpg" alt="Pokémon Emerald Version (Loose)">
+            <div class="discount-info">
+              <h3>Pokémon Emerald Version</h3>
+              <p><s>€199,83</s> <span class="discount-price">€159,86</span></p>
+            </div>
+          </div>
+          <div class="discount-card">
+            <img src="images/gallery/4489A3AB-0815-4783-8030-157AFEDCD950.jpg" alt="Pokémon Platinum Version (Loose)">
+            <div class="discount-info">
+              <h3>Pokémon Platinum Version</h3>
+              <p><s>€105,07</s> <span class="discount-price">€84,06</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categorieënoverzicht op de homepage zodat bezoekers snel kunnen navigeren -->
+    <section id="home-categories" class="home-categories categories-page">
+      <div class="container">
+        <h2>Ontdek onze categorieën</h2>
+        <div class="category-strip">
+          <!-- Nintendo-consolecategorieën met foto placeholders -->
+          <a href="products.html?cat=Nintendo%203DS" class="category-card cat-3ds scroll-fade">
+          <img src="images/categories/3ds_new.png" alt="Nintendo 3DS">
+            <span class="category-name">Nintendo 3DS</span>
+            <small class="category-tagline">3D‑gaming met dubbele schermen</small>
+          </a>
+          <!-- Plaats de Nintendo DS categorie terug; verwijder 2DS categorie -->
+          <a href="products.html?cat=Nintendo%20DS" class="category-card cat-ds scroll-fade">
+            <img src="images/categories/ds_new.png" alt="Nintendo DS">
+            <span class="category-name">Nintendo DS</span>
+            <small class="category-tagline">Twee schermen voor dubbel plezier</small>
+          </a>
+          <a href="products.html?cat=Game%20Boy%20Advance" class="category-card cat-gba scroll-fade">
+            <!-- Afbeelding voor Game Boy Advance toegevoegd -->
+            <img src="images/categories/gba.jpg" alt="Game Boy Advance">
+            <span class="category-name">Game Boy Advance</span>
+            <small class="category-tagline">32‑bit retro handheld</small>
+          </a>
+          <a href="products.html?cat=Nintendo%20Switch" class="category-card cat-switch scroll-fade">
+            <img src="images/categories/switch_new.png" alt="Nintendo Switch">
+            <span class="category-name">Nintendo Switch</span>
+            <small class="category-tagline">Hybride: handheld en tv‑gaming</small>
+          </a>
+          <!-- Retro-categorieën met foto placeholders -->
+          <a href="products.html?cat=GameCube" class="category-card cat-gamecube scroll-fade">
+            <img src="images/categories/gamecube_new.png" alt="GameCube">
+            <span class="category-name">GameCube</span>
+            <small class="category-tagline">Compacte krachtpatser met klassiekers</small>
+          </a>
+          <a href="products.html?cat=Wii" class="category-card cat-wii scroll-fade">
+            <img src="images/categories/wii_new.png" alt="Nintendo Wii">
+            <span class="category-name">Wii</span>
+            <small class="category-tagline">Beweging brengt games tot leven</small>
+          </a>
+          <a href="products.html?cat=SNES" class="category-card cat-snes scroll-fade">
+            <img src="images/categories/snes_latest.png" alt="SNES">
+            <span class="category-name">SNES</span>
+            <small class="category-tagline">16‑bit retro‑legende</small>
+          </a>
+          <a href="products.html?cat=NES" class="category-card cat-nes scroll-fade">
+            <!-- Afbeelding voor NES toegevoegd -->
+            <img src="images/categories/nes.jpg" alt="Nintendo Entertainment System">
+            <span class="category-name">NES</span>
+            <small class="category-tagline">Het 8‑bit tijdperk startte hier</small>
+          </a>
+          <a href="products.html?cat=N64" class="category-card cat-n64 scroll-fade">
+            <img src="images/categories/n64_new.png" alt="Nintendo 64">
+            <span class="category-name">N64</span>
+            <small class="category-tagline">3D‑revolutie met analoge stick</small>
+          </a>
+          <a href="products.html?cat=Game%20Boy" class="category-card cat-gb scroll-fade">
+            <img src="images/categories/gb_latest.png" alt="Nintendo Game Boy">
+            <span class="category-name">Game Boy</span>
+            <small class="category-tagline">De originele handheld</small>
+          </a>
+          <a href="products.html?cat=Game%20Boy%20Color" class="category-card cat-gbc scroll-fade">
+            <img src="images/categories/gbc_latest.png" alt="Nintendo Game Boy Color">
+            <span class="category-name">Game Boy Color</span>
+            <small class="category-tagline">Kleurvolle variant van de klassieker</small>
+          </a>
+          <!-- Trading card category met foto placeholder -->
+          <a href="products.html?cat=Trading%20Cards" class="category-card cat-cards scroll-fade">
+            <img src="images/categories/cards_latest.png" alt="Pokémon Trading Cards">
+            <span class="category-name">Trading Cards</span>
+            <small class="category-tagline">Ruil en verzamel Pokémon‑kaarten</small>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Voordelen sectie: benadrukt waarom klanten voor GameShop Enter kiezen -->
+    <section class="home-benefits scroll-fade">
+      <div class="container">
+        <h2>Waarom kiezen voor GameShop Enter?</h2>
+        <div class="icons-row">
+          <!-- Voordelen: bijgewerkt om de focus te leggen op snelle levering, garantie en uitstekende beoordelingen -->
+        <div class="feature-item">
+            <div class="feature-icon">🚚</div>
+            <h3>Snelle levering</h3>
+            <p>Besteld voor 18:00? Binnen twee werkdagen bij je thuis.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🎮</div>
+            <h3>Altijd nieuw aanbod</h3>
+            <p>Tweedehands maar als nieuw – wekelijks nieuwe games en consoles.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🛡️</div>
+          <h3>14 dagen bedenktijd/retour</h3>
+            <p>Met zorg getest met 14 dagen bedenktijd en retour op consoles. Verkoop je games eenvoudig via onze inkoopservice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Klantrecensies: laat tevreden klanten aan het woord voor extra vertrouwen -->
+    <section class="home-testimonials scroll-fade">
+      <div class="container">
+        <h2>Wat onze klanten zeggen</h2>
+        <div class="testimonial">
+          <p>“Snelle service en producten in perfecte staat! Ik bestel hier graag.”</p>
+          <span class="author">– Jeroen</span>
+        </div>
+        <div class="testimonial">
+          <p>“Uitstekende kwaliteit, vriendelijke klantenservice. Topwinkel!”</p>
+          <span class="author">– Anne</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- De secties voor topkeuzes en aanbevelingen zijn verwijderd om de homepage
+         rustiger te maken.  Hierdoor worden bezoekers niet overladen met
+         informatie en blijven de categorieën en voordelen centraal staan. -->
+
+    <!-- Uitgelichte producten sectie verwijderd voor een rustiger homepage -->
+
+    <!-- Instagram feed verwijderd voor een cleaner ontwerp -->
+    <!-- De secties voor 'Nieuw binnen', 'Premium selectie' en 'Populaire games' zijn
+         verwijderd om de homepage nog cleaner en rustiger te maken. -->
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <!-- Verwijder de uitgebreide 'Over GameShop Enter' uitleg voor een minimalistischer footer -->
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <p><span class="contact-icon">📞</span><strong>Telefoon:</strong> <a href="tel:+31641126067">+31 6 41126067</a></p>
+        <p><span class="contact-icon">📧</span><strong>Email:</strong> <a href="mailto:gameshopenter@gmail.com">gameshopenter@gmail.com</a></p>
+        <p><strong>KVK:</strong> 936424274</p>
+        <p>Verzending: €3,99 per brievenbuspakketje (tot 4 games); €6,95 bij 5 games of meer.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Volg ons</h4>
+        <p><a href="https://www.instagram.com/Gameshop_Enter" target="_blank" rel="noopener">Instagram</a></p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 GameShop Enter – Alle rechten voorbehouden.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!window.GSE) return;
+      GSE.updateCartCount && GSE.updateCartCount();
+      // Initialise homepage marquee and recommendations
+      // De marquée en aanbevolen producten worden niet geladen om de
+      // homepage overzichtelijk te houden.
+      // Load featured products and Instagram feed
+      // Uitgelichte producten en Instagram feed niet geladen voor een rustigere homepage
+      // Engage visitors: retain chat widget but remove intrusive popups for a calmer experience
+      // Removed loyalty popup and live purchase notifications
+      // Chatwidget init uitgeschakeld voor een cleanere ervaring
+    });
+  </script>
+</body>
+</html>
